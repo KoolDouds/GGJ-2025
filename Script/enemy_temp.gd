@@ -1,7 +1,11 @@
 extends Node2D
 
-@onready var hp_label: RichTextLabel = $"HP"
-@onready var controls := $"../controls"
+@onready var hp_label: Label = $"HP"
+@onready var battle := $"../battle"
+
+@export var moves : Array[EnemyMove]
+var index := 0
+var loop_size : int
 
 var max_hp := 20
 var hp := max_hp
@@ -9,20 +13,19 @@ var hp := max_hp
 var dmg := 1
 var attack_time := 1
 
-var attacking := false
-
 func _ready() -> void:
-	pass # Replace with function body.
-
+	loop_size = moves.size()
+	attack()
 
 func _process(delta: float) -> void:
 	hp_label.text = str(hp)
-	if not attacking: attack()
-	
 
 func attack():
-	print("awaiting attack...")
-	attacking = true
-	await get_tree().create_timer(attack_time).timeout
-	controls.get_hit(dmg, Hand.SIDE.LEFT)
-	attacking = false
+	while true:
+		var move := moves[index]
+		print("awaiting attack...")
+		await get_tree().create_timer(move.prep_time).timeout
+		battle.get_hit(move.dmg, move.side)
+		await get_tree().create_timer(move.cooldown).timeout
+		index += 1
+		index = index%loop_size

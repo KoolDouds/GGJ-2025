@@ -8,11 +8,11 @@ enum SIDE {LEFT, RIGHT, MAX}
 
 var using_phase := 0
 
-func use(controls):
+func use(battle):
 	print("use "+ name)
 	using_phase = 1
 	await get_tree().create_timer(weapon.pre_time).timeout
-	controls.hit(weapon.dmg, hand_side)
+	battle.hit(weapon.dmg, hand_side)
 	using_phase = 2
 	await get_tree().create_timer(weapon.post_time).timeout
 	using_phase = 0
