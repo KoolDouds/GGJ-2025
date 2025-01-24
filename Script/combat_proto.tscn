@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://rc0k6cnwlukb"]
+
+[ext_resource type="Script" path="res://Script/enemy_temp.gd" id="1_8ps0q"]
+[ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="2_k3uqb"]
+[ext_resource type="Texture2D" uid="uid://by43uhq0gphgl" path="res://icon.svg" id="2_k5ghu"]
+[ext_resource type="Script" path="res://Script/combat_controls.gd" id="2_qek5u"]
+
+[node name="combat-proto" type="Node2D"]
+
+[node name="enemy" type="Node2D" parent="."]
+position = Vector2(535, 232)
+script = ExtResource("1_8ps0q")
+
+[node name="Sprite2D" type="Sprite2D" parent="enemy"]
+texture = ExtResource("2_k5ghu")
+
+[node name="HP" type="RichTextLabel" parent="enemy"]
+offset_left = -6.0
+offset_top = -106.0
+offset_right = 34.0
+offset_bottom = -66.0
+text = "0"
+
+[node name="controls" type="Node2D" parent="."]
+script = ExtResource("2_qek5u")
+
+[node name="Hands" parent="." instance=ExtResource("2_k3uqb")]
+
+[editable path="Hands"]
