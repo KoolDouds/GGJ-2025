@@ -17,6 +17,8 @@ func _process(delta):
 	cam_center.rotation = Vector3(0,player_ori.angle(),0)
 	cam_center.position = Vector3(-player_coord.y,0,-player_coord.x)*room_length
 	
+	get_node
+	
 	# DebugMovesVisual
 	#queue_redraw()
 

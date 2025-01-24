@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ewxjklta2qny"]
+
+[resource]
+resource_name = "fallback Material"
+albedo_color = Color(0.902393, 0.938934, 0.671036, 1)
+metallic = 1.0
