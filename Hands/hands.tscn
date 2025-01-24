@@ -1,15 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyv3pmrin5nij"]
 
 [ext_resource type="Script" path="res://Script/hands.gd" id="1_8hov6"]
-[ext_resource type="PackedScene" uid="uid://die06rjn3ldj8" path="res://Script/hand.tscn" id="2_2f02c"]
+[ext_resource type="PackedScene" uid="uid://c4dn557485r00" path="res://Hands/hand.tscn" id="2_gopoe"]
 
-[node name="Hands" type="Node2D" node_paths=PackedStringArray("left_hand", "right_hand")]
+[node name="Hands" type="Node3D" node_paths=PackedStringArray("left_hand", "right_hand")]
 script = ExtResource("1_8hov6")
 left_hand = NodePath("LeftHand")
 right_hand = NodePath("RightHand")
 
-[node name="LeftHand" parent="." instance=ExtResource("2_2f02c")]
-position = Vector2(212, 500)
+[node name="LeftHand" parent="." instance=ExtResource("2_gopoe")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, -7.12129)
 
-[node name="RightHand" parent="." instance=ExtResource("2_2f02c")]
+[node name="RightHand" parent="." instance=ExtResource("2_gopoe")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, -7.12129)
 hand_side = 1

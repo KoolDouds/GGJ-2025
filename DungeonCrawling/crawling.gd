@@ -4,7 +4,7 @@ var player_coord : Vector2 = Vector2(0,0)
 var player_ori : Vector2 = Vector2(0,1)
 var room_length := 10
 
-@export var cam_center : Node3D
+@export var center : Node3D
 
 func _process(delta):
 	if (Input.is_action_just_pressed("rotate_left")):
@@ -14,8 +14,8 @@ func _process(delta):
 	if (Input.is_action_just_pressed("forward")):
 		forward()
 	
-	cam_center.rotation = Vector3(0,player_ori.angle(),0)
-	cam_center.position = Vector3(-player_coord.y,0,-player_coord.x)*room_length
+	rotation = -Vector3(0,player_ori.angle(),0)
+	center.position = Vector3(player_coord.x,0,player_coord.y)*room_length
 	
 	get_node
 	

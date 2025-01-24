@@ -5,7 +5,12 @@
 
 [node name="Game" type="Node"]
 
-[node name="Hands" parent="." instance=ExtResource("1_dp6cy")]
-
 [node name="Crawling" parent="." instance=ExtResource("2_ch3i2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -3, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 2.28775)
+
+[node name="Node3D" type="Node3D" parent="Camera3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -0.16, 0.156)
+
+[node name="Hands" parent="Camera3D/Node3D" instance=ExtResource("1_dp6cy")]
