@@ -1,6 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyejn4b76oey1"]
+[gd_scene load_steps=3 format=3 uid="uid://cyejn4b76oey1"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
+[ext_resource type="Texture2D" uid="uid://by43uhq0gphgl" path="res://icon.svg" id="2_v1jj2"]
 
-[node name="Crawling" type="Node2D"]
+[node name="Crawling" type="Node3D" node_paths=PackedStringArray("cam_center")]
 script = ExtResource("1_6fc3b")
+cam_center = NodePath("CamCenter")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(8.51426, 0, 0, 0, 8.51426, 0, 0, 0, 1, 0, 3.40809, -5)
+modulate = Color(1, 0.74, 0.74, 1)
+texture = ExtResource("2_v1jj2")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(8.51426, 0, 0, 0, 8.51426, 0, 0, 0, 1, 0, 3.40809, 5)
+modulate = Color(0.234797, 0.314828, 0.603912, 1)
+texture = ExtResource("2_v1jj2")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(-3.7217e-07, 0, -1, 0, 8.51426, 0, 8.51426, 0, -4.37114e-08, 5, 3.40809, 2.18557e-07)
+modulate = Color(1, 0.33, 0.33, 1)
+texture = ExtResource("2_v1jj2")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(-3.7217e-07, 0, -1, 0, 8.51426, 0, 8.51426, 0, -4.37114e-08, -5, 3.40809, -2.18557e-07)
+modulate = Color(0.28, 0.014, 0.014, 1)
+texture = ExtResource("2_v1jj2")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(8.51426, 0, 0, 0, -3.7217e-07, -1, 0, 8.51426, -4.37114e-08, 0, 0, 0)
+modulate = Color(0.10524, 0.10524, 0.10524, 1)
+texture = ExtResource("2_v1jj2")
+
+[node name="CamCenter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77317, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CamCenter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0193548, -2.38419e-07, 1.1176)
