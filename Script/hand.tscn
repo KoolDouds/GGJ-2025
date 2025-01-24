@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://die06rjn3ldj8"]
+
+[ext_resource type="Script" path="res://Script/hand.gd" id="1_un1a1"]
+[ext_resource type="Script" path="res://Script/flip_left_right.gd" id="2_7jk8q"]
+[ext_resource type="Texture2D" uid="uid://b0chmqmiyr6lu" path="res://Art/placeholder/gant.png" id="3_m4cdo"]
+
+[node name="Hand" type="Node2D"]
+position = Vector2(898, 515)
+script = ExtResource("1_un1a1")
+metadata/_edit_group_ = true
+
+[node name="Art" type="Node2D" parent="."]
+scale = Vector2(4, 4)
+
+[node name="FlipLeftRight" type="Node2D" parent="Art" node_paths=PackedStringArray("hand")]
+script = ExtResource("2_7jk8q")
+hand = NodePath("../..")
+
+[node name="Sprite2D" type="Sprite2D" parent="Art/FlipLeftRight"]
+texture = ExtResource("3_m4cdo")
