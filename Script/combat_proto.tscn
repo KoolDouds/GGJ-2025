@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://rc0k6cnwlukb"]
+[gd_scene load_steps=6 format=3 uid="uid://rc0k6cnwlukb"]
 
 [ext_resource type="Script" path="res://Script/enemy_temp.gd" id="1_8ps0q"]
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="2_k3uqb"]
 [ext_resource type="Texture2D" uid="uid://by43uhq0gphgl" path="res://icon.svg" id="2_k5ghu"]
 [ext_resource type="Script" path="res://Script/combat_controls.gd" id="2_qek5u"]
+[ext_resource type="Resource" uid="uid://b31hsxg8sincy" path="res://default.tres" id="5_jd6qe"]
 
 [node name="combat-proto" type="Node2D"]
 
@@ -25,5 +26,11 @@ text = "0"
 script = ExtResource("2_qek5u")
 
 [node name="Hands" parent="." instance=ExtResource("2_k3uqb")]
+
+[node name="LeftHand" parent="Hands" index="0"]
+weapon = ExtResource("5_jd6qe")
+
+[node name="RightHand" parent="Hands" index="1"]
+weapon = ExtResource("5_jd6qe")
 
 [editable path="Hands"]

@@ -17,12 +17,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	hp_label.text = str(hp)
-	attack()
-	print("test")
+	if not attacking: attack()
 	
 
 func attack():
 	print("awaiting attack...")
 	attacking = true
 	await get_tree().create_timer(attack_time).timeout
-	controls.get_hit(dmg)
+	controls.get_hit(dmg, Hand.SIDE.LEFT)
+	attacking = false
