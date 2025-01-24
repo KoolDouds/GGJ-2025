@@ -8,3 +8,4 @@
 [node name="Hands" parent="." instance=ExtResource("1_dp6cy")]
 
 [node name="Crawling" parent="." instance=ExtResource("2_ch3i2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -3, 0)
