@@ -15,9 +15,7 @@ func _process(delta):
 		forward()
 	
 	rotation = -Vector3(0,player_ori.angle(),0)
-	center.position = Vector3(player_coord.x,0,player_coord.y)*room_length
-	
-	get_node
+	center.position = Vector3(player_coord.y,0,player_coord.x)*room_length
 	
 	# DebugMovesVisual
 	#queue_redraw()
