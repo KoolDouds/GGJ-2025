@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var hp_label: RichTextLabel = $"HP"
-@onready var controls := $"../controls"
+@onready var manager := $"../manager"
 
 var max_hp := 20
 var hp := max_hp
@@ -24,5 +24,5 @@ func attack():
 	print("awaiting attack...")
 	attacking = true
 	await get_tree().create_timer(attack_time).timeout
-	controls.get_hit(dmg, Hand.SIDE.LEFT)
+	manager.get_hit(dmg, Hand.SIDE.LEFT)
 	attacking = false
