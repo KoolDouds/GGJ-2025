@@ -44,7 +44,7 @@ offset_right = 34.0
 offset_bottom = -66.0
 text = "0"
 
-[node name="manager" parent="." instance=ExtResource("3_70qjm")]
+[node name="battle" parent="." instance=ExtResource("3_70qjm")]
 
 [node name="Hands" parent="." instance=ExtResource("4_yl5ks")]
 

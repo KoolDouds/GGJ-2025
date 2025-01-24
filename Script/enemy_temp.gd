@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var hp_label: Label = $"HP"
-@onready var manager := $"../manager"
+@onready var battle := $"../battle"
 
 @export var moves : Array[EnemyMove]
 var index := 0
@@ -25,7 +25,7 @@ func attack():
 		var move := moves[index]
 		print("awaiting attack...")
 		await get_tree().create_timer(move.prep_time).timeout
-		manager.get_hit(move.dmg, move.side)
+		battle.get_hit(move.dmg, move.side)
 		await get_tree().create_timer(move.cooldown).timeout
 		index += 1
 		index = index%loop_size
