@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://rc0k6cnwlukb"]
+
+[ext_resource type="PackedScene" uid="uid://cv65lb8ydol3d" path="res://hand.tscn" id="1_mf581"]
+[ext_resource type="Script" path="res://combat_controls.gd" id="2_qek5u"]
+
+[node name="combat-proto" type="Node2D"]
+
+[node name="enemy" type="Node2D" parent="."]
+
+[node name="right-hand" parent="." instance=ExtResource("1_mf581")]
+
+[node name="left-hand" parent="." instance=ExtResource("1_mf581")]
+
+[node name="controls" type="Node2D" parent="." node_paths=PackedStringArray("left_hand", "right_hand")]
+script = ExtResource("2_qek5u")
+left_hand = NodePath("../left-hand")
+right_hand = NodePath("../right-hand")
