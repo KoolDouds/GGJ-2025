@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4dn557485r00"]
+
+[ext_resource type="Script" path="res://Script/hand.gd" id="1_4rtuw"]
+[ext_resource type="Script" path="res://Script/flip_left_right.gd" id="2_qrugp"]
+[ext_resource type="Resource" uid="uid://b31hsxg8sincy" path="res://default.tres" id="2_yrb77"]
+[ext_resource type="PackedScene" uid="uid://gre8hxj1vc0d" path="res://Hands/main_droite.tscn" id="3_gqn44"]
+
+[node name="Hand" type="Node3D"]
+script = ExtResource("1_4rtuw")
+weapon = ExtResource("2_yrb77")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="FlipLeftRight" type="Node3D" parent="Visual" node_paths=PackedStringArray("hand")]
+script = ExtResource("2_qrugp")
+hand = NodePath("../..")
+
+[node name="main_droite" parent="Visual/FlipLeftRight" instance=ExtResource("3_gqn44")]
