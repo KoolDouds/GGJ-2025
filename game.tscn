@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://eu1sqj6bo68j"]
+
+[ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
+[ext_resource type="PackedScene" uid="uid://cyejn4b76oey1" path="res://DungeonCrawling/crawling.tscn" id="2_ch3i2"]
+
+[node name="Game" type="Node"]
+
+[node name="Hands" parent="." instance=ExtResource("1_dp6cy")]
+
+[node name="Crawling" parent="." instance=ExtResource("2_ch3i2")]
