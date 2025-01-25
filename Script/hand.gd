@@ -19,6 +19,9 @@ func set_weapon(_weapon):
 	weapon = _weapon
 	on_change_weapon.emit()
 
+func clear_hand():
+	set_weapon(rien)
+
 func use(manager):
 	if (manager is Battle):
 		use_battle(manager)
@@ -33,16 +36,15 @@ func use_battle(battle):
 	using_phase = 1
 	await get_tree().create_timer(weapon.pre_time).timeout
 	battle.hit(weapon.dmg, hand_side)
+	weapon.use(self, true)
 	using_phase = 2
 	await get_tree().create_timer(weapon.post_time).timeout
 	if (weapon == rien):
 		weapon = null
 	using_phase = 0
-	
-	
 
 func use_crawling(game):
 	if (weapon != null):
-		weapon.use(game)
+		weapon.use(self)
 	else:
-		rien.use(game)
+		rien.use(self)

@@ -11,6 +11,7 @@ class_name Weapon
 
 @export var gfx : PackedScene
 
-func use(game):
+func use(hand: Hand, combat := false):
 	for i in functions:
-		i.use(game)
+		if i.combat == combat or i.crawl == !combat:
+			i.use(hand)

@@ -1,4 +1,7 @@
 class_name ItemFunction extends Resource
 
-func use(game):
+@export var combat : bool
+@export var crawl : bool
+
+func use(hand: Hand):
 	pass
