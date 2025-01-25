@@ -76,7 +76,7 @@ func _process(delta):
 		inventory.open()
 	if (Input.is_action_just_pressed("center")):
 		interact()
-	
+
 	rotation = -Vector3(0,player_ori.angle(),0)
 	center.position = Vector3(player_coord.y,0,player_coord.x)*room_length
 	
