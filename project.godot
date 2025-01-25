@@ -21,6 +21,10 @@ window/size/viewport_width=1024
 window/size/viewport_height=576
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="/home/giogio/GodotProjects/Ggj2025/video.avi"
+
 [global_group]
 
 hand=""
