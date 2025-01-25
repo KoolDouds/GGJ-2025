@@ -3,10 +3,11 @@ extends Node2D
 
 @onready var enemy_res := preload("res://enemy_proto.tscn")
 var enemy : Node2D
+@onready var hands := get_tree().get_root().find_child("Hands", true, false)
+@onready var hp_manager : HPManager = $"../HPManager"
 
 func _ready() -> void:
-	print(get_tree().get_root().get_children())
-	var hands = get_tree().get_root().find_child("Hands", true, false)
+	#hands = get_tree().get_root().find_child("Hands", true, false)
 	hands.manager = $"."
 	enemy = enemy_res.instantiate()
 	enemy.position = Vector2(300, 200)
@@ -23,4 +24,5 @@ func get_hit(dmg: int, side: Hand.SIDE):
 		if child.hand_side == side and child.using_phase == 1:
 			print("BLOCKED!!!!!!!!!!")
 			return
-	print("received " + str(dmg) + " damage")
+	hp_manager.take_damage(dmg)
+	
