@@ -4,7 +4,7 @@ class_name HPManager
 var max_hp := 20
 var hp : int
 
-@onready var hp_label : Label = $"../HPLabel"
+@onready var hp_label : Label = $"../../../Panel/HPLabel"
 
 func _ready() -> void:
 	set_hp(max_hp)
