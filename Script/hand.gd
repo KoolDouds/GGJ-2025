@@ -27,13 +27,18 @@ func use(manager):
 
 
 func use_battle(battle):
+	if (weapon == null):
+		weapon = rien
 	print("use "+ name)
 	using_phase = 1
 	await get_tree().create_timer(weapon.pre_time).timeout
 	battle.hit(weapon.dmg, hand_side)
 	using_phase = 2
 	await get_tree().create_timer(weapon.post_time).timeout
+	if (weapon == rien):
+		weapon = null
 	using_phase = 0
+	
 	
 
 func use_crawling(game):
