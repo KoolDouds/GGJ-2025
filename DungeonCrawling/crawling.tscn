@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
 [ext_resource type="PackedScene" uid="uid://q7hux1610c2m" path="res://DungeonCrawling/room.tscn" id="2_buovi"]
-[ext_resource type="PackedScene" uid="uid://be1n6ygjp5xre" path="res://battle.tscn" id="3_awjv0"]
-[ext_resource type="PackedScene" uid="uid://bgegxif48dnon" path="res://enemy_proto.tscn" id="4_fdluv"]
+[ext_resource type="PackedScene" uid="uid://eshuj7vsra4m" path="res://loot.tscn" id="3_xin1e"]
+[ext_resource type="Resource" uid="uid://cmrud1nbg70jf" path="res://default3.tres" id="4_qh8di"]
 
 [sub_resource type="Environment" id="Environment_ga3hs"]
 ambient_light_source = 2
@@ -17,18 +17,56 @@ center = NodePath("Center")
 
 [node name="Room" parent="Center" instance=ExtResource("2_buovi")]
 
+[node name="Loot" parent="Center/Room" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("4_qh8di")
+
 [node name="Room2" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4.37114e-07)
+
+[node name="Loot" parent="Center/Room2" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("4_qh8di")
+
+[node name="Room3" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 8.74228e-07)
+
+[node name="Loot" parent="Center/Room3" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("4_qh8di")
 
 [node name="Room4" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 1.31134e-06)
+
+[node name="Loot" parent="Center/Room4" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("4_qh8di")
+
+[node name="Room8" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -10)
+
+[node name="Loot" parent="Center/Room8" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("4_qh8di")
+
+[node name="Room9" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
+
+[node name="Loot" parent="Center/Room9" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("4_qh8di")
 
 [node name="Room5" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
 
-[node name="battle" parent="Center/Room5" instance=ExtResource("3_awjv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-enemy_res = ExtResource("4_fdluv")
+[node name="Loot" parent="Center/Room5" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("4_qh8di")
+
+[node name="Room6" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 10)
+
+[node name="Loot" parent="Center/Room6" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("4_qh8di")
+
+[node name="Room7" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 10)
+
+[node name="Loot" parent="Center/Room7" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("4_qh8di")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ga3hs")

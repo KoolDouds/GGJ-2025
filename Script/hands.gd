@@ -1,4 +1,4 @@
-extends Node3D
+class_name Hands extends Node3D
 
 @export var left_hand : Hand
 @export var right_hand : Hand

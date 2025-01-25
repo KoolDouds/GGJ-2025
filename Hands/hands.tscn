@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Script/hands.gd" id="1_8hov6"]
 [ext_resource type="PackedScene" uid="uid://787px8h52pbi" path="res://Hands/hand.tscn" id="2_gopoe"]
 
-[node name="Hands" type="Node3D" node_paths=PackedStringArray("left_hand", "right_hand")]
+[node name="Hands" type="Node3D" node_paths=PackedStringArray("left_hand", "right_hand") groups=["hands"]]
 script = ExtResource("1_8hov6")
 left_hand = NodePath("LeftHand")
 right_hand = NodePath("RightHand")

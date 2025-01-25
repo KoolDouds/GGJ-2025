@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bdwlshdablh3w"
-path="res://.godot/imported/sale troue.fbx-5f59ebbe4d00949851b47a1d77fc8900.scn"
+uid="uid://daf002jgwqoim"
+path="res://.godot/imported/coffre.fbx-9ed3220a8a2b5700883614580f8d0b2e.scn"
 
 [deps]
 
-source_file="res://Script/sale troue.fbx"
-dest_files=["res://.godot/imported/sale troue.fbx-5f59ebbe4d00949851b47a1d77fc8900.scn"]
+source_file="res://Art/coffre.fbx"
+dest_files=["res://.godot/imported/coffre.fbx-9ed3220a8a2b5700883614580f8d0b2e.scn"]
 
 [params]
 

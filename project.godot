@@ -30,6 +30,7 @@ movie_writer/movie_file="/home/giogio/GodotProjects/Ggj2025/video.avi"
 hand=""
 game=""
 inventory=""
+hands=""
 
 [input]
 

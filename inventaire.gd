@@ -69,7 +69,6 @@ func clamp_selected_idx():
 		selected_idx = 0
 		return
 	selected_idx = ((selected_idx + item_list.size()))% item_list.size()
-	print(selected_idx)
 
 
 func scroll_left():
