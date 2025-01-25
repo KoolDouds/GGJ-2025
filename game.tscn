@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="PackedScene" uid="uid://cyejn4b76oey1" path="res://DungeonCrawling/crawling.tscn" id="2_ch3i2"]
-[ext_resource type="PackedScene" path="res://HPManger.tscn" id="3_4lh60"]
+[ext_resource type="PackedScene" uid="uid://c0h4e7bs430mx" path="res://HPManger.tscn" id="3_4lh60"]
 [ext_resource type="Script" path="res://inventaire.gd" id="3_yhw81"]
 [ext_resource type="Script" path="res://Script/weapon.gd" id="4_grple"]
 [ext_resource type="Resource" uid="uid://b31hsxg8sincy" path="res://default.tres" id="5_dri4y"]
