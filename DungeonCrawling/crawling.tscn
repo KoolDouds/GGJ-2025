@@ -35,23 +35,14 @@ weapon = ExtResource("4_qh8di")
 [node name="Room4" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 1.31134e-06)
 
-[node name="Loot" parent="Center/Room4" instance=ExtResource("3_xin1e")]
-weapon = ExtResource("4_qh8di")
-
 [node name="Room8" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -10)
-
-[node name="Loot" parent="Center/Room8" instance=ExtResource("3_xin1e")]
-weapon = ExtResource("4_qh8di")
 
 [node name="Room9" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
 
-[node name="Loot" parent="Center/Room9" instance=ExtResource("3_xin1e")]
-weapon = ExtResource("4_qh8di")
-
 [node name="Room5" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20)
 
 [node name="Loot" parent="Center/Room5" instance=ExtResource("3_xin1e")]
 weapon = ExtResource("4_qh8di")
@@ -59,11 +50,11 @@ weapon = ExtResource("4_qh8di")
 [node name="Room6" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 10)
 
-[node name="Loot" parent="Center/Room6" instance=ExtResource("3_xin1e")]
-weapon = ExtResource("4_qh8di")
+[node name="Room10" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20)
 
 [node name="Room7" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 20)
 
 [node name="Loot" parent="Center/Room7" instance=ExtResource("3_xin1e")]
 weapon = ExtResource("4_qh8di")
