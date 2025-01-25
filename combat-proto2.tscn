@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0usrog1t305e"]
+[gd_scene load_steps=5 format=3 uid="uid://c0usrog1t305e"]
 
 [ext_resource type="PackedScene" uid="uid://be1n6ygjp5xre" path="res://battle.tscn" id="1_a2stt"]
 [ext_resource type="PackedScene" uid="uid://cyejn4b76oey1" path="res://DungeonCrawling/crawling.tscn" id="1_q7bx1"]
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="2_g1lq4"]
+[ext_resource type="PackedScene" uid="uid://c0h4e7bs430mx" path="res://HPManger.tscn" id="4_ioya1"]
 
 [node name="combat-proto2" type="Node"]
 
@@ -17,3 +18,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 2.28775)
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -0.16, 0.156)
 
 [node name="Hands" parent="Camera3D/Node3D" instance=ExtResource("2_g1lq4")]
+
+[node name="HPManager" parent="." instance=ExtResource("4_ioya1")]
+
+[node name="HPLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "HP : lol"

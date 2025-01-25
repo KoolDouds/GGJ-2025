@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyejn4b76oey1"]
+[gd_scene load_steps=6 format=3 uid="uid://cyejn4b76oey1"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
 [ext_resource type="PackedScene" uid="uid://q7hux1610c2m" path="res://DungeonCrawling/room.tscn" id="2_buovi"]
-[ext_resource type="PackedScene" uid="uid://3rhn38y4mlin" path="res://DungeonCrawling/door.tscn" id="3_ll31r"]
+[ext_resource type="PackedScene" uid="uid://be1n6ygjp5xre" path="res://battle.tscn" id="3_awjv0"]
+[ext_resource type="PackedScene" uid="uid://bgegxif48dnon" path="res://enemy_proto.tscn" id="4_fdluv"]
 
 [sub_resource type="Environment" id="Environment_ga3hs"]
 ambient_light_source = 2
@@ -25,8 +26,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 [node name="Room5" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 
-[node name="Door" parent="Center" instance=ExtResource("3_ll31r")]
-open = false
+[node name="battle" parent="Center/Room5" instance=ExtResource("3_awjv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+enemy_res = ExtResource("4_fdluv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ga3hs")

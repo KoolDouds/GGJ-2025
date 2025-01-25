@@ -1,26 +1,42 @@
 class_name Battle
-extends Node2D
+extends Node3D
 
-@onready var enemy_res := preload("res://enemy_proto.tscn")
-var enemy : Node2D
+@export var enemy_res : PackedScene
+var enemy : Node3D
+@onready var hands : Node3D = get_tree().get_root().find_child("Hands", true, false)
+@onready var hp_manager : HPManager = get_tree().get_root().find_child("HPManager", true, false)
+
+var active = false
 
 func _ready() -> void:
-	print(get_tree().get_root().get_children())
-	var hands = get_tree().get_root().find_child("Hands", true, false)
+	#hands = get_tree().get_root().find_child("Hands", true, false)
 	hands.manager = $"."
 	enemy = enemy_res.instantiate()
-	enemy.position = Vector2(300, 200)
 	add_child(enemy)
+	enemy.position.z = 4
+	enemy.rotation.y = PI
+
+func _process(delta: float) -> void:
+	if active: return
+	if hands.global_position.distance_to(global_position) < 5:
+		start_battle()
+	look_at(hands.position)
+	rotation.x = 0
+
+func start_battle():
+	active = true
+	await get_tree().create_timer(1).timeout
+	enemy.attack()
 
 func hit(dmg: int, side: Hand.SIDE):
 	#var enemy := $"..".find_child("enemy")
 	#if enemy != null:
-	print("gave " + str(dmg) + " damage")
-	enemy.hp -= dmg
+	enemy.take_damage(dmg)
 
 func get_hit(dmg: int, side: Hand.SIDE):
 	for child in get_tree().get_nodes_in_group("hand"):
 		if child.hand_side == side and child.using_phase == 1:
 			print("BLOCKED!!!!!!!!!!")
 			return
-	print("received " + str(dmg) + " damage")
+	hp_manager.take_damage(dmg)
+	

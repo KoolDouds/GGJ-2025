@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0h4e7bs430mx"]
+
+[ext_resource type="Script" path="res://Script/hp_manager.gd" id="1_ljkn6"]
+
+[node name="HPManager" type="Node"]
+script = ExtResource("1_ljkn6")
