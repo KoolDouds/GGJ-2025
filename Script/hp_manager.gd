@@ -11,7 +11,7 @@ func _ready() -> void:
 	hp = max_hp
 
 func set_hp(new_hp: int):
-	hp = new_hp
+	hp = max(max_hp, new_hp)
 	hp_label.update_display(hp)
 
 func take_damage(dmg: int) -> void:
