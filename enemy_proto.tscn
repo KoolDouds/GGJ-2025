@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://bgegxif48dnon"]
+
+[ext_resource type="Script" path="res://Script/enemy_temp.gd" id="1_ewqse"]
+[ext_resource type="Script" path="res://Script/enemy_move.gd" id="2_k51y0"]
+[ext_resource type="Texture2D" uid="uid://by43uhq0gphgl" path="res://icon.svg" id="3_3khsl"]
+
+[sub_resource type="Resource" id="Resource_pl6fo"]
+script = ExtResource("2_k51y0")
+prep_time = 0.5
+dmg = 1
+cooldown = 0.0
+side = 0
+
+[sub_resource type="Resource" id="Resource_o42dc"]
+script = ExtResource("2_k51y0")
+prep_time = 0.5
+dmg = 1
+cooldown = 1.0
+side = 1
+
+[sub_resource type="Resource" id="Resource_1s5eg"]
+script = ExtResource("2_k51y0")
+prep_time = 1.0
+dmg = 5
+cooldown = 2.0
+side = 1
+
+[sub_resource type="Animation" id="Animation_g21cd"]
+resource_name = "attack_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-100, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qso0t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2wcij"]
+resource_name = "attack_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(100, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4piqb"]
+_data = {
+"RESET": SubResource("Animation_qso0t"),
+"attack_left": SubResource("Animation_g21cd"),
+"attack_right": SubResource("Animation_2wcij")
+}
+
+[node name="enemy" type="Node2D"]
+script = ExtResource("1_ewqse")
+moves = Array[ExtResource("2_k51y0")]([SubResource("Resource_pl6fo"), SubResource("Resource_o42dc"), SubResource("Resource_1s5eg")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_3khsl")
+
+[node name="HP" type="Label" parent="."]
+offset_left = -6.0
+offset_top = -106.0
+offset_right = 34.0
+offset_bottom = -66.0
+text = "0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4piqb")
+}
