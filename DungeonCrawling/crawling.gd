@@ -12,8 +12,10 @@ var doors := {}
 
 var checking_inventory := false
 var inventory : Inventory
+var hands : Hands
 
 func _ready():
+	hands = get_tree().get_first_node_in_group("hands")
 	inventory = get_tree().get_first_node_in_group("inventory")
 	var room_list = $Center.get_children()
 	rooms = {}
@@ -24,9 +26,11 @@ func _ready():
 			var coord = pos_to_coord(i.position, true)
 			doors[coord] = i
 			print(coord)
-		if (i is Loot):
-			var coord = pos_to_coord(i.position)
-			loots[coord] = i
+		elif i is Room:
+			for j in i.get_children():
+				if (j is Loot):
+					var coord = pos_to_coord(j.position)
+					loots[coord] = j
 		
 	
 	for i in room_list:
@@ -49,6 +53,9 @@ func _ready():
 					print(door_coord)
 			vec = rotate_vector_90d(vec)
 
+func is_crawling():
+	return hands.manager == null
+
 func pos_to_coord(pos:Vector3, half_rounded := false) -> Vector2:
 	if (!half_rounded):
 		return -Vector2(round(pos.z/room_length),round(pos.x/room_length))
@@ -63,19 +70,21 @@ func _process(delta):
 	if (Input.is_action_just_pressed("rotate_left")):
 		if (inventory.opened):
 			inventory.scroll_left()
-		else:
+		elif (is_crawling()):
 			rotate_view(true)
 	if (Input.is_action_just_pressed("rotate_right")):
 		if (inventory.opened):
 			inventory.scroll_right()
-		else:
+		elif (is_crawling()):
 			rotate_view(false)
 	if (Input.is_action_just_pressed("forward")):
-		forward()
+		if (is_crawling()):
+			forward()
 	if (Input.is_action_just_pressed("back")):
 		inventory.open()
 	if (Input.is_action_just_pressed("center")):
-		interact()
+		if (is_crawling()):
+			interact()
 	
 	rotation = -Vector3(0,player_ori.angle(),0)
 	center.position = Vector3(player_coord.y,0,player_coord.x)*room_length

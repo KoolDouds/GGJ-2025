@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://q7hux1610c2m"]
 
-[ext_resource type="PackedScene" uid="uid://cnb24jp2fklhq" path="res://Art/salle_test.glb" id="1_8xvkt"]
 [ext_resource type="Script" path="res://DungeonCrawling/room.gd" id="1_msas5"]
+[ext_resource type="PackedScene" uid="uid://v1uku4owcmfh" path="res://sale troue.fbx" id="3_dl610"]
 [ext_resource type="PackedScene" uid="uid://bkgmohxcxa0q8" path="res://Art/Dague.fbx" id="3_jhtbk"]
 
 [node name="Room" type="Node3D"]
 script = ExtResource("1_msas5")
 
-[node name="salle_test" parent="." instance=ExtResource("1_8xvkt")]
+[node name="sale troue" parent="." instance=ExtResource("3_dl610")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74536, 0)

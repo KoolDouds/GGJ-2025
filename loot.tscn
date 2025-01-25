@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://eshuj7vsra4m"]
+[gd_scene load_steps=3 format=3 uid="uid://eshuj7vsra4m"]
 
 [ext_resource type="Script" path="res://loot.gd" id="1_8uivh"]
+[ext_resource type="PackedScene" uid="uid://daf002jgwqoim" path="res://Art/coffre.fbx" id="2_m34in"]
 
 [node name="Loot" type="Node3D"]
 script = ExtResource("1_8uivh")
+
+[node name="coffre" parent="." instance=ExtResource("2_m34in")]
