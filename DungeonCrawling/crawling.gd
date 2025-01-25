@@ -7,6 +7,7 @@ var room_length := 10
 @export var center : Node3D
 
 var rooms : Dictionary = {}
+var loots : Dictionary = {}
 var doors := {}
 
 var checking_inventory := false
@@ -19,11 +20,14 @@ func _ready():
 	doors = {}
 	
 	for i in room_list:
-		if (!i is Door):
-			continue
-		var coord = pos_to_coord(i.position, true)
-		doors[coord] = i
-		print(coord)
+		if (i is Door):
+			var coord = pos_to_coord(i.position, true)
+			doors[coord] = i
+			print(coord)
+		if (i is Loot):
+			var coord = pos_to_coord(i.position)
+			loots[coord] = i
+		
 	
 	for i in room_list:
 		if (!i is Room):
@@ -70,12 +74,18 @@ func _process(delta):
 		forward()
 	if (Input.is_action_just_pressed("back")):
 		inventory.open()
+	if (Input.is_action_just_pressed("center")):
+		interact()
 	
 	rotation = -Vector3(0,player_ori.angle(),0)
 	center.position = Vector3(player_coord.y,0,player_coord.x)*room_length
 	
 	# DebugMovesVisual
 	#queue_redraw()
+
+func interact():
+	if (loots.has(player_coord)):
+		loots[player_coord].interact()
 
 func forward():
 	if (rooms.has(player_coord+player_ori) and doors[player_coord+player_ori/2].is_open()):
