@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyejn4b76oey1"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
-[ext_resource type="PackedScene" uid="uid://cnb24jp2fklhq" path="res://Art/salle_test.glb" id="2_b1x3k"]
-[ext_resource type="Texture2D" uid="uid://by43uhq0gphgl" path="res://icon.svg" id="3_2o1k2"]
+[ext_resource type="PackedScene" uid="uid://q7hux1610c2m" path="res://DungeonCrawling/room.tscn" id="2_buovi"]
+[ext_resource type="PackedScene" uid="uid://3rhn38y4mlin" path="res://DungeonCrawling/door.tscn" id="3_ll31r"]
 
 [sub_resource type="Environment" id="Environment_ga3hs"]
 ambient_light_source = 2
@@ -14,52 +14,27 @@ center = NodePath("Center")
 
 [node name="Center" type="Node3D" parent="."]
 
-[node name="Room" type="Node3D" parent="Center"]
+[node name="Room" parent="Center" instance=ExtResource("2_buovi")]
 
-[node name="salle_test" parent="Center/Room" instance=ExtResource("2_b1x3k")]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Center/Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74536, 0)
-light_color = Color(0.942953, 0.673124, 0.352185, 1)
-light_energy = 2.0
-omni_range = 7.502
-omni_attenuation = 0.795
-
-[node name="Sprite3D" type="Sprite3D" parent="Center/Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54176, -3.63446)
-texture = ExtResource("3_2o1k2")
-
-[node name="Room2" type="Node3D" parent="Center"]
+[node name="Room2" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
-[node name="salle_test" parent="Center/Room2" instance=ExtResource("2_b1x3k")]
+[node name="Room4" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Center/Room2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74536, 0)
-light_color = Color(0.942953, 0.673124, 0.352185, 1)
-light_energy = 2.0
-omni_range = 7.502
-omni_attenuation = 0.795
+[node name="Room5" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 
-[node name="Sprite3D" type="Sprite3D" parent="Center/Room2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54176, -3.63446)
-texture = ExtResource("3_2o1k2")
+[node name="Door" parent="Center" instance=ExtResource("3_ll31r")]
+open = false
 
-[node name="Room3" type="Node3D" parent="Center"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+[node name="Sprite3D" parent="Center/Door" index="0"]
+modulate = Color(1, 0.5, 0.5, 1)
 
-[node name="salle_test" parent="Center/Room3" instance=ExtResource("2_b1x3k")]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Center/Room3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74536, 0)
-light_color = Color(0.942953, 0.673124, 0.352185, 1)
-light_energy = 2.0
-omni_range = 7.502
-omni_attenuation = 0.795
-
-[node name="Sprite3D" type="Sprite3D" parent="Center/Room3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54176, -3.63446)
-texture = ExtResource("3_2o1k2")
+[node name="Sprite3D2" parent="Center/Door" index="1"]
+modulate = Color(1, 0.5, 0.5, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ga3hs")
+
+[editable path="Center/Door"]

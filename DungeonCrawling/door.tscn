@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://3rhn38y4mlin"]
+
+[ext_resource type="Texture2D" uid="uid://by43uhq0gphgl" path="res://icon.svg" id="1_5sykm"]
+[ext_resource type="Script" path="res://DungeonCrawling/door.gd" id="1_wu3m2"]
+
+[node name="Door" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+script = ExtResource("1_wu3m2")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.542, -1)
+texture = ExtResource("1_5sykm")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.542, 1)
+texture = ExtResource("1_5sykm")

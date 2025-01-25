@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://q7hux1610c2m"]
+
+[ext_resource type="PackedScene" uid="uid://cnb24jp2fklhq" path="res://Art/salle_test.glb" id="1_8xvkt"]
+[ext_resource type="Script" path="res://DungeonCrawling/room.gd" id="1_msas5"]
+
+[node name="Room" type="Node3D"]
+script = ExtResource("1_msas5")
+
+[node name="salle_test" parent="." instance=ExtResource("1_8xvkt")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74536, 0)
+light_color = Color(0.942953, 0.673124, 0.352185, 1)
+light_energy = 2.0
+omni_range = 7.502
+omni_attenuation = 0.795

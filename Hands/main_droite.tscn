@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://gre8hxj1vc0d"]
 
-[ext_resource type="PackedScene" uid="uid://bfyjne4d20mt1" path="res://Art/main_droite.fbx" id="1_lef8n"]
+[ext_resource type="PackedScene" uid="uid://n1wtvqkrtgx7" path="res://main_droite.fbx" id="1_yov20"]
 
-[node name="main_droite" instance=ExtResource("1_lef8n")]
+[node name="main_droite" instance=ExtResource("1_yov20")]
