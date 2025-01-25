@@ -33,8 +33,9 @@ func display_items():
 	for i in range(item_list.size()):
 		var item = item_list[i]
 		var clone = item.gfx.instantiate()
-		clone.position = Vector3.RIGHT.rotated(Vector3.UP,TAU/item_list.size()*i)*diplay_radius
-		clone.rotation = Vector3.UP* TAU/item_list.size()*i
+		var rot = -TAU/item_list.size()*i
+		clone.position = Vector3.RIGHT.rotated(Vector3.UP,rot)*diplay_radius
+		clone.rotation = Vector3.UP* rot
 		display_parent.add_child(clone)
 
 func update_display_pos():
@@ -68,6 +69,7 @@ func clamp_selected_idx():
 		selected_idx = 0
 		return
 	selected_idx = ((selected_idx + item_list.size()))% item_list.size()
+	print(selected_idx)
 
 
 func scroll_left():
