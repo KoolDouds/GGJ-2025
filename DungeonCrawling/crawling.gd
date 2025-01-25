@@ -144,8 +144,10 @@ func rotate_view(clock_wise := true):
 
 func rotate_vector_90d(vec,clock_wise := true):
 	if (clock_wise):
+		rot+=PI/2
 		return Vector2(vec.y*-1, vec.x)
 	elif (!clock_wise):
+		rot-=PI/2
 		return Vector2(vec.y, vec.x*-1)
 
 #func _draw():

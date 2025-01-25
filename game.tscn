@@ -66,6 +66,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 [node name="PosInventory" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.480072)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
+light_energy = 0.5
+
 [node name="Inventaire" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("display_parent") groups=["inventory"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.34702)
 script = ExtResource("3_yhw81")
