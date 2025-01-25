@@ -17,4 +17,4 @@ pre_time = 0.5
 post_time = 0.5
 dmg = 0
 functions = Array[ExtResource("1_x52fd")]([SubResource("Resource_icwjw")])
-gfx = ExtResource("3_vj5kl")
+gfx = ExtResource("3_qwu12")
