@@ -9,8 +9,8 @@ left_hand = NodePath("LeftHand")
 right_hand = NodePath("RightHand")
 
 [node name="LeftHand" parent="." instance=ExtResource("2_gopoe")]
-transform = Transform3D(-0.167731, 0.0449435, 0.984808, 0.258819, 0.965926, 0, -0.951251, 0.254887, -0.173648, -8, 0, -7.2)
+transform = Transform3D(-0.167731, 0.0449435, 0.984808, 0.258819, 0.965926, 0, -0.951251, 0.254887, -0.173648, -1.6, 0, -1.873)
 
 [node name="RightHand" parent="." instance=ExtResource("2_gopoe")]
-transform = Transform3D(-0.167731, 0.0449435, 0.984808, 0.258819, 0.965926, 0, -0.951251, 0.254887, -0.173648, 8, 0, -7.2)
+transform = Transform3D(-0.167731, 0.0449435, 0.984808, 0.258819, 0.965926, 0, -0.951251, 0.254887, -0.173648, 1.6, 0, -1.873)
 hand_side = 1
