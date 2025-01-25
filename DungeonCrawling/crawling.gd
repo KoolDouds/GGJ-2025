@@ -13,8 +13,11 @@ var doors := {}
 var checking_inventory := false
 var inventory : Inventory
 var hands : Hands
+var traveling := false
+var rot
 
 func _ready():
+	rot = player_ori.angle()
 	hands = get_tree().get_first_node_in_group("hands")
 	inventory = get_tree().get_first_node_in_group("inventory")
 	var room_list = $Center.get_children()
@@ -54,7 +57,7 @@ func _ready():
 			vec = rotate_vector_90d(vec)
 
 func is_crawling():
-	return hands.manager == null
+	return hands.manager == null and !traveling
 
 func pos_to_coord(pos:Vector3, half_rounded := false) -> Vector2:
 	if (!half_rounded):
@@ -85,12 +88,19 @@ func _process(delta):
 	if (Input.is_action_just_pressed("center")):
 		if (is_crawling()):
 			interact()
-	
-	rotation = -Vector3(0,player_ori.angle(),0)
-	center.position = Vector3(player_coord.y,0,player_coord.x)*room_length
+			
+	rotation.y = lerp(rotation.y, rot, 0.2)
+	center.position = lerp(center.position, Vector3(player_coord.y,0,player_coord.x)*room_length, 0.8)
 	
 	# DebugMovesVisual
 	#queue_redraw()
+
+func modulo_float(a,b):
+	while a < 0:
+		a+=b
+	while (a >=b):
+		a-=b
+	return a
 
 func interact():
 	if (loots.has(player_coord)):
@@ -110,8 +120,10 @@ func rotate_view(clock_wise := true):
 
 func rotate_vector_90d(vec,clock_wise := true):
 	if (clock_wise):
+		rot+=PI/2
 		return Vector2(vec.y*-1, vec.x)
 	elif (!clock_wise):
+		rot-=PI/2
 		return Vector2(vec.y, vec.x*-1)
 
 #func _draw():

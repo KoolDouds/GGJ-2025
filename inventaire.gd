@@ -14,6 +14,7 @@ func _process(delta):
 	visible = opened
 	if (opened):
 		update_display_pos()
+		
 
 func switch_with_hands(hand : Hand):
 	var item_to_store = hand.weapon
@@ -40,7 +41,7 @@ func display_items():
 
 func update_display_pos():
 	var rot :=(TAU/item_list.size()*selected_idx)
-	display_parent.rotation = Vector3.UP*(rot - PI/2)
+	display_parent.rotation = lerp(display_parent.rotation, Vector3.UP*(rot - PI/2),0.5)
 	
 
 func add_item(weapon : Weapon):
