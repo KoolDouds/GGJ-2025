@@ -9,8 +9,6 @@ var enemy : Node3D
 var active = false
 
 func _ready() -> void:
-	#hands = get_tree().get_root().find_child("Hands", true, false)
-	hands.manager = $"."
 	enemy = enemy_res.instantiate()
 	add_child(enemy)
 	enemy.position.z = 4
@@ -24,6 +22,7 @@ func _process(delta: float) -> void:
 	rotation.x = 0
 
 func start_battle():
+	hands.manager = $"."
 	active = true
 	await get_tree().create_timer(1).timeout
 	enemy.attack()
