@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=6 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="PackedScene" uid="uid://cyejn4b76oey1" path="res://DungeonCrawling/crawling.tscn" id="2_ch3i2"]
+[ext_resource type="Script" path="res://inventaire.gd" id="3_yhw81"]
+[ext_resource type="Script" path="res://Script/weapon.gd" id="4_grple"]
+[ext_resource type="Resource" uid="uid://b31hsxg8sincy" path="res://default.tres" id="5_dri4y"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" groups=["game"]]
 
 [node name="Crawling" parent="." instance=ExtResource("2_ch3i2")]
 
@@ -14,3 +17,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.332, 0.05)
 
 [node name="Hands" parent="Camera3D/Node3D" instance=ExtResource("1_dp6cy")]
+
+[node name="Inventaire" type="Node3D" parent="." node_paths=PackedStringArray("display_parent")]
+script = ExtResource("3_yhw81")
+item_list = Array[ExtResource("4_grple")]([ExtResource("5_dri4y"), ExtResource("5_dri4y"), ExtResource("5_dri4y")])
+display_parent = NodePath("Display")
+
+[node name="Display" type="Node3D" parent="Inventaire"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00842, 0)

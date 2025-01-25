@@ -1,4 +1,4 @@
-extends Node3D
+class_name Crawling extends Node3D
 
 var player_coord : Vector2 = Vector2(0,0)
 var player_ori : Vector2 = Vector2(0,1)

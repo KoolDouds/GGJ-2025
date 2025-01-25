@@ -8,7 +8,14 @@ enum SIDE {LEFT, RIGHT, MAX}
 
 var using_phase := 0
 
-func use(battle):
+func use(manager):
+	if (manager is Battle):
+		use_battle(manager)
+	else:
+		use_crawling(manager)
+
+
+func use_battle(battle):
 	print("use "+ name)
 	using_phase = 1
 	await get_tree().create_timer(weapon.pre_time).timeout
@@ -16,3 +23,7 @@ func use(battle):
 	using_phase = 2
 	await get_tree().create_timer(weapon.post_time).timeout
 	using_phase = 0
+	
+
+func use_crawling(game):
+	weapon.function.use(game)
