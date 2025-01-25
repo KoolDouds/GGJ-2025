@@ -9,7 +9,11 @@ var room_length := 10
 var rooms : Dictionary = {}
 var doors := {}
 
+var checking_inventory := false
+var inventory : Inventory
+
 func _ready():
+	inventory = get_tree().get_first_node_in_group("inventory")
 	var room_list = $Center.get_children()
 	rooms = {}
 	doors = {}
@@ -53,11 +57,19 @@ func coord_to_pos(coord:Vector2) -> Vector3:
 
 func _process(delta):
 	if (Input.is_action_just_pressed("rotate_left")):
-		rotate_view(true)
+		if (inventory.opened):
+			inventory.scroll_left()
+		else:
+			rotate_view(true)
 	if (Input.is_action_just_pressed("rotate_right")):
-		rotate_view(false)
+		if (inventory.opened):
+			inventory.scroll_right()
+		else:
+			rotate_view(false)
 	if (Input.is_action_just_pressed("forward")):
 		forward()
+	if (Input.is_action_just_pressed("back")):
+		inventory.open()
 	
 	rotation = -Vector3(0,player_ori.angle(),0)
 	center.position = Vector3(player_coord.y,0,player_coord.x)*room_length
