@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bcljvievv3gd2"
+path="res://.godot/imported/Darkbubulle Mace.obj-1136cb3809341c256527a3d25d9e48fa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Darkbubulle Mace.obj-1136cb3809341c256527a3d25d9e48fa.mesh"]
+
+source_file="res://Darkbubulle Mace.obj"
+dest_files=["res://.godot/imported/Darkbubulle Mace.obj-1136cb3809341c256527a3d25d9e48fa.mesh", "res://.godot/imported/Darkbubulle Mace.obj-1136cb3809341c256527a3d25d9e48fa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
