@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Script/weapon.gd" id="4_grple"]
 [ext_resource type="Resource" uid="uid://b31hsxg8sincy" path="res://default.tres" id="5_dri4y"]
 [ext_resource type="Resource" uid="uid://6cav8kmnksk8" path="res://default2.tres" id="6_5npxu"]
+[ext_resource type="PackedScene" uid="uid://c0h4e7bs430mx" path="res://HPManger.tscn" id="3_4lh60"]
 
 [node name="Game" type="Node" groups=["game"]]
 
