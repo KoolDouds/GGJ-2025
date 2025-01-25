@@ -10,4 +10,5 @@ func change_hand_model():
 	if (weapon_gfx != null):
 		weapon_gfx.queue_free()
 	weapon_gfx = hand.weapon.gfx.instantiate()
+	weapon_gfx.position = Vector3.ZERO
 	add_child(weapon_gfx)
