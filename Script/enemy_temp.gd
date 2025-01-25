@@ -1,6 +1,6 @@
-extends Node2D
+extends Node3D
 
-@onready var hp_label: Label = $"HP"
+@onready var hp_label: Label3D = $"HP"
 @onready var battle := $".."
 @onready var anim : AnimationPlayer = $"AnimationPlayer"
 
@@ -16,10 +16,16 @@ var attack_time := 1
 
 func _ready() -> void:
 	loop_size = moves.size()
-	attack()
-
-func _process(delta: float) -> void:
 	hp_label.text = str(hp)
+
+func die():
+	print("enmi is kil >:)")
+
+func take_damage(dmg):
+	hp -= dmg
+	print("gave " + str(dmg) + " damage")
+	hp_label.text = str(hp)
+	if hp <= 0: die()
 
 func attack():
 	while true:
