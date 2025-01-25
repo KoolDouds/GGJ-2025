@@ -28,13 +28,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 [node name="Door" parent="Center" instance=ExtResource("3_ll31r")]
 open = false
 
-[node name="Sprite3D" parent="Center/Door" index="0"]
-modulate = Color(1, 0.5, 0.5, 1)
-
-[node name="Sprite3D2" parent="Center/Door" index="1"]
-modulate = Color(1, 0.5, 0.5, 1)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ga3hs")
-
-[editable path="Center/Door"]
