@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cyejn4b76oey1" path="res://DungeonCrawling/crawling.tscn" id="1_q7bx1"]
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="2_g1lq4"]
 
-[node name="combat-proto" type="Node"]
+[node name="combat-proto2" type="Node"]
 
 [node name="battle" parent="." instance=ExtResource("1_a2stt")]
 
