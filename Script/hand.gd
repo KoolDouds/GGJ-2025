@@ -8,6 +8,17 @@ enum SIDE {LEFT, RIGHT, MAX}
 
 var using_phase := 0
 
+var rien : Weapon
+
+signal on_change_weapon
+
+func _ready():
+	rien = load("res://rien.tres")
+
+func set_weapon(_weapon):
+	weapon = _weapon
+	on_change_weapon.emit()
+
 func use(manager):
 	if (manager is Battle):
 		use_battle(manager)
@@ -26,4 +37,7 @@ func use_battle(battle):
 	
 
 func use_crawling(game):
-	weapon.function.use(game)
+	if (weapon != null):
+		weapon.use(game)
+	else:
+		rien.use(game)

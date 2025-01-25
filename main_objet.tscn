@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ff3w6s5ps27x"]
+
+[ext_resource type="PackedScene" uid="uid://gre8hxj1vc0d" path="res://Hands/main_droite.tscn" id="1_46xyr"]
+
+[node name="MainObjet" type="Node3D"]
+
+[node name="main_droite" parent="." instance=ExtResource("1_46xyr")]
+transform = Transform3D(-0.0258804, -0.999665, 0, 0.999665, -0.0258804, 0, 0, 0, 1, 0, 0.275833, 0)
+
+[node name="Skeleton3D" parent="main_droite/Armature" index="0"]
+bones/17/enabled = false
+bones/18/enabled = false
+bones/19/enabled = false
+bones/20/enabled = false
+
+[editable path="main_droite"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://DungeonCrawling/ItemFunction.gd" id="1_164ar"]
 [ext_resource type="Script" path="res://Script/weapon.gd" id="1_f046u"]
-[ext_resource type="PackedScene" uid="uid://gre8hxj1vc0d" path="res://Hands/main_droite.tscn" id="2_w7y4o"]
+[ext_resource type="PackedScene" uid="uid://ff3w6s5ps27x" path="res://main_objet.tscn" id="2_aty1v"]
 
 [resource]
 script = ExtResource("1_f046u")
@@ -10,4 +10,4 @@ pre_time = 0.5
 post_time = 0.5
 dmg = 1
 functions = Array[ExtResource("1_164ar")]([])
-gfx = ExtResource("2_w7y4o")
+gfx = ExtResource("2_aty1v")

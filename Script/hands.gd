@@ -5,9 +5,11 @@ extends Node3D
 
 var game
 var manager : Battle
+var inventory : Inventory
 
 func _ready():
 	game = get_tree().get_first_node_in_group("game")
+	inventory = get_tree().get_first_node_in_group("inventory")
 
 func _process(delta):
 	if manager != null:
@@ -17,6 +19,11 @@ func _process(delta):
 		if (Input.is_action_just_pressed("right")):
 			if right_hand.using_phase > 0: pass
 			else: right_hand.use(manager)
+	elif inventory.opened:
+		if (Input.is_action_just_pressed("left")):
+			inventory.switch_with_hands(left_hand)
+		if (Input.is_action_just_pressed("right")):
+			inventory.switch_with_hands(right_hand)
 	else:
 		if (Input.is_action_just_pressed("left")):
 			left_hand.use(game)
