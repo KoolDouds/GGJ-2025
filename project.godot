@@ -37,6 +37,7 @@ inventory=""
 hands=""
 crawling=""
 camera=""
+questman=""
 
 [input]
 
