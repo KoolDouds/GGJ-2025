@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://mm5my4bwnhpy"]
+[gd_scene load_steps=3 format=3 uid="uid://wky1g1asyk5v"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_eep37"]
 [ext_resource type="AudioStream" uid="uid://chsj0bwxvs5em" path="res://Dark Bubble.mp3" id="2_qte0c"]

@@ -9,5 +9,5 @@ func start_game():
 	get_tree().get_root().add_child(inst)
 
 func restart():
-	Engine.time_scale = 1
 	get_tree().reload_current_scene()
+	Engine.time_scale = 1

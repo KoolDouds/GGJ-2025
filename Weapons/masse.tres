@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=6 format=3 uid="uid://bclowm20mbwtk"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=6 format=3 uid="uid://b3avj1me10q33"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/ItemFunction.gd" id="1_fex2t"]
 [ext_resource type="PackedScene" uid="uid://1ba5ivl8q53h" path="res://MaceRedo.fbx" id="2_0ngmt"]

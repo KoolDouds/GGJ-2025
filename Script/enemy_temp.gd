@@ -8,8 +8,8 @@ extends Node3D
 var index := 0
 var loop_size : int
 
-@export var max_hp := 10
-var hp := max_hp
+@export var max_hp : int
+var hp : int
 
 @onready var pop_text = load("res://text_pop.tscn")
 var dmg := 1
@@ -17,6 +17,7 @@ var attack_time := 1
 
 func _ready() -> void:
 	loop_size = moves.size()
+	hp = max_hp
 
 func die():
 	print("enmi is kil >:)")
