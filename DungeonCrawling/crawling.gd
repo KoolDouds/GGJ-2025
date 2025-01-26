@@ -96,7 +96,8 @@ func _process(delta):
 		if (is_crawling()):
 			forward()
 	if (Input.is_action_just_pressed("back")):
-		inventory.open()
+		if is_crawling() or inventory.opened:
+			inventory.open()
 	if (Input.is_action_just_pressed("center")):
 		if (is_crawling()):
 			interact()
@@ -110,7 +111,7 @@ func _process(delta):
 	
 	
 	rotation.y = lerp(rotation.y, rot_displayed, 0.2)
-	center.position = lerp(center.position, Vector3(player_coord.y,0,player_coord.x)*room_length+offset, 0.2)
+	center.position = lerp(center.position, Vector3(player_coord.y,0,player_coord.x)*room_length+offset, 0.05)
 	
 	# DebugMovesVisual
 	#queue_redraw()
@@ -127,9 +128,9 @@ func interact():
 		loots[player_coord].interact()
 
 func forward():
-	$Step.play()
 	if (rooms.has(player_coord+player_ori) and doors[player_coord+player_ori/2].is_open()):
 		print(player_coord+player_ori)
+		$Step.play(2)
 		pass
 	else :
 		print("bonk")
