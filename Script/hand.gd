@@ -38,8 +38,9 @@ func use_battle(battle):
 	anim.speed_scale = 1/weapon.pre_time
 	anim.play("attack_start")
 	await get_tree().create_timer(weapon.pre_time).timeout
-	if using_phase == 0:
+	if using_phase == 0 or battle == null:
 		anim.stop()
+		using_phase = 0
 		return
 	battle.hit(weapon.dmg, hand_side)
 	weapon.use(self, true)

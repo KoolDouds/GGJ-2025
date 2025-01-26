@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn0w6ebxfh6cj"]
+
+[ext_resource type="PackedScene" uid="uid://6yn0led5tlj6" path="res://torche.fbx" id="1_r2gc4"]
+
+[node name="torche" instance=ExtResource("1_r2gc4")]
+
+[node name="Circle" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, -2, 0)
