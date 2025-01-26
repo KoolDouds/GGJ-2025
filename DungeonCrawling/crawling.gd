@@ -41,6 +41,7 @@ func _ready():
 			continue
 		var coord = pos_to_coord(i.position)
 		rooms[coord] = i
+		print(coord)
 		
 		var vec = Vector2.UP
 		for xx in range(4):
@@ -53,16 +54,7 @@ func _ready():
 					doors[door_coord] = door
 					$Center.add_child(door)
 					print(door_coord)
-			vec = rotate_vector_90d(vec)
-	
-	for i in room_list:
-		if (!i is Room):
-			continue
-		var coord = pos_to_coord(i.position)
-		var vec = Vector2.UP
-		for xx in range(4):
-			if (!rooms.has(coord+vec)):
-				print(coord+vec)
+			else:
 				var door = load("res://bouche_trou.tscn").instantiate()
 				door.rotation = Vector3(0,vec.angle(),0)
 				i.add_child(door)
@@ -123,7 +115,7 @@ func _process(delta):
 	
 	
 	rotation.y = lerp(rotation.y, rot_displayed, 0.2)
-	center.position = lerp(center.position, Vector3(player_coord.y,0,player_coord.x)*room_length+offset, 0.2)
+	center.position = lerp(center.position, Vector3(player_coord.y,0,player_coord.x)*room_length+offset, 0.4)
 	
 	# DebugMovesVisual
 	#queue_redraw()

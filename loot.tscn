@@ -1,22 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://eshuj7vsra4m"]
 
 [ext_resource type="Script" path="res://loot.gd" id="1_8uivh"]
-[ext_resource type="PackedScene" uid="uid://5cltxdep57mj" path="res://Hands/coffre_fermer.fbx" id="2_8gp2q"]
-[ext_resource type="PackedScene" uid="uid://bud7kghus1eru" path="res://Hands/coffre_ouvert.fbx" id="3_lialk"]
+[ext_resource type="PackedScene" uid="uid://sckh15ad7xxx" path="res://Art/coffre.fbx" id="2_m34in"]
+[ext_resource type="PackedScene" uid="uid://ff3w6s5ps27x" path="res://main_objet.tscn" id="3_2ayk7"]
 
 [node name="Loot" type="Node3D" node_paths=PackedStringArray("display", "coffre_closed", "coffre_opened")]
 script = ExtResource("1_8uivh")
 display = NodePath("Display")
-coffre_closed = NodePath("Node3D/coffre_fermer")
+coffre_closed = NodePath("Node3D/coffre_closed")
 coffre_opened = NodePath("Node3D/coffre_ouvert")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0.161611, 0, -0.0808053)
 
-[node name="coffre_fermer" parent="Node3D" instance=ExtResource("2_8gp2q")]
+[node name="coffre_closed" parent="Node3D" instance=ExtResource("2_m34in")]
 
-[node name="coffre_ouvert" parent="Node3D" instance=ExtResource("3_lialk")]
+[node name="coffre_ouvert" parent="Node3D" instance=ExtResource("2_m34in")]
 visible = false
+
+[node name="MainObjet" parent="Node3D/coffre_ouvert" instance=ExtResource("3_2ayk7")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0.564437, 0)
 
 [node name="Display" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.58367, 0)
