@@ -18,7 +18,9 @@ func _ready():
 	rien = load("res://rien.tres")
 
 func set_weapon(_weapon):
-	weapon = _weapon
+	if _weapon == null:
+		weapon = rien
+	else: weapon = _weapon
 	on_change_weapon.emit()
 
 func clear_hand():
