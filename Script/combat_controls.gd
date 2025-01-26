@@ -6,6 +6,7 @@ var enemy : Node3D
 @onready var hands : Node3D = get_tree().get_root().find_child("Hands", true, false)
 @onready var hp_manager : HPManager = get_tree().get_root().find_child("HPManager", true, false)
 
+@onready var pop_text = load("res://text_pop.tscn")
 var active = false
 
 func _ready() -> void:
@@ -33,6 +34,13 @@ func hit(dmg: int, side: Hand.SIDE):
 func get_hit(dmg: int, side: Hand.SIDE):
 	for child in get_tree().get_nodes_in_group("hand"):
 		if child.hand_side == side and child.using_phase == 1:
+			var text = pop_text.instantiate()
+			text.text = "BLOCKED!"
+			text.color = Color.SKY_BLUE
+			text.lifetime = 2
+			get_tree().get_first_node_in_group("crawling").add_child(text)
+			text.global_position = child.position+Vector3.UP*1+Vector3(randf(),randf(),randf())*0.1
+	
 			print("BLOCKED!!!!!!!!!!")
 			child.using_phase = 0
 			return

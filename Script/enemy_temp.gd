@@ -25,10 +25,10 @@ func die():
 func take_damage(dmg):
 	hp -= dmg
 	var text = pop_text.instantiate()
-	text.text = "-"+str(dmg)+"!"
+	text.text = "-"+str(dmg)
 	text.lifetime = 2
 	get_tree().get_first_node_in_group("crawling").add_child(text)
-	text.global_position = global_position+Vector3.UP*2
+	text.global_position = global_position+Vector3.UP*1+Vector3(randf(),randf(),randf())
 	print("gave " + str(dmg) + " damage")
 	if hp <= 0: die()
 

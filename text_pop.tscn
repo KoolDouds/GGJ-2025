@@ -1,21 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8iyx3edkpor4"]
+[gd_scene load_steps=6 format=3 uid="uid://b8iyx3edkpor4"]
 
 [ext_resource type="Script" path="res://text_pop.gd" id="1_asr1j"]
 [ext_resource type="Script" path="res://Wobble.gd" id="1_bq6he"]
+[ext_resource type="Script" path="res://PopGrow.gd" id="2_eedo0"]
 [ext_resource type="Script" path="res://look_toward_player.gd" id="3_errl0"]
+
+[sub_resource type="Curve" id="Curve_a53a2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0646853, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.110991), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="TextPop" type="Node3D" node_paths=PackedStringArray("label")]
 script = ExtResource("1_asr1j")
-label = NodePath("Node3D/Node3D2/Label3D")
+label = NodePath("Node3D2/Node3D/Node3D2/Label3D")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D2" type="Node3D" parent="."]
+script = ExtResource("2_eedo0")
+curve = SubResource("Curve_a53a2")
+total_time = 0.7
+max_size = 2.0
+
+[node name="Node3D" type="Node3D" parent="Node3D2"]
 script = ExtResource("1_bq6he")
 
-[node name="Node3D2" type="Node3D" parent="Node3D"]
+[node name="Node3D2" type="Node3D" parent="Node3D2/Node3D"]
 script = ExtResource("3_errl0")
 
-[node name="Label3D" type="Label3D" parent="Node3D/Node3D2"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+[node name="Label3D" type="Label3D" parent="Node3D2/Node3D/Node3D2"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, 0, 0)
 text = "AIE"
 font_size = 33
 outline_size = 17

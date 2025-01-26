@@ -56,9 +56,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47, 0.05)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
 light_energy = 0.5
 
-[node name="AudioListener3D" type="AudioListener3D" parent="SubViewportContainer/SubViewport/CamField/CamPos/Camera3D"]
-current = true
-
 [node name="PosCrawling" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 
