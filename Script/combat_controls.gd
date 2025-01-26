@@ -4,7 +4,7 @@ extends Node3D
 @export var enemy_res : PackedScene
 var enemy : Node3D
 @onready var hands : Node3D = get_tree().get_root().find_child("Hands", true, false)
-@onready var hp_manager : HPManager = get_tree().get_root().find_child("HPManager", true, false)
+@onready var hp_manager : HPManager = get_tree().get_first_node_in_group("hpman")
 
 var active = false
 
