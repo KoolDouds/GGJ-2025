@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4es7ssd8qss0"
+path="res://.godot/imported/Crachat monstre.wav-b76c44e0b34e281c28ee1b00765f75b5.sample"
+
+[deps]
+
+source_file="res://Sounds/Crachat monstre.wav"
+dest_files=["res://.godot/imported/Crachat monstre.wav-b76c44e0b34e281c28ee1b00765f75b5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

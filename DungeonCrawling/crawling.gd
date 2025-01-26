@@ -127,15 +127,20 @@ func interact():
 		loots[player_coord].interact()
 
 func forward():
+	$Step.play()
 	if (rooms.has(player_coord+player_ori) and doors[player_coord+player_ori/2].is_open()):
 		print(player_coord+player_ori)
 		pass
 	else :
 		print("bonk")
+		await get_tree().create_timer(0.2).timeout
+		$bonk.play()
 		return
+	
 	player_coord += player_ori
 
 func rotate_view(clock_wise := true):
+	$Rotate.play()
 	if (clock_wise):
 		rot-=PI/2
 	elif (!clock_wise):

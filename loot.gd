@@ -13,6 +13,7 @@ func interact():
 		return
 	coffre_closed.visible = false
 	coffre_opened.visible = true
+	$Loot.play()
 	if (weapon == null):
 		looted = true
 		return

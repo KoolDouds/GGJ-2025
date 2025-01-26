@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chpbtiktor0pr"
+path="res://.godot/imported/Acide Splash (echo).mp3-eb37c110d0c34a1ca23b285c988de6e9.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Acide Splash (echo).mp3"
+dest_files=["res://.godot/imported/Acide Splash (echo).mp3-eb37c110d0c34a1ca23b285c988de6e9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

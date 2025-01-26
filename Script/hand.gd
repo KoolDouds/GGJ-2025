@@ -19,6 +19,7 @@ func _ready():
 	set_weapon(weapon)
 
 func set_weapon(_weapon):
+	$SetWpn.play()
 	weapon = _weapon
 	on_change_weapon.emit()
 
@@ -38,6 +39,7 @@ func use_battle(battle):
 	using_phase = 1
 	anim.speed_scale = 1/weapon.pre_time
 	anim.play("attack_start")
+	$AtkStrt.play()
 	await get_tree().create_timer(weapon.pre_time).timeout
 	if using_phase == 0 or battle == null:
 		anim.stop()
@@ -45,6 +47,7 @@ func use_battle(battle):
 		return
 	battle.hit(weapon.dmg, hand_side)
 	weapon.use(self, true)
+	$AtkLand.play()
 	anim.speed_scale = 1/weapon.post_time
 	anim.play("attack_end")
 	using_phase = 2
@@ -57,4 +60,5 @@ func use_crawling(game):
 	if (weapon != null):
 		weapon.use(self)
 	else:
+		$Rien.play()
 		rien.use(self)

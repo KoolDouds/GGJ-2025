@@ -32,11 +32,13 @@ func switch_with_hands(hand : Hand):
 	add_item_at(item_to_store, selected_idx)
 
 func hurt_acid():
+	$Acid.play()
 	$"../HPManager".take_damage(1)
 
 func open():
 	opened = !opened
 	if (opened):
+		$AcidBruit.volume_db = 5
 		visible = true
 		closed_gfx.visible = opened
 		open_gfx.visible = !opened
@@ -46,6 +48,7 @@ func open():
 		closed_gfx.visible = !opened
 		open_gfx.visible = opened
 	else:
+		$AcidBruit.volume_db = 1
 		await get_tree().create_timer(0.1).timeout
 		visible = false
 

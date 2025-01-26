@@ -1,10 +1,10 @@
 extends Node2D
 
-@export var theme_calme : AudioStreamPlayer2D
+@export var theme_calme : AudioStreamPlayer
 var base_vol_calme : float
-@export var theme_dur : AudioStreamPlayer2D
+@export var theme_dur : AudioStreamPlayer
 var base_vol_dur : float
-@export var theme_inv : AudioStreamPlayer2D
+@export var theme_inv : AudioStreamPlayer
 var base_vol_inv : float
 
 var hands : Hands

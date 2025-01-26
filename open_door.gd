@@ -6,4 +6,4 @@ func use(hand: Hand):
 	var door_coord := crawling.player_coord+crawling.player_ori*0.5
 	if (crawling.doors.has(door_coord)):
 		var door : Door = crawling.doors[door_coord]
-		door.open = true
+		door.open_door()

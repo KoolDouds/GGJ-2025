@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=29 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="Script" path="res://cam_pos.gd" id="2_b2wyd"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" path="res://inventaire.gd" id="3_yhw81"]
 [ext_resource type="Script" path="res://Script/weapon.gd" id="4_grple"]
 [ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://Weapons/heal_potion.tres" id="8_7wdci"]
+[ext_resource type="AudioStream" uid="uid://chpbtiktor0pr" path="res://Sounds/Acide Splash (echo).mp3" id="9_8uvgf"]
 [ext_resource type="PackedScene" uid="uid://4lxaa8v3rmwx" path="res://bulle.tscn" id="9_hbgfn"]
+[ext_resource type="AudioStream" uid="uid://bqvwwio5mrlxy" path="res://Sounds/Bloop Bloop Lava.wav" id="10_4yhw2"]
 [ext_resource type="Texture2D" uid="uid://25fxmd63r1pq" path="res://Art/hud-export.png" id="10_y06qd"]
 [ext_resource type="Script" path="res://hpgui.gd" id="11_4e7dx"]
 [ext_resource type="Script" path="res://quest_manager.gd" id="11_2717f"]
@@ -17,9 +19,9 @@
 [ext_resource type="AudioStream" uid="uid://cgrxdhjy7cvcl" path="res://Art/Nothing... Yet... (Hors-Combat) (Loop-friendly).mp3" id="13_se6ue"]
 [ext_resource type="Script" path="res://buttons.gd" id="14_udret"]
 [ext_resource type="AudioStream" uid="uid://ck6byi1y83vc1" path="res://Art/Variation pour se faire passer un savon (inventaire).mp3" id="14_vupfn"]
-[ext_resource type="AudioStream" uid="uid://csyb2fowvdkio" path="res://Screech (combat).mp3" id="15_dxc7p"]
 [ext_resource type="Texture2D" uid="uid://ceil25cg57xno" path="res://Art/2.png" id="15_g3d8w"]
 [ext_resource type="Texture2D" uid="uid://b7uwugdu2miqa" path="res://Art/4.png" id="16_p0ca4"]
+[ext_resource type="AudioStream" uid="uid://4sjywufyt057" path="res://Screech (Center) (combat).mp3" id="17_4lajf"]
 [ext_resource type="Texture2D" uid="uid://dv5h4qf1xn5x1" path="res://Art/5.png" id="17_8ljmv"]
 [ext_resource type="Texture2D" uid="uid://c84menkwoamal" path="res://Art/6.png" id="18_r8w3p"]
 [ext_resource type="Texture2D" uid="uid://b5i01ccx2qrsv" path="res://Art/7.png" id="19_kihsq"]
@@ -96,6 +98,15 @@ transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.00842, 0)
 
 [node name="Bulle" parent="SubViewportContainer/SubViewport/Inventaire" instance=ExtResource("9_hbgfn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Acid" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport/Inventaire"]
+stream = ExtResource("9_8uvgf")
+volume_db = 20.0
+
+[node name="AcidBruit" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport/Inventaire"]
+stream = ExtResource("10_4yhw2")
+volume_db = 20.0
+autoplay = true
 
 [node name="HPManager" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_4lh60")]
 
@@ -318,17 +329,17 @@ theme_calme = NodePath("ThemeCalme")
 theme_dur = NodePath("ThemeDUR")
 theme_inv = NodePath("ThemeInv")
 
-[node name="ThemeCalme" type="AudioStreamPlayer2D" parent="AudioListener2D/MusicMan"]
+[node name="ThemeCalme" type="AudioStreamPlayer" parent="AudioListener2D/MusicMan"]
 stream = ExtResource("13_se6ue")
 volume_db = 20.0
 autoplay = true
 
-[node name="ThemeDUR" type="AudioStreamPlayer2D" parent="AudioListener2D/MusicMan"]
-stream = ExtResource("15_dxc7p")
+[node name="ThemeDUR" type="AudioStreamPlayer" parent="AudioListener2D/MusicMan"]
+stream = ExtResource("17_4lajf")
 volume_db = 24.0
 autoplay = true
 
-[node name="ThemeInv" type="AudioStreamPlayer2D" parent="AudioListener2D/MusicMan"]
+[node name="ThemeInv" type="AudioStreamPlayer" parent="AudioListener2D/MusicMan"]
 stream = ExtResource("14_vupfn")
 volume_db = 20.0
 autoplay = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://eshuj7vsra4m"]
+[gd_scene load_steps=5 format=3 uid="uid://eshuj7vsra4m"]
 
 [ext_resource type="Script" path="res://loot.gd" id="1_8uivh"]
 [ext_resource type="PackedScene" uid="uid://5cltxdep57mj" path="res://Hands/coffre_fermer.fbx" id="2_8gp2q"]
 [ext_resource type="PackedScene" uid="uid://bud7kghus1eru" path="res://Hands/coffre_ouvert.fbx" id="3_lialk"]
+[ext_resource type="AudioStream" uid="uid://cwlckj83qv6i0" path="res://Sounds/Chest opening.mp3" id="4_tuons"]
 
 [node name="Loot" type="Node3D" node_paths=PackedStringArray("display", "coffre_closed", "coffre_opened")]
 script = ExtResource("1_8uivh")
@@ -20,3 +21,8 @@ visible = false
 
 [node name="Display" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.58367, 0)
+
+[node name="Loot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tuons")
+volume_db = 20.0
+pitch_scale = 2.0
