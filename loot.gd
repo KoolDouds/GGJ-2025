@@ -26,14 +26,14 @@ func interact():
 			var hands : Hands = get_tree().get_first_node_in_group("hands")
 			var hand : Hand = hands.left_hand
 			inv.add_item(hand.weapon)
-			hands.left_hand.set_weapon(weapon)
+			hand.set_weapon(weapon)
 			break
 		if (Input.is_action_just_pressed("right")):
 			var inv : Inventory = get_tree().get_first_node_in_group("inventory")
 			var hands : Hands = get_tree().get_first_node_in_group("hands")
 			var hand : Hand = hands.right_hand
 			inv.add_item(hand.weapon)
-			hands.left_hand.set_weapon(weapon)
+			hand.set_weapon(weapon)
 			break
 		if (Input.is_action_just_pressed("back")):
 			var inv : Inventory = get_tree().get_first_node_in_group("inventory")
