@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=11 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="Script" path="res://cam_pos.gd" id="2_b2wyd"]
@@ -13,15 +13,6 @@
 [ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://heal_potion.tres" id="8_7wdci"]
 [ext_resource type="PackedScene" path="res://bulle.tscn" id="9_hbgfn"]
 [ext_resource type="PackedScene" uid="uid://wiojt1xlc40j" path="res://HPGUI.tscn" id="10_4ufoy"]
-
-[sub_resource type="Environment" id="Environment_r32bw"]
-background_energy_multiplier = 0.0
-ambient_light_color = Color(0.172764, 0.000119075, 0.545784, 1)
-ambient_light_energy = 1.83
-fog_enabled = true
-fog_light_color = Color(0.0474505, 0.140228, 0.246077, 1)
-fog_density = 0.1433
-fog_height_density = -0.7111
 
 [node name="Game" type="Control" groups=["game"]]
 layout_mode = 3
@@ -64,7 +55,7 @@ light_energy = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 
 [node name="PosInventory" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.480072)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.590804)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/CamField/CamPos/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
@@ -96,10 +87,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_r32bw")
-
-[node name="SubViewportContainer_SubViewport_Camera3D#OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
-light_energy = 0.5
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
