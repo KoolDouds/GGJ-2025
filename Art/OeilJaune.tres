@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ct54j77icivpp"]
+
+[resource]
+resource_name = "OeilJaune"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.928114, 0.971127, 0.395386, 0.129657)
+roughness = 0.0
+emission_enabled = true
+emission = Color(0, 0, 0, 0)
