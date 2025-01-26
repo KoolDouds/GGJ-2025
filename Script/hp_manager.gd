@@ -5,6 +5,7 @@ var max_hp := 21
 var hp : int
 
 @onready var hp_label : HPGUI = $"../../../Panel/Hpgui"
+@onready var gameover := preload("res://GameOver.tscn")
 @onready var pop_text = load("res://text_pop.tscn")
 
 func _ready() -> void:
@@ -34,3 +35,5 @@ func gain_hp(heal: int):
 
 func die():
 	print("ded :(")
+	get_tree().get_root().add_child(gameover.instantiate())
+	Engine.time_scale = 0

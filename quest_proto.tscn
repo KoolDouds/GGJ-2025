@@ -1,0 +1,163 @@
+[gd_scene load_steps=16 format=3 uid="uid://byffi1ie4kv5m"]
+
+[ext_resource type="PackedScene" uid="uid://cyejn4b76oey1" path="res://DungeonCrawling/crawling.tscn" id="1_okwbo"]
+[ext_resource type="Resource" path="res://key_weapon.tres" id="2_kogsc"]
+[ext_resource type="Script" path="res://cam_pos.gd" id="2_rmeid"]
+[ext_resource type="Script" path="res://Cam.gd" id="3_5w1yg"]
+[ext_resource type="PackedScene" uid="uid://b5reaju2jnx3o" path="res://blood_altar.tscn" id="3_a3irs"]
+[ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="4_8gsdv"]
+[ext_resource type="PackedScene" uid="uid://dil1233dcttvc" path="res://ped.tscn" id="4_x3bkb"]
+[ext_resource type="Script" path="res://inventaire.gd" id="5_rtxjq"]
+[ext_resource type="Script" path="res://Script/weapon.gd" id="6_qmiw8"]
+[ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://Weapons/heal_potion.tres" id="7_h5lgm"]
+[ext_resource type="PackedScene" uid="uid://4lxaa8v3rmwx" path="res://bulle.tscn" id="8_0ux8u"]
+[ext_resource type="PackedScene" uid="uid://c0h4e7bs430mx" path="res://HPManger.tscn" id="9_717x6"]
+[ext_resource type="PackedScene" uid="uid://wiojt1xlc40j" path="res://HPGUI.tscn" id="10_7p7t6"]
+[ext_resource type="Script" path="res://quest_manager.gd" id="11_ow7sg"]
+
+[sub_resource type="Environment" id="Environment_r32bw"]
+background_energy_multiplier = 0.0
+ambient_light_color = Color(0.172764, 0.000119075, 0.545784, 1)
+ambient_light_energy = 1.83
+fog_enabled = true
+fog_light_color = Color(0.0474505, 0.140228, 0.246077, 1)
+fog_density = 0.1433
+fog_height_density = -0.7111
+
+[node name="Game" type="Control" groups=["game"]]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 576.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(768, 576)
+render_target_update_mode = 4
+
+[node name="Crawling" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_okwbo")]
+
+[node name="Room" parent="SubViewportContainer/SubViewport/Crawling/Center" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Loot" parent="SubViewportContainer/SubViewport/Crawling/Center/Room" index="3"]
+weapon = ExtResource("2_kogsc")
+
+[node name="Room2" parent="SubViewportContainer/SubViewport/Crawling/Center" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4.37114e-07)
+
+[node name="Room3" parent="SubViewportContainer/SubViewport/Crawling/Center" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 8.74228e-07)
+
+[node name="Loot" parent="SubViewportContainer/SubViewport/Crawling/Center/Room3" index="3"]
+weapon = null
+
+[node name="Room4" parent="SubViewportContainer/SubViewport/Crawling/Center" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 1.31134e-06)
+
+[node name="BloodAltar" parent="SubViewportContainer/SubViewport/Crawling/Center/Room4" index="3" instance=ExtResource("3_a3irs")]
+
+[node name="Room8" parent="SubViewportContainer/SubViewport/Crawling/Center" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -10)
+
+[node name="Ped" parent="SubViewportContainer/SubViewport/Crawling/Center/Room8" index="3" instance=ExtResource("4_x3bkb")]
+
+[node name="Room9" parent="SubViewportContainer/SubViewport/Crawling/Center" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
+
+[node name="BloodAltar" parent="SubViewportContainer/SubViewport/Crawling/Center/Room9" index="3" instance=ExtResource("3_a3irs")]
+
+[node name="Room5" parent="SubViewportContainer/SubViewport/Crawling/Center" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20)
+
+[node name="Loot" parent="SubViewportContainer/SubViewport/Crawling/Center/Room5" index="3"]
+weapon = null
+
+[node name="Room6" parent="SubViewportContainer/SubViewport/Crawling/Center" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 10)
+
+[node name="Room10" parent="SubViewportContainer/SubViewport/Crawling/Center" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20)
+
+[node name="Room7" parent="SubViewportContainer/SubViewport/Crawling/Center" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 20)
+
+[node name="Loot" parent="SubViewportContainer/SubViewport/Crawling/Center/Room7" index="3"]
+weapon = null
+
+[node name="Door" parent="SubViewportContainer/SubViewport/Crawling/Center" index="11"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 0, 0)
+
+[node name="Door2" parent="SubViewportContainer/SubViewport/Crawling/Center" index="12"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35, 0, 0)
+
+[node name="CamField" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="CamPos" type="Node3D" parent="SubViewportContainer/SubViewport/CamField" node_paths=PackedStringArray("pos_crawling", "pos_inventory")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.590804)
+script = ExtResource("2_rmeid")
+pos_crawling = NodePath("../PosCrawling")
+pos_inventory = NodePath("../PosInventory")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamField/CamPos"]
+current = true
+script = ExtResource("3_5w1yg")
+
+[node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport/CamField/CamPos/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47, 0.05)
+
+[node name="Hands" parent="SubViewportContainer/SubViewport/CamField/CamPos/Camera3D/Node3D" instance=ExtResource("4_8gsdv")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/CamField/CamPos/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
+light_energy = 0.5
+
+[node name="PosCrawling" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
+
+[node name="PosInventory" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.480072)
+
+[node name="Inventaire" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("open_gfx", "closed_gfx", "display_parent") groups=["inventory"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.34702)
+visible = false
+script = ExtResource("5_rtxjq")
+item_list = Array[ExtResource("6_qmiw8")]([ExtResource("7_h5lgm")])
+open_gfx = NodePath("Bulle/Node3D/Bulle Ouverte")
+closed_gfx = NodePath("Bulle/Node3D/Bulle Fermée")
+display_parent = NodePath("Display")
+diplay_radius = 0.5
+
+[node name="Display" type="Node3D" parent="SubViewportContainer/SubViewport/Inventaire"]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.00842, 0)
+
+[node name="Bulle" parent="SubViewportContainer/SubViewport/Inventaire" instance=ExtResource("8_0ux8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="HPManager" parent="SubViewportContainer/SubViewport" instance=ExtResource("9_717x6")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
+environment = SubResource("Environment_r32bw")
+
+[node name="SubViewportContainer_SubViewport_Camera3D#OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
+light_energy = 0.5
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 768.0
+offset_right = 1023.0
+offset_bottom = 576.0
+
+[node name="Hpgui" parent="Panel" instance=ExtResource("10_7p7t6")]
+layout_mode = 1
+
+[node name="QuestMan" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("11_ow7sg")
+
+[editable path="SubViewportContainer/SubViewport/Crawling"]
+[editable path="SubViewportContainer/SubViewport/Inventaire/Bulle"]

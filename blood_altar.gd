@@ -5,4 +5,5 @@ var filled := false
 
 func fill_up():
 	filled = true
+	%QuestMan.blood()
 	print("BLOOOOOOD")

@@ -14,10 +14,10 @@ func _ready():
 func _process(delta):
 	if manager != null:
 		if (Input.is_action_just_pressed("left")):
-			if left_hand.using_phase > 0: pass
+			if left_hand.using_phase > 0 or right_hand.using_phase == 1: pass
 			else: left_hand.use(manager)
 		if (Input.is_action_just_pressed("right")):
-			if right_hand.using_phase > 0: pass
+			if right_hand.using_phase > 0 or left_hand.using_phase == 1: pass
 			else: right_hand.use(manager)
 	elif inventory.opened:
 		if (Input.is_action_just_pressed("left")):

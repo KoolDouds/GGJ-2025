@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://b5i01ccx2qrsv" path="res://Art/7.png" id="19_kihsq"]
 [ext_resource type="Texture2D" uid="uid://cukxom86absnn" path="res://Art/8.png" id="20_st8yo"]
 [ext_resource type="Texture2D" uid="uid://cjqvwbkms1p05" path="res://Art/9.png" id="21_usdhk"]
+[ext_resource type="PackedScene" uid="uid://wiojt1xlc40j" path="res://HPGUI.tscn" id="10_4ufoy"]
+[ext_resource type="Script" path="res://quest_manager.gd" id="11_2717f"]
 
 [sub_resource type="Environment" id="Environment_r32bw"]
 background_energy_multiplier = 0.0
@@ -363,5 +365,9 @@ position = Vector2(958, 355)
 scale = Vector2(2.11538, 2.11538)
 texture = ExtResource("21_usdhk")
 hframes = 2
+
+[node name="QuestMan" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("11_2717f")
 
 [editable path="SubViewportContainer/SubViewport/Inventaire/Bulle"]
