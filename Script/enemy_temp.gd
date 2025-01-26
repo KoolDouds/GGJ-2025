@@ -1,6 +1,5 @@
 extends Node3D
 
-@onready var hp_label: Label3D = $"HP"
 @onready var battle := $".."
 @onready var anim : AnimationPlayer = $"AnimationPlayer"
 @onready var flip := $Flip
@@ -12,12 +11,12 @@ var loop_size : int
 @export var max_hp := 10
 var hp := max_hp
 
+@onready var pop_text = load("res://text_pop.tscn")
 var dmg := 1
 var attack_time := 1
 
 func _ready() -> void:
 	loop_size = moves.size()
-	hp_label.text = str(hp)
 
 func die():
 	print("enmi is kil >:)")
@@ -25,8 +24,12 @@ func die():
 
 func take_damage(dmg):
 	hp -= dmg
+	var text = pop_text.instantiate()
+	text.text = "-"+str(dmg)
+	text.lifetime = 2
+	get_tree().get_first_node_in_group("crawling").add_child(text)
+	text.global_position = global_position+Vector3.UP*1+Vector3(randf(),randf(),randf())
 	print("gave " + str(dmg) + " damage")
-	hp_label.text = str(hp)
 	if hp <= 0: die()
 
 func attack():

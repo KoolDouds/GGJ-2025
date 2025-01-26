@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://787px8h52pbi"]
+[gd_scene load_steps=14 format=3 uid="uid://787px8h52pbi"]
 
 [ext_resource type="Script" path="res://Script/hand.gd" id="1_4rtuw"]
 [ext_resource type="Script" path="res://Script/flip_left_right.gd" id="2_qrugp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Hands/weapon_in_hand_display.gd" id="5_iyn6o"]
 [ext_resource type="Shader" path="res://Hands/Blocking.gdshader" id="5_pln8j"]
 [ext_resource type="Script" path="res://Hands/blockFX.gd" id="6_yyol7"]
+[ext_resource type="PackedScene" uid="uid://cch54vrlpbj8p" path="res://main.fbx" id="7_1sjjv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1hedw"]
 render_priority = 0
@@ -105,6 +106,14 @@ _data = {
 [node name="Hand" type="Node3D" groups=["hand"]]
 script = ExtResource("1_4rtuw")
 
+[node name="Effect" type="Node3D" parent="."]
+transform = Transform3D(1, -3.72529e-09, -2.23517e-08, 2.98023e-08, 1, 0, 7.45058e-09, 2.98023e-08, 1, -0.212916, 0.20403, 0)
+
+[node name="Block" type="MeshInstance3D" parent="Effect"]
+transform = Transform3D(-4.37114e-08, -2.06464e-21, -1, 1.05879e-22, 1, 3.40806e-23, 1, 0, -4.37114e-08, 0.447679, -0.0802669, -0.0275277)
+mesh = SubResource("QuadMesh_gp8lu")
+script = ExtResource("6_yyol7")
+
 [node name="Visual" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.212916, 0.20403, 0)
 
@@ -114,21 +123,17 @@ hand = NodePath("../..")
 
 [node name="main_droite" parent="Visual/FlipLeftRight" instance=ExtResource("3_gqn44")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.0564318, 0)
+visible = false
 
-[node name="Node3D" type="Node3D" parent="Visual/FlipLeftRight/main_droite"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.125923, -0.127074, -0.0787266)
+[node name="main" parent="Visual/FlipLeftRight" instance=ExtResource("7_1sjjv")]
+transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -0.204845, -0.0374693, 0.00456838)
 
-[node name="Weapon_parent" type="Node3D" parent="Visual/FlipLeftRight/main_droite/Node3D" node_paths=PackedStringArray("hand")]
+[node name="Node3D" type="Node3D" parent="Visual/FlipLeftRight/main"]
+transform = Transform3D(30.1316, 6.23172, 0, -6.23172, 30.1316, 0, 0, 0, 30.7692, 4.18661, 0.102265, -0.394345)
+
+[node name="Weapon_parent" type="Node3D" parent="Visual/FlipLeftRight/main/Node3D" node_paths=PackedStringArray("hand")]
 script = ExtResource("5_iyn6o")
 hand = NodePath("../../../../..")
-
-[node name="Effect" type="Node3D" parent="Visual/FlipLeftRight"]
-transform = Transform3D(1, -3.72529e-09, -2.23517e-08, 2.98023e-08, 1, 0, 7.45058e-09, 2.98023e-08, 1, 0, 0, 0)
-
-[node name="Block" type="MeshInstance3D" parent="Visual/FlipLeftRight/Effect"]
-transform = Transform3D(-3.6857e-08, 0.5, -0.866026, 5.53833e-08, 0.866025, 0.5, 1, -2.95348e-08, -5.96107e-08, 0.269686, -0.0802669, -0.0275277)
-mesh = SubResource("QuadMesh_gp8lu")
-script = ExtResource("6_yyol7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

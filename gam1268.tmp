@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=12 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="Script" path="res://cam_pos.gd" id="2_b2wyd"]
@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://Weapons/heal_potion.tres" id="8_7wdci"]
 [ext_resource type="PackedScene" uid="uid://4lxaa8v3rmwx" path="res://bulle.tscn" id="9_hbgfn"]
 [ext_resource type="PackedScene" uid="uid://wiojt1xlc40j" path="res://HPGUI.tscn" id="10_4ufoy"]
-[ext_resource type="Script" path="res://quest_manager.gd" id="11_2717f"]
 
 [sub_resource type="Environment" id="Environment_r32bw"]
 background_energy_multiplier = 0.0
@@ -57,9 +56,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47, 0.05)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
 light_energy = 0.5
 
-[node name="AudioListener3D" type="AudioListener3D" parent="SubViewportContainer/SubViewport/CamField/CamPos/Camera3D"]
-current = true
-
 [node name="PosCrawling" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 
@@ -99,9 +95,5 @@ offset_bottom = 576.0
 
 [node name="Hpgui" parent="Panel" instance=ExtResource("10_4ufoy")]
 layout_mode = 1
-
-[node name="QuestMan" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("11_2717f")
 
 [editable path="SubViewportContainer/SubViewport/Inventaire/Bulle"]
