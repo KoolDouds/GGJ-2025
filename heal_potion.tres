@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://DungeonCrawling/ItemFunction.gd" id="1_x52fd"]
 [ext_resource type="Script" path="res://Script/weapon.gd" id="2_7vwwm"]
 [ext_resource type="Script" path="res://heal.gd" id="2_sncj4"]
-[ext_resource type="PackedScene" path="res://potion_test_1.tscn" id="3_qwu12"]
+[ext_resource type="PackedScene" uid="uid://c4ih7fjqfrrx" path="res://potion.tscn" id="3_vj5kl"]
 
 [sub_resource type="Resource" id="Resource_icwjw"]
 script = ExtResource("2_sncj4")

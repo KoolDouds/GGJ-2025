@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqc1flofnt7ve"]
+[gd_scene load_steps=13 format=3 uid="uid://dkw846sfapwhk"]
 
 [ext_resource type="PackedScene" uid="uid://cyejn4b76oey1" path="res://DungeonCrawling/crawling.tscn" id="1_1oqic"]
 [ext_resource type="PackedScene" uid="uid://be1n6ygjp5xre" path="res://battle.tscn" id="2_8b5pw"]
