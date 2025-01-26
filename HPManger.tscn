@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Script/hp_manager.gd" id="1_ljkn6"]
 
-[node name="HPManager" type="Node" groups=["hpman"]]
+[node name="HPManager" type="Node"]
 script = ExtResource("1_ljkn6")

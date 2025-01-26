@@ -19,9 +19,7 @@ func _ready():
 	set_weapon(weapon)
 
 func set_weapon(_weapon):
-	if _weapon == null:
-		weapon = rien
-	else: weapon = _weapon
+	weapon = _weapon
 	on_change_weapon.emit()
 
 func clear_hand():
