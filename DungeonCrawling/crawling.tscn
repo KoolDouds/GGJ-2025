@@ -1,15 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://cyejn4b76oey1"]
+[gd_scene load_steps=13 format=3 uid="uid://cyejn4b76oey1"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
 [ext_resource type="PackedScene" uid="uid://q7hux1610c2m" path="res://DungeonCrawling/room.tscn" id="2_buovi"]
 [ext_resource type="PackedScene" uid="uid://eshuj7vsra4m" path="res://loot.tscn" id="3_xin1e"]
 [ext_resource type="Resource" uid="uid://jif1437aa5el" path="res://Weapons/shield.tres" id="4_1vltk"]
 [ext_resource type="PackedScene" uid="uid://be1n6ygjp5xre" path="res://battle.tscn" id="5_c1b65"]
+[ext_resource type="PackedScene" uid="uid://bpxys3rpur38p" path="res://red_knight.tscn" id="6_3cslc"]
 [ext_resource type="PackedScene" uid="uid://3rhn38y4mlin" path="res://DungeonCrawling/door.tscn" id="6_t62p0"]
-[ext_resource type="PackedScene" uid="uid://c31dhf6nxl4pr" path="res://eye_monster.tscn" id="6_y35j3"]
-[ext_resource type="Resource" uid="uid://c78hx63utnb45" path="res://Weapons/key_weapon.tres" id="7_fr6t6"]
+[ext_resource type="PackedScene" uid="uid://cbi03irwtck4d" path="res://eye_monster.tscn" id="6_y35j3"]
+[ext_resource type="Resource" uid="uid://b60qtuno62hst" path="res://Weapons/key_weapon.tres" id="7_fr6t6"]
 [ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://Weapons/heal_potion.tres" id="8_lv038"]
-[ext_resource type="Resource" uid="uid://bclowm20mbwtk" path="res://Weapons/masse.tres" id="9_j625p"]
+[ext_resource type="Resource" path="res://Weapons/masse.tres" id="9_j625p"]
 [ext_resource type="AudioStream" uid="uid://ckr4k533ssxsx" path="res://Nothing... Yet....mp3" id="11_lj4ox"]
 
 [node name="Crawling" type="Node3D" node_paths=PackedStringArray("center") groups=["crawling"]]
@@ -30,7 +31,7 @@ weapon = ExtResource("4_1vltk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 4.37114e-07)
 
 [node name="battle" parent="Center/Room2" instance=ExtResource("5_c1b65")]
-enemy_res = ExtResource("6_y35j3")
+enemy_res = ExtResource("6_3cslc")
 
 [node name="Room3" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 8.74228e-07)

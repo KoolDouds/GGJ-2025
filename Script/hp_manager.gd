@@ -1,7 +1,7 @@
 extends Node
 class_name HPManager
 
-var max_hp := 1
+var max_hp := 20
 var hp : int
 
 @onready var hp_label : HPGUI = $"../../../Panel/Hpgui"
