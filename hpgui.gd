@@ -9,7 +9,7 @@ var max_hp : int
 
 func init(max: int):
 	max_hp = max
-	
+
 func _ready() -> void:
 	for i in range(1, max_hp):
 		var dup := heart.duplicate()
