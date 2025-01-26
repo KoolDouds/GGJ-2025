@@ -20,6 +20,6 @@ func _ready() -> void:
 func update_display(hp):
 	for i in range(max_hp):
 		if i+1 <= hp:
-			hearts_array[i].modulate = Color.RED
+			hearts_array[i].modulate = Color.WHITE
 		else:
-			hearts_array[i].modulate = Color.DIM_GRAY
+			hearts_array[i].modulate = Color.DARK_SLATE_GRAY
