@@ -5,6 +5,21 @@
 [ext_resource type="PackedScene" path="res://Hands/main_droite.tscn" id="3_gqn44"]
 [ext_resource type="Script" path="res://Hands/weapon_in_hand_display.gd" id="5_iyn6o"]
 
+[sub_resource type="Animation" id="Animation_c1j7y"]
+resource_name = "attack_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.886732)]
+}
+
 [sub_resource type="Animation" id="Animation_wki2p"]
 length = 0.001
 tracks/0/type = "value"
@@ -33,21 +48,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0.886732), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_c1j7y"]
-resource_name = "attack_start"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visual:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.886732)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q54hr"]
