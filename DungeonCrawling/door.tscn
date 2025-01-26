@@ -19,4 +19,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166002, -0.0267122, 0.02549
 
 [node name="OpenDoor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_77873")
-volume_db = 15.0
+volume_db = 6.0

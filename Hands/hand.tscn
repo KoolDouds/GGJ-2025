@@ -147,20 +147,20 @@ autoplay = "RESET"
 
 [node name="AtkStrt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_nkka8")
-volume_db = 20.0
+volume_db = 8.0
 
 [node name="AtkLand" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_g53bl")
-volume_db = 20.0
+volume_db = 8.0
 
 [node name="SetWpn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_viqih")
-volume_db = 10.0
+volume_db = 4.0
 
 [node name="Blok" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_nkka8")
-volume_db = 20.0
+volume_db = 8.0
 
 [node name="Rien" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_hxhkg")
-volume_db = 20.0
+volume_db = 8.0

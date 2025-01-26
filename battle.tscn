@@ -8,8 +8,9 @@ script = ExtResource("1_4m6g6")
 
 [node name="block" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_rr5gn")
+volume_db = 2.0
 
 [node name="block2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_rr5gn")
-volume_db = 24.0
+volume_db = 10.0
 pitch_scale = 2.0

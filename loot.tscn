@@ -22,7 +22,7 @@ visible = false
 [node name="Display" type="Node3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.58367, 0)
 
-[node name="Loot" type="AudioStreamPlayer2D" parent="."]
+[node name="Loot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tuons")
-volume_db = 20.0
+volume_db = 7.0
 pitch_scale = 2.0
