@@ -66,9 +66,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 [node name="PosInventory" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.590804)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/CamField/CamPos/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
 light_energy = 0.5
+
+[node name="PosCrawling" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
+
+[node name="PosInventory" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.590804)
 
 [node name="Inventaire" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("display_parent") groups=["inventory"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.34702)
@@ -78,7 +84,10 @@ display_parent = NodePath("Display")
 diplay_radius = 0.5
 
 [node name="Display" type="Node3D" parent="SubViewportContainer/SubViewport/Inventaire"]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.00842, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00842, 0)
+
+[node name="Bulle" parent="SubViewportContainer/SubViewport/Inventaire" instance=ExtResource("9_hbgfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Bulle" parent="SubViewportContainer/SubViewport/Inventaire" instance=ExtResource("9_hbgfn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

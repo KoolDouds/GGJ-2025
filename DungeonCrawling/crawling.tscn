@@ -5,11 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://eshuj7vsra4m" path="res://loot.tscn" id="3_xin1e"]
 [ext_resource type="Resource" path="res://default3.tres" id="4_qh8di"]
 
-[sub_resource type="Environment" id="Environment_ga3hs"]
-ambient_light_source = 2
-ambient_light_color = Color(3.85046e-07, 0.174506, 0.231274, 1)
-
-[node name="Crawling" type="Node3D" node_paths=PackedStringArray("center")]
+[node name="Crawling" type="Node3D" node_paths=PackedStringArray("center") groups=["crawling"]]
 script = ExtResource("1_6fc3b")
 center = NodePath("Center")
 
@@ -18,7 +14,7 @@ center = NodePath("Center")
 [node name="Room" parent="Center" instance=ExtResource("2_buovi")]
 
 [node name="Loot" parent="Center/Room" instance=ExtResource("3_xin1e")]
-weapon = ExtResource("4_qh8di")
+weapon = ExtResource("4_eb6tr")
 
 [node name="Room2" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4.37114e-07)
@@ -58,6 +54,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 20)
 
 [node name="Loot" parent="Center/Room7" instance=ExtResource("3_xin1e")]
 weapon = ExtResource("4_qh8di")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ga3hs")
