@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
 [ext_resource type="PackedScene" uid="uid://q7hux1610c2m" path="res://DungeonCrawling/room.tscn" id="2_buovi"]
 [ext_resource type="PackedScene" uid="uid://eshuj7vsra4m" path="res://loot.tscn" id="3_xin1e"]
-[ext_resource type="Resource" uid="uid://cmrud1nbg70jf" path="res://default3.tres" id="4_qh8di"]
+[ext_resource type="Resource" path="res://default3.tres" id="4_qh8di"]
 
 [sub_resource type="Environment" id="Environment_ga3hs"]
 ambient_light_source = 2

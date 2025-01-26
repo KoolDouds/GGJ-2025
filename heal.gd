@@ -6,5 +6,5 @@ extends ItemFunction
 func use(hand: Hand):
 	print("heal!!")
 	hand.clear_hand()
-	var hpman : HPManager = hand.get_tree().get_root().find_child("HPManager")
+	var hpman : HPManager = hand.get_tree().get_root().find_child("HPManager", true, false)
 	hpman.gain_hp(healing_amount)

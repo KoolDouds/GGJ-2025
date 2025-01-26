@@ -35,6 +35,9 @@ func use_battle(battle):
 	print("use "+ name)
 	using_phase = 1
 	await get_tree().create_timer(weapon.pre_time).timeout
+	if using_phase == 0:
+		# CANCEL ANIMATION
+		return
 	battle.hit(weapon.dmg, hand_side)
 	weapon.use(self, true)
 	using_phase = 2

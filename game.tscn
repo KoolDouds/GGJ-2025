@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=11 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="PackedScene" uid="uid://cyejn4b76oey1" path="res://DungeonCrawling/crawling.tscn" id="2_ch3i2"]
@@ -8,7 +8,8 @@
 [ext_resource type="Resource" uid="uid://b31hsxg8sincy" path="res://default.tres" id="5_dri4y"]
 [ext_resource type="Resource" uid="uid://6cav8kmnksk8" path="res://default2.tres" id="6_5npxu"]
 [ext_resource type="Resource" path="res://default3.tres" id="7_ikqfe"]
-[ext_resource type="PackedScene" uid="uid://wiojt1xlc40j" path="res://HPGUI.tscn" id="9_ikekr"]
+[ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://heal_potion.tres" id="8_7wdci"]
+[ext_resource type="PackedScene" uid="uid://wiojt1xlc40j" path="res://HPGUI.tscn" id="10_4ufoy"]
 
 [node name="Game" type="Control" groups=["game"]]
 layout_mode = 3
@@ -55,10 +56,5 @@ offset_left = 768.0
 offset_right = 1023.0
 offset_bottom = 576.0
 
-[node name="Hpgui" parent="Panel" instance=ExtResource("9_ikekr")]
+[node name="Hpgui" parent="Panel" instance=ExtResource("10_4ufoy")]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.008
-anchor_bottom = 0.212
-offset_right = -3.04001
-offset_bottom = 4.88799

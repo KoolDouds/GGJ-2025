@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Script/hand.gd" id="1_4rtuw"]
 [ext_resource type="Script" path="res://Script/flip_left_right.gd" id="2_qrugp"]
-[ext_resource type="PackedScene" uid="uid://gre8hxj1vc0d" path="res://Hands/main_droite.tscn" id="3_gqn44"]
+[ext_resource type="PackedScene" path="res://Hands/main_droite.tscn" id="3_gqn44"]
 [ext_resource type="Script" path="res://Hands/weapon_in_hand_display.gd" id="5_iyn6o"]
 
 [node name="Hand" type="Node3D" groups=["hand"]]
