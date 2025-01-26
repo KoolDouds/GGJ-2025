@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 	if hands.global_position.distance_to(global_position) < 5:
 		start_battle()
 	look_at(hands.position)
+	rotation.y += PI
 	rotation.x = 0
 
 func start_battle():

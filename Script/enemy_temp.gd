@@ -3,6 +3,7 @@ extends Node3D
 @onready var hp_label: Label3D = $"HP"
 @onready var battle := $".."
 @onready var anim : AnimationPlayer = $"AnimationPlayer"
+@onready var flip := $Flip
 
 @export var moves : Array[EnemyMove]
 var index := 0
@@ -34,11 +35,18 @@ func attack():
 		print("awaiting attack...")
 		anim.speed_scale = 1/move.prep_time
 		if move.side == Hand.SIDE.LEFT:
-			anim.play("attack_left")
+			flip.scale.x = -1
 		else:
-			anim.play("attack_right")
+			flip.scale.x = 1
+		anim.play("attack")
 		await get_tree().create_timer(move.prep_time).timeout
 		battle.get_hit(move.dmg, move.side)
+		if move.cooldown <= 1:
+			anim.speed_scale = 1/move.cooldown
+		else:
+			anim.speed_scale = 1
+		if move.cooldown > 0:
+			anim.play("recover")
 		await get_tree().create_timer(move.cooldown).timeout
 		index += 1
 		index = index%loop_size

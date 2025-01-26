@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=15 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="Script" path="res://cam_pos.gd" id="2_b2wyd"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cmrud1nbg70jf" path="res://default3.tres" id="7_ikqfe"]
 [ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://heal_potion.tres" id="8_7wdci"]
 [ext_resource type="PackedScene" uid="uid://4lxaa8v3rmwx" path="res://bulle.tscn" id="9_hbgfn"]
+[ext_resource type="PackedScene" uid="uid://wiojt1xlc40j" path="res://HPGUI.tscn" id="10_4ufoy"]
 
 [sub_resource type="Environment" id="Environment_r32bw"]
 background_energy_multiplier = 0.0
@@ -65,10 +66,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 [node name="PosInventory" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.480072)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
-light_energy = 0.5
-
 [node name="Inventaire" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("display_parent") groups=["inventory"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.34702)
 script = ExtResource("3_yhw81")
@@ -86,6 +83,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_r32bw")
+
+[node name="SubViewportContainer_SubViewport_Camera3D#OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
+light_energy = 0.5
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
