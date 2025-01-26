@@ -32,6 +32,8 @@ game=""
 inventory=""
 hands=""
 crawling=""
+blood_altar=""
+hpman=""
 
 [input]
 
