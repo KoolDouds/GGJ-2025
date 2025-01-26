@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyejn4b76oey1"]
+[gd_scene load_steps=10 format=3 uid="uid://cyejn4b76oey1"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
 [ext_resource type="PackedScene" uid="uid://q7hux1610c2m" path="res://DungeonCrawling/room.tscn" id="2_buovi"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://be1n6ygjp5xre" path="res://battle.tscn" id="5_c1b65"]
 [ext_resource type="PackedScene" uid="uid://3rhn38y4mlin" path="res://DungeonCrawling/door.tscn" id="6_t62p0"]
 [ext_resource type="PackedScene" uid="uid://c31dhf6nxl4pr" path="res://eye_monster.tscn" id="6_y35j3"]
+[ext_resource type="Resource" uid="uid://c78hx63utnb45" path="res://Weapons/key_weapon.tres" id="7_fr6t6"]
+[ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://Weapons/heal_potion.tres" id="8_lv038"]
 
 [node name="Crawling" type="Node3D" node_paths=PackedStringArray("center") groups=["crawling"]]
 script = ExtResource("1_6fc3b")
@@ -15,53 +17,58 @@ center = NodePath("Center")
 [node name="Center" type="Node3D" parent="."]
 
 [node name="Room" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
 
 [node name="Loot" parent="Center/Room" instance=ExtResource("3_xin1e")]
 weapon = ExtResource("4_1vltk")
 
+[node name="Room11" parent="Center" instance=ExtResource("2_buovi")]
+
 [node name="Room2" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 4.37114e-07)
 
 [node name="battle" parent="Center/Room2" instance=ExtResource("5_c1b65")]
 enemy_res = ExtResource("6_y35j3")
 
 [node name="Room3" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 8.74228e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 8.74228e-07)
 
 [node name="Loot" parent="Center/Room3" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("7_fr6t6")
 
 [node name="battle" parent="Center/Room3" instance=ExtResource("5_c1b65")]
 enemy_res = ExtResource("6_y35j3")
 
 [node name="Room4" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 1.31134e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 1.31134e-06)
 
 [node name="Room8" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -10)
-
-[node name="Room9" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
 
+[node name="Room9" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -10)
+
 [node name="Room5" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20)
-
-[node name="Loot" parent="Center/Room5" instance=ExtResource("3_xin1e")]
-
-[node name="Room6" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 10)
-
-[node name="Room10" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20)
 
-[node name="Room7" parent="Center" instance=ExtResource("2_buovi")]
+[node name="Loot" parent="Center/Room5" instance=ExtResource("3_xin1e")]
+weapon = ExtResource("8_lv038")
+
+[node name="Room6" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 10)
+
+[node name="Room10" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 20)
+
+[node name="Room7" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 20)
 
 [node name="Loot" parent="Center/Room7" instance=ExtResource("3_xin1e")]
 
 [node name="Door" parent="Center" instance=ExtResource("6_t62p0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35, 0, 0)
 open = false
 
 [node name="Door2" parent="Center" instance=ExtResource("6_t62p0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45, 0, 0)
 open = false

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://e57ba50l1473" path="res://Hands/Shield.fbx" id="1_h8mw7"]
 
 [node name="Shield" instance=ExtResource("1_h8mw7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Circle" parent="." index="0"]
-transform = Transform3D(0.778568, 8.40195e-07, -19.9848, 19.9848, -8.73565e-07, 0.778568, -8.40195e-07, -20, -8.73565e-07, 0, 0, 0)
+transform = Transform3D(-0.466048, -21.9471, 11.9628, 24.981, -1.15405e-06, 0.973212, -0.854365, 11.9719, 21.9304, -0.00891916, -2.98023e-08, 0.0319515)

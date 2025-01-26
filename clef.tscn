@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvpt1u3vfbs0n"]
+
+[ext_resource type="PackedScene" uid="uid://dda4v4wruejvf" path="res://Weapons/clef.fbx" id="1_qttwr"]
+
+[node name="clef" instance=ExtResource("1_qttwr")]
+
+[node name="clef" parent="." index="0"]
+transform = Transform3D(-2.3938, -1.49547, 1.01651, -1.58949, 2.54431, 0, -0.862105, -0.538578, -2.82254, 0.102538, 0.0958634, 0.0364055)

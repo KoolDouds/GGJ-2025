@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://3rhn38y4mlin"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/door.gd" id="1_wu3m2"]
-[ext_resource type="PackedScene" uid="uid://kdqwe341hxlj" path="res://porte.fbx" id="2_15joh"]
-[ext_resource type="PackedScene" uid="uid://bct65gb8rniao" path="res://encadrement_porte (1).fbx" id="3_l008o"]
+[ext_resource type="PackedScene" uid="uid://d4bjhv4migl7u" path="res://Weapons/cadre porte.fbx" id="3_j0qh2"]
+[ext_resource type="PackedScene" uid="uid://bvvjq87r0hmit" path="res://Weapons/Porte Unwraping.fbx" id="3_ptapv"]
 
 [node name="Door" type="Node3D" node_paths=PackedStringArray("open_gfx", "closed_gfx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
@@ -10,8 +10,8 @@ script = ExtResource("1_wu3m2")
 open_gfx = NodePath("Open")
 closed_gfx = NodePath("Closed")
 
-[node name="Closed" parent="." instance=ExtResource("2_15joh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.127367, 0)
+[node name="Closed" parent="." instance=ExtResource("3_ptapv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0267122, 0)
 
-[node name="Open" parent="." instance=ExtResource("3_l008o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.127367, 0)
+[node name="Open" parent="." instance=ExtResource("3_j0qh2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166002, -0.0267122, 0.0254936)

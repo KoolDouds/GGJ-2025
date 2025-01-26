@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://1ngvui8g44me"]
+
+[ext_resource type="Script" path="res://DungeonCrawling/ItemFunction.gd" id="1_advv2"]
+[ext_resource type="PackedScene" uid="uid://bkgmohxcxa0q8" path="res://Art/Dague.fbx" id="2_1f067"]
+[ext_resource type="Script" path="res://Script/weapon.gd" id="3_8cjpt"]
+
+[resource]
+script = ExtResource("3_8cjpt")
+pre_time = 0.3
+post_time = 0.5
+dmg = 3
+functions = Array[ExtResource("1_advv2")]([])
+gfx = ExtResource("2_1f067")

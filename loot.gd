@@ -6,7 +6,7 @@ var looted := false
 @export var coffre_closed: Node3D
 @export var coffre_opened: Node3D
 
-
+var clone
 
 func interact():
 	if (looted):
@@ -20,8 +20,10 @@ func interact():
 	crawling.looting = true
 	display_item()
 	while (true):
-		await get_tree().process_frame
+		clone.rotation.y += 0.01
+		clone.rotation.x -= 0.001
 		if (Input.is_action_just_pressed("left")):
+			await get_tree().process_frame
 			var inv : Inventory = get_tree().get_first_node_in_group("inventory")
 			var hands : Hands = get_tree().get_first_node_in_group("hands")
 			var hand : Hand = hands.left_hand
@@ -29,6 +31,7 @@ func interact():
 			hand.set_weapon(weapon)
 			break
 		if (Input.is_action_just_pressed("right")):
+			await get_tree().process_frame
 			var inv : Inventory = get_tree().get_first_node_in_group("inventory")
 			var hands : Hands = get_tree().get_first_node_in_group("hands")
 			var hand : Hand = hands.right_hand
@@ -36,9 +39,12 @@ func interact():
 			hand.set_weapon(weapon)
 			break
 		if (Input.is_action_just_pressed("back")):
+			await get_tree().process_frame
 			var inv : Inventory = get_tree().get_first_node_in_group("inventory")
 			inv.add_item(weapon)
 			break
+		await get_tree().process_frame
+	
 	disapear_display()
 	
 	looted = true
@@ -46,7 +52,7 @@ func interact():
 
 
 func display_item():
-	var clone : Node3D = weapon.gfx.instantiate()
+	clone = weapon.gfx.instantiate()
 	display.global_rotation.y = PI
 	display.add_child(clone)
 	clone.position = Vector3.FORWARD

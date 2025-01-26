@@ -16,6 +16,7 @@ signal on_change_weapon
 
 func _ready():
 	rien = load("res://Weapons/rien.tres")
+	set_weapon(weapon)
 
 func set_weapon(_weapon):
 	if _weapon == null:
