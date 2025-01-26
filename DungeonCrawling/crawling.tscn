@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
 [ext_resource type="PackedScene" uid="uid://q7hux1610c2m" path="res://DungeonCrawling/room.tscn" id="2_buovi"]
 [ext_resource type="PackedScene" uid="uid://eshuj7vsra4m" path="res://loot.tscn" id="3_xin1e"]
-[ext_resource type="Resource" uid="uid://b31hsxg8sincy" path="res://default.tres" id="4_eb6tr"]
+[ext_resource type="Resource" uid="uid://jif1437aa5el" path="res://Weapons/shield.tres" id="4_1vltk"]
 [ext_resource type="PackedScene" uid="uid://be1n6ygjp5xre" path="res://battle.tscn" id="5_c1b65"]
 [ext_resource type="PackedScene" uid="uid://3rhn38y4mlin" path="res://DungeonCrawling/door.tscn" id="6_t62p0"]
 [ext_resource type="PackedScene" uid="uid://c31dhf6nxl4pr" path="res://eye_monster.tscn" id="6_y35j3"]
@@ -17,7 +17,7 @@ center = NodePath("Center")
 [node name="Room" parent="Center" instance=ExtResource("2_buovi")]
 
 [node name="Loot" parent="Center/Room" instance=ExtResource("3_xin1e")]
-weapon = ExtResource("4_eb6tr")
+weapon = ExtResource("4_1vltk")
 
 [node name="Room2" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4.37114e-07)

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c0h4e7bs430mx" path="res://HPManger.tscn" id="3_4lh60"]
 [ext_resource type="Script" path="res://inventaire.gd" id="3_yhw81"]
 [ext_resource type="Script" path="res://Script/weapon.gd" id="4_grple"]
-[ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://heal_potion.tres" id="8_7wdci"]
+[ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://Weapons/heal_potion.tres" id="8_7wdci"]
 [ext_resource type="PackedScene" uid="uid://4lxaa8v3rmwx" path="res://bulle.tscn" id="9_hbgfn"]
 [ext_resource type="PackedScene" uid="uid://wiojt1xlc40j" path="res://HPGUI.tscn" id="10_4ufoy"]
 
