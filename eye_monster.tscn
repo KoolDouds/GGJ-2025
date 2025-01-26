@@ -251,6 +251,7 @@ _data = {
 [node name="Eye_monster" type="Node3D"]
 script = ExtResource("1_ihhsl")
 moves = Array[ExtResource("2_hrjjg")]([SubResource("Resource_beq33"), SubResource("Resource_r2vd6"), SubResource("Resource_3yj8s"), SubResource("Resource_bml7w")])
+max_hp = 20
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

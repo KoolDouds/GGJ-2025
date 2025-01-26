@@ -201,6 +201,7 @@ _data = {
 [node name="RedKnight" type="Node3D"]
 script = ExtResource("1_4cspw")
 moves = Array[ExtResource("2_62id1")]([SubResource("Resource_vrgxd"), SubResource("Resource_1gyuw"), SubResource("Resource_3eqav"), SubResource("Resource_1pglp")])
+max_hp = 30
 
 [node name="Flip" type="Node3D" parent="."]
 
