@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bngx3k52sdwvp"]
+
+[ext_resource type="PackedScene" uid="uid://c2s0r6ubmgkx1" path="res://bouche_trou.fbx" id="1_j6rmt"]
+
+[node name="BoucheTrou" type="Node3D"]
+
+[node name="bouche_trou" parent="." instance=ExtResource("1_j6rmt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)

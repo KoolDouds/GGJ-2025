@@ -2,10 +2,52 @@ class_name Loot extends Node3D
 
 @export var weapon : Weapon
 var looted := false
+@export var display: Node3D
+@export var coffre_closed: Node3D
+@export var coffre_opened: Node3D
+
+
 
 func interact():
 	if (looted):
 		return
-	var inv : Inventory = get_tree().get_first_node_in_group("inventory")
-	inv.add_item(weapon)
+	var crawling : Crawling = get_tree().get_first_node_in_group("crawling")
+	crawling.looting = true
+	display_item()
+	while (true):
+		await get_tree().process_frame
+		if (Input.is_action_just_pressed("left")):
+			var inv : Inventory = get_tree().get_first_node_in_group("inventory")
+			var hands : Hands = get_tree().get_first_node_in_group("hands")
+			var hand : Hand = hands.left_hand
+			inv.add_item(hand.weapon)
+			hands.left_hand.set_weapon(weapon)
+			break
+		if (Input.is_action_just_pressed("right")):
+			var inv : Inventory = get_tree().get_first_node_in_group("inventory")
+			var hands : Hands = get_tree().get_first_node_in_group("hands")
+			var hand : Hand = hands.right_hand
+			inv.add_item(hand.weapon)
+			hands.left_hand.set_weapon(weapon)
+			break
+		if (Input.is_action_just_pressed("back")):
+			var inv : Inventory = get_tree().get_first_node_in_group("inventory")
+			inv.add_item(weapon)
+			break
+	disapear_display()
+	coffre_closed.visible = false
+	coffre_opened.visible = true
 	looted = true
+	crawling.looting = false
+
+
+func display_item():
+	var clone : Node3D = weapon.gfx.instantiate()
+	display.global_rotation.y = PI
+	display.add_child(clone)
+	clone.position = Vector3.FORWARD
+	clone.rotation.y = PI/2
+
+func disapear_display():
+
+	display.queue_free()

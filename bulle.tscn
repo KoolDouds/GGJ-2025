@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://4lxaa8v3rmwx"]
+
+[ext_resource type="PackedScene" uid="uid://cbuagltov6pm2" path="res://Art/Bulle Fermée.fbx" id="1_hoeg7"]
+[ext_resource type="PackedScene" uid="uid://csnlol34trq80" path="res://Art/Bulle Ouverte.fbx" id="2_4omcg"]
+
+[node name="Bulle" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -0.167666, 0, 0)
+
+[node name="Bulle Fermée" parent="Node3D" instance=ExtResource("1_hoeg7")]
+visible = false
+
+[node name="Bulle Ouverte" parent="Node3D" instance=ExtResource("2_4omcg")]

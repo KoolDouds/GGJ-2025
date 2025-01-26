@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://sckh15ad7xxx"
-path="res://.godot/imported/coffre.fbx-9ed3220a8a2b5700883614580f8d0b2e.scn"
+uid="uid://csnlol34trq80"
+path="res://.godot/imported/Bulle Ouverte.fbx-0dd353b370e055a7a1b4e6a619a333ce.scn"
 
 [deps]
 
-source_file="res://Art/coffre.fbx"
-dest_files=["res://.godot/imported/coffre.fbx-9ed3220a8a2b5700883614580f8d0b2e.scn"]
+source_file="res://Art/Bulle Ouverte.fbx"
+dest_files=["res://.godot/imported/Bulle Ouverte.fbx-0dd353b370e055a7a1b4e6a619a333ce.scn"]
 
 [params]
 

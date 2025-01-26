@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ctx7vo1rtmo7k"]
+
+[ext_resource type="Texture2D" uid="uid://bj3gt3inwdqf8" path="res://Art/BulleFermeeTexture.png" id="1_jm1ih"]
+
+[resource]
+resource_name = "BulleFerméeMaterial"
+transparency = 1
+blend_mode = 3
+depth_draw_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_jm1ih")
+metallic = 1.0
+metallic_specular = 0.66
+roughness = 0.05
+emission_enabled = true
+emission = Color(0.291333, 0, 0.46, 0)
+emission_energy_multiplier = 0.89
