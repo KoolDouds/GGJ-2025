@@ -1,10 +1,11 @@
 extends Node
 class_name HPManager
 
-var max_hp := 20
+var max_hp := 1
 var hp : int
 
 @onready var hp_label : HPGUI = $"../../../Panel/Hpgui"
+@onready var gameover := preload("res://GameOver.tscn")
 
 func _ready() -> void:
 	hp_label.init(max_hp)
@@ -24,3 +25,5 @@ func gain_hp(heal: int):
 
 func die():
 	print("ded :(")
+	get_tree().get_root().add_child(gameover.instantiate())
+	Engine.time_scale = 0
