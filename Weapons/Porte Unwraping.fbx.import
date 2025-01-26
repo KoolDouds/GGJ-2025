@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1ba5ivl8q53h"
-path="res://.godot/imported/MaceRedo (1).fbx-01cdf5f879c8143ec5ef26f977a9c65b.scn"
+uid="uid://bvvjq87r0hmit"
+path="res://.godot/imported/Porte Unwraping.fbx-d6afab66019795570d4530d336025828.scn"
 
 [deps]
 
-source_file="res://MaceRedo (1).fbx"
-dest_files=["res://.godot/imported/MaceRedo (1).fbx-01cdf5f879c8143ec5ef26f977a9c65b.scn"]
+source_file="res://Weapons/Porte Unwraping.fbx"
+dest_files=["res://.godot/imported/Porte Unwraping.fbx-d6afab66019795570d4530d336025828.scn"]
 
 [params]
 

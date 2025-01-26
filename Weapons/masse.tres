@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://bclowm20mbwtk"]
+
+[ext_resource type="Script" path="res://DungeonCrawling/ItemFunction.gd" id="1_fex2t"]
+[ext_resource type="PackedScene" uid="uid://1ba5ivl8q53h" path="res://MaceRedo.fbx" id="2_0ngmt"]
+[ext_resource type="Script" path="res://Script/weapon.gd" id="2_f11c0"]
+
+[resource]
+script = ExtResource("2_f11c0")
+pre_time = 0.7
+post_time = 0.5
+dmg = 5
+functions = Array[ExtResource("1_fex2t")]([])
+gfx = ExtResource("2_0ngmt")

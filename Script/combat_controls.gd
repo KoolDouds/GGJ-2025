@@ -11,7 +11,7 @@ var active = false
 func _ready() -> void:
 	enemy = enemy_res.instantiate()
 	add_child(enemy)
-	enemy.position.z = 2.5
+	enemy.position.z = 1
 
 func _process(delta: float) -> void:
 	if active: return
