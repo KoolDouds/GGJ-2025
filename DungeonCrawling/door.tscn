@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://3rhn38y4mlin"]
+[gd_scene load_steps=4 format=3 uid="uid://3rhn38y4mlin"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/door.gd" id="1_wu3m2"]
 [ext_resource type="PackedScene" uid="uid://kdqwe341hxlj" path="res://porte.fbx" id="2_15joh"]
+[ext_resource type="PackedScene" uid="uid://bct65gb8rniao" path="res://encadrement_porte (1).fbx" id="3_l008o"]
 
-[node name="Door" type="Node3D"]
+[node name="Door" type="Node3D" node_paths=PackedStringArray("open_gfx", "closed_gfx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 script = ExtResource("1_wu3m2")
+open_gfx = NodePath("Open")
+closed_gfx = NodePath("Closed")
 
-[node name="porte2" parent="." instance=ExtResource("2_15joh")]
+[node name="Closed" parent="." instance=ExtResource("2_15joh")]
+
+[node name="Open" parent="." instance=ExtResource("3_l008o")]

@@ -63,7 +63,7 @@ light_energy = 0.5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 
 [node name="PosInventory" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.590804)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.480072)
 
 [node name="Inventaire" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("display_parent") groups=["inventory"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.34702)
