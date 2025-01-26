@@ -53,6 +53,10 @@ func _ready():
 					doors[door_coord] = door
 					$Center.add_child(door)
 					print(door_coord)
+			else:
+				var door = load("res://bouche_trou.tscn").instantiate()
+				door.rotation = Vector3(0,vec.angle(),0)
+				i.add_child(door)
 			vec = rotate_vector_90d(vec)
 	
 	for i in room_list:
@@ -144,10 +148,8 @@ func rotate_view(clock_wise := true):
 
 func rotate_vector_90d(vec,clock_wise := true):
 	if (clock_wise):
-		rot+=PI/2
 		return Vector2(vec.y*-1, vec.x)
 	elif (!clock_wise):
-		rot-=PI/2
 		return Vector2(vec.y, vec.x*-1)
 
 #func _draw():
