@@ -32,6 +32,7 @@ game=""
 inventory=""
 hands=""
 crawling=""
+camera=""
 
 [input]
 

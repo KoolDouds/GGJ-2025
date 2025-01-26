@@ -44,7 +44,7 @@ script = ExtResource("2_b2wyd")
 pos_crawling = NodePath("../PosCrawling")
 pos_inventory = NodePath("../PosInventory")
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamField/CamPos"]
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamField/CamPos" groups=["camera"]]
 current = true
 script = ExtResource("3_2nrek")
 
