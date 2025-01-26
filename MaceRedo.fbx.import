@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://1ba5ivl8q53h"
-path="res://.godot/imported/MaceRedo (1).fbx-01cdf5f879c8143ec5ef26f977a9c65b.scn"
+path="res://.godot/imported/MaceRedo.fbx-a4d09b97b1c3e1dbbe83236c36ec7061.scn"
 
 [deps]
 
-source_file="res://MaceRedo (1).fbx"
-dest_files=["res://.godot/imported/MaceRedo (1).fbx-01cdf5f879c8143ec5ef26f977a9c65b.scn"]
+source_file="res://MaceRedo.fbx"
+dest_files=["res://.godot/imported/MaceRedo.fbx-a4d09b97b1c3e1dbbe83236c36ec7061.scn"]
 
 [params]
 
