@@ -11,7 +11,5 @@ open_gfx = NodePath("Open")
 closed_gfx = NodePath("Closed")
 
 [node name="Closed" parent="." instance=ExtResource("2_15joh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.127367, 0)
 
 [node name="Open" parent="." instance=ExtResource("3_l008o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.127367, 0)
