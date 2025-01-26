@@ -1,13 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://q7hux1610c2m"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/room.gd" id="1_msas5"]
-[ext_resource type="PackedScene" uid="uid://v1uku4owcmfh" path="res://sale troue.fbx" id="3_dl610"]
 [ext_resource type="PackedScene" uid="uid://bkgmohxcxa0q8" path="res://Art/Dague.fbx" id="3_jhtbk"]
+[ext_resource type="PackedScene" uid="uid://cb41yjhbmyomh" path="res://DungeonCrawling/salle_texture_max.fbx" id="3_l24j2"]
 
 [node name="Room" type="Node3D"]
 script = ExtResource("1_msas5")
-
-[node name="sale troue" parent="." instance=ExtResource("3_dl610")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74536, 0)
@@ -18,3 +16,5 @@ omni_attenuation = 0.795
 
 [node name="Dague" parent="." instance=ExtResource("3_jhtbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.16407, 0, 5.86632)
+
+[node name="salle_texture_max" parent="." instance=ExtResource("3_l24j2")]
