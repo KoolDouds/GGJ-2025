@@ -4,6 +4,9 @@ class_name Inventory extends Node3D
 var selected_idx : int = 0
 var opened := false
 
+@export var open_gfx : Node3D
+@export var closed_gfx : Node3D
+
 @export var display_parent : Node3D
 @export var diplay_radius := 1.0
 
@@ -11,20 +14,39 @@ func _ready():
 	display_items()
 
 func _process(delta):
-	visible = opened
+	
 	if (opened):
 		update_display_pos()
 		
 
 func switch_with_hands(hand : Hand):
+	if (item_list.size()<=0):
+		return
+	
+	hurt_acid()
+	
 	var item_to_store = hand.weapon
 	hand.set_weapon(item_list[selected_idx])
 	remove_item_at(selected_idx)
 	add_item_at(item_to_store, selected_idx)
 
+func hurt_acid():
+	$"../HPManager".take_damage(1)
+
 func open():
 	opened = !opened
-	
+	if (opened):
+		visible = true
+		closed_gfx.visible = opened
+		open_gfx.visible = !opened
+		
+		await get_tree().create_timer(0.6).timeout
+		
+		closed_gfx.visible = !opened
+		open_gfx.visible = opened
+	else:
+		await get_tree().create_timer(0.1).timeout
+		visible = false
 
 func display_items():
 	var children = display_parent.get_children()
