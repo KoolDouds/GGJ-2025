@@ -67,19 +67,6 @@ func _ready():
 				door.rotation = Vector3(0,vec.angle(),0)
 				i.add_child(door)
 			vec = rotate_vector_90d(vec)
-	
-	for i in room_list:
-		if (!i is Room):
-			continue
-		var coord = pos_to_coord(i.position)
-		var vec = Vector2.UP
-		for xx in range(4):
-			if (!rooms.has(coord+vec)):
-				print(coord+vec)
-				var door = load("res://bouche_trou.tscn").instantiate()
-				door.rotation = Vector3(0,vec.angle(),0)
-				i.add_child(door)
-			vec = rotate_vector_90d(vec)
 
 func is_crawling():
 	return hands.manager == null and !traveling and !looting

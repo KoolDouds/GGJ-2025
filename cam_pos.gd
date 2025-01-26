@@ -9,8 +9,8 @@ func _ready():
 
 func _process(delta):
 	if (inventory.opened):
-		position = lerp(position, pos_inventory.position,0.2)
+		position = lerp(position, pos_inventory.position,0.5)
 		rotation = lerp(rotation, pos_inventory.rotation,0.2)
 	else :
-		position = lerp(position, pos_crawling.position,0.2)
+		position = lerp(position, pos_crawling.position,0.1)
 		rotation = lerp(rotation, pos_crawling.rotation,0.2)

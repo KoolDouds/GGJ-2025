@@ -15,12 +15,10 @@ var rien : Weapon
 signal on_change_weapon
 
 func _ready():
-	rien = load("res://rien.tres")
+	rien = load("res://Weapons/rien.tres")
 
 func set_weapon(_weapon):
-	if _weapon == null:
-		weapon = rien
-	else: weapon = _weapon
+	weapon = _weapon
 	on_change_weapon.emit()
 
 func clear_hand():

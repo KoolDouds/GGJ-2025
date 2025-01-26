@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bngx3k52sdwvp"]
 
-[ext_resource type="PackedScene" uid="uid://c2s0r6ubmgkx1" path="res://bouche_trou.fbx" id="1_j6rmt"]
+[ext_resource type="PackedScene" uid="uid://cjhqdmoqw4vk6" path="res://DungeonCrawling/cache_texture_max.fbx" id="1_1shsq"]
 
 [node name="BoucheTrou" type="Node3D"]
 
-[node name="bouche_trou" parent="." instance=ExtResource("1_j6rmt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+[node name="cache_texture_max" parent="." instance=ExtResource("1_1shsq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -5)

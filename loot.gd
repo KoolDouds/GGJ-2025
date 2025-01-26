@@ -11,6 +11,11 @@ var looted := false
 func interact():
 	if (looted):
 		return
+	coffre_closed.visible = false
+	coffre_opened.visible = true
+	if (weapon == null):
+		looted = true
+		return
 	var crawling : Crawling = get_tree().get_first_node_in_group("crawling")
 	crawling.looting = true
 	display_item()
@@ -21,22 +26,21 @@ func interact():
 			var hands : Hands = get_tree().get_first_node_in_group("hands")
 			var hand : Hand = hands.left_hand
 			inv.add_item(hand.weapon)
-			hands.left_hand.set_weapon(weapon)
+			hand.set_weapon(weapon)
 			break
 		if (Input.is_action_just_pressed("right")):
 			var inv : Inventory = get_tree().get_first_node_in_group("inventory")
 			var hands : Hands = get_tree().get_first_node_in_group("hands")
 			var hand : Hand = hands.right_hand
 			inv.add_item(hand.weapon)
-			hands.left_hand.set_weapon(weapon)
+			hand.set_weapon(weapon)
 			break
 		if (Input.is_action_just_pressed("back")):
 			var inv : Inventory = get_tree().get_first_node_in_group("inventory")
 			inv.add_item(weapon)
 			break
 	disapear_display()
-	coffre_closed.visible = false
-	coffre_opened.visible = true
+	
 	looted = true
 	crawling.looting = false
 

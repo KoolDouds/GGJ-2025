@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cauw6kx443ipd"]
+
+[ext_resource type="PackedScene" uid="uid://e57ba50l1473" path="res://Hands/Shield.fbx" id="1_h8mw7"]
+
+[node name="Shield" instance=ExtResource("1_h8mw7")]
+
+[node name="Circle" parent="." index="0"]
+transform = Transform3D(0.778568, 8.40195e-07, -19.9848, 19.9848, -8.73565e-07, 0.778568, -8.40195e-07, -20, -8.73565e-07, 0, 0, 0)
