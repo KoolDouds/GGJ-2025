@@ -97,6 +97,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
 environment = SubResource("Environment_r32bw")
 
+[node name="SubViewportContainer_SubViewport_Camera3D#OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
+light_energy = 0.5
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
 offset_left = 768.0
