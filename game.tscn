@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=23 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="Script" path="res://cam_pos.gd" id="2_b2wyd"]
@@ -13,6 +13,14 @@
 [ext_resource type="Script" path="res://hpgui.gd" id="11_4e7dx"]
 [ext_resource type="AudioStream" uid="uid://ckr4k533ssxsx" path="res://Nothing... Yet....mp3" id="11_xdlac"]
 [ext_resource type="Texture2D" uid="uid://cc8p251tosn7q" path="res://Art/drop.png" id="12_5e18q"]
+[ext_resource type="Script" path="res://buttons.gd" id="14_udret"]
+[ext_resource type="Texture2D" uid="uid://ceil25cg57xno" path="res://Art/2.png" id="15_g3d8w"]
+[ext_resource type="Texture2D" uid="uid://b7uwugdu2miqa" path="res://Art/4.png" id="16_p0ca4"]
+[ext_resource type="Texture2D" uid="uid://dv5h4qf1xn5x1" path="res://Art/5.png" id="17_8ljmv"]
+[ext_resource type="Texture2D" uid="uid://c84menkwoamal" path="res://Art/6.png" id="18_r8w3p"]
+[ext_resource type="Texture2D" uid="uid://b5i01ccx2qrsv" path="res://Art/7.png" id="19_kihsq"]
+[ext_resource type="Texture2D" uid="uid://cukxom86absnn" path="res://Art/8.png" id="20_st8yo"]
+[ext_resource type="Texture2D" uid="uid://cjqvwbkms1p05" path="res://Art/9.png" id="21_usdhk"]
 
 [sub_resource type="Environment" id="Environment_r32bw"]
 background_energy_multiplier = 0.0
@@ -115,37 +123,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 128.0
-offset_bottom = -277.0
+offset_left = 10.0
+offset_top = 170.0
+offset_right = 10.0
+offset_bottom = -235.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("11_4e7dx")
-
-[node name="HFlowContainer" type="HFlowContainer" parent="Panel/Hpgui"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.096
-offset_left = 20.0
-offset_top = 8.0
-offset_right = -16.0
-offset_bottom = -12.416
-
-[node name="Heart" type="TextureRect" parent="Panel/Hpgui/HFlowContainer"]
-custom_minimum_size = Vector2(25, 0)
-layout_mode = 2
-texture = ExtResource("12_5e18q")
-expand_mode = 5
 
 [node name="HFlowContainer2" type="HFlowContainer" parent="Panel/Hpgui"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.096
-offset_left = 20.0
-offset_top = 8.0
-offset_right = -16.0
-offset_bottom = -12.416
+offset_left = 22.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -44.416
 
 [node name="Heart" type="TextureRect" parent="Panel/Hpgui/HFlowContainer2"]
 modulate = Color(0, 0, 0, 1)
@@ -294,11 +288,77 @@ layout_mode = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
+[node name="HFlowContainer" type="HFlowContainer" parent="Panel/Hpgui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.096
+offset_left = 20.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = -43.416
+
+[node name="Heart" type="TextureRect" parent="Panel/Hpgui/HFlowContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+texture = ExtResource("12_5e18q")
+expand_mode = 5
+
+[node name="Control" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioListener2D"]
 stream = ExtResource("11_xdlac")
 volume_db = 4.026
 autoplay = true
+
+[node name="Buttons" type="Node2D" parent="."]
+script = ExtResource("14_udret")
+
+[node name="2" type="Sprite2D" parent="Buttons"]
+position = Vector2(900.5, 469.5)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("15_g3d8w")
+hframes = 2
+
+[node name="4" type="Sprite2D" parent="Buttons"]
+position = Vector2(843, 412)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("16_p0ca4")
+hframes = 2
+
+[node name="5" type="Sprite2D" parent="Buttons"]
+position = Vector2(900.5, 411.5)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("17_8ljmv")
+hframes = 2
+
+[node name="6" type="Sprite2D" parent="Buttons"]
+position = Vector2(958, 412)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("18_r8w3p")
+hframes = 2
+
+[node name="7" type="Sprite2D" parent="Buttons"]
+position = Vector2(842, 354)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("19_kihsq")
+hframes = 2
+
+[node name="8" type="Sprite2D" parent="Buttons"]
+position = Vector2(901, 355)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("20_st8yo")
+hframes = 2
+
+[node name="9" type="Sprite2D" parent="Buttons"]
+position = Vector2(958, 355)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("21_usdhk")
+hframes = 2
 
 [editable path="SubViewportContainer/SubViewport/Inventaire/Bulle"]
