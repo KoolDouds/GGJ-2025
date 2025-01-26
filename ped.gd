@@ -6,6 +6,8 @@ extends Node3D
 
 func put_item(new_item: Weapon):
 	if new_item == null: return
+	if %QuestMan.check_ped():
+		print("OMGOMGOMGOMGOMGOMOG")
 	item = new_item
 	holder.add_child(item.gfx.instantiate())
 
