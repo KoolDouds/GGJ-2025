@@ -1,0 +1,204 @@
+[gd_scene load_steps=17 format=3 uid="uid://bukph6ylind1i"]
+
+[ext_resource type="Script" path="res://Script/enemy_temp.gd" id="1_ergnl"]
+[ext_resource type="Script" path="res://Script/enemy_move.gd" id="2_82dkk"]
+[ext_resource type="PackedScene" uid="uid://cbuagltov6pm2" path="res://Art/Bulle Fermée.fbx" id="3_wif2e"]
+[ext_resource type="PackedScene" uid="uid://csnlol34trq80" path="res://Art/Bulle Ouverte.fbx" id="4_666fn"]
+
+[sub_resource type="Resource" id="Resource_6d15u"]
+script = ExtResource("2_82dkk")
+prep_time = 1.0
+dmg = 2
+cooldown = 0.0
+side = 0
+
+[sub_resource type="Resource" id="Resource_yr0wh"]
+script = ExtResource("2_82dkk")
+prep_time = 1.0
+dmg = 2
+cooldown = 3.0
+side = 1
+
+[sub_resource type="Resource" id="Resource_8f72i"]
+script = ExtResource("2_82dkk")
+prep_time = 0.5
+dmg = 1
+cooldown = 0.0
+side = 0
+
+[sub_resource type="Resource" id="Resource_iql3h"]
+script = ExtResource("2_82dkk")
+prep_time = 0.5
+dmg = 1
+cooldown = 0.0
+side = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eo0n6"]
+blend_mode = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ftquv"]
+material = SubResource("StandardMaterial3D_eo0n6")
+
+[sub_resource type="Gradient" id="Gradient_7yfoo"]
+colors = PackedColorArray(6.56985e-06, 0.678014, 0, 1, 0.044962, 0.284921, 0.0432405, 1)
+
+[sub_resource type="Animation" id="Animation_88aj2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Visual/CPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/Visual/Bulle Fermée:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Visual/Bulle Ouverte:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ws3br"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Visual/CPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/Visual/Bulle Ouverte:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Visual/Bulle Fermée:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3pn6i"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flip/Visual/CPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flip/Visual/Bulle Fermée:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flip/Visual/Bulle Ouverte:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2er1y"]
+resource_name = "recover"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ws2en"]
+_data = {
+"RESET": SubResource("Animation_88aj2"),
+"attack": SubResource("Animation_ws3br"),
+"idle": SubResource("Animation_3pn6i"),
+"recover": SubResource("Animation_2er1y")
+}
+
+[node name="Bubble" type="Node3D"]
+script = ExtResource("1_ergnl")
+moves = Array[ExtResource("2_82dkk")]([SubResource("Resource_6d15u"), SubResource("Resource_yr0wh"), SubResource("Resource_8f72i"), SubResource("Resource_iql3h"), SubResource("Resource_8f72i"), SubResource("Resource_iql3h"), SubResource("Resource_8f72i"), SubResource("Resource_iql3h"), SubResource("Resource_8f72i"), SubResource("Resource_iql3h"), SubResource("Resource_8f72i"), SubResource("Resource_iql3h"), SubResource("Resource_8f72i"), SubResource("Resource_iql3h")])
+
+[node name="Flip" type="Node3D" parent="."]
+
+[node name="Visual" type="Node3D" parent="Flip"]
+
+[node name="Bulle Fermée" parent="Flip/Visual" instance=ExtResource("3_wif2e")]
+visible = false
+
+[node name="Bulle Ouverte" parent="Flip/Visual" instance=ExtResource("4_666fn")]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Flip/Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.392667, 0.453937)
+amount = 200
+lifetime = 0.1
+mesh = SubResource("BoxMesh_ftquv")
+emission_shape = 1
+emission_sphere_radius = 0.2
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+color_initial_ramp = SubResource("Gradient_7yfoo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ws2en")
+}
+autoplay = "idle"
