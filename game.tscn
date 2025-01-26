@@ -65,6 +65,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 [node name="PosInventory" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.480072)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
+light_energy = 0.5
+
 [node name="Inventaire" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("display_parent") groups=["inventory"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.34702)
 script = ExtResource("3_yhw81")
@@ -73,7 +77,7 @@ display_parent = NodePath("Display")
 diplay_radius = 0.5
 
 [node name="Display" type="Node3D" parent="SubViewportContainer/SubViewport/Inventaire"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00842, 0)
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.00842, 0)
 
 [node name="Bulle" parent="SubViewportContainer/SubViewport/Inventaire" instance=ExtResource("9_hbgfn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -89,10 +93,5 @@ offset_left = 768.0
 offset_right = 1023.0
 offset_bottom = 576.0
 
-[node name="HPLabel" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 61.0
-offset_bottom = 29.0
-text = "HP : lol"
+[node name="Hpgui" parent="Panel" instance=ExtResource("10_4ufoy")]
+layout_mode = 1

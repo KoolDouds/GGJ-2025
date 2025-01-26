@@ -11,8 +11,7 @@ var active = false
 func _ready() -> void:
 	enemy = enemy_res.instantiate()
 	add_child(enemy)
-	enemy.position.z = 4
-	enemy.rotation.y = PI
+	enemy.position.z = 2.5
 
 func _process(delta: float) -> void:
 	if active: return
@@ -28,14 +27,17 @@ func start_battle():
 	enemy.attack()
 
 func hit(dmg: int, side: Hand.SIDE):
-	#var enemy := $"..".find_child("enemy")
-	#if enemy != null:
 	enemy.take_damage(dmg)
 
 func get_hit(dmg: int, side: Hand.SIDE):
 	for child in get_tree().get_nodes_in_group("hand"):
 		if child.hand_side == side and child.using_phase == 1:
 			print("BLOCKED!!!!!!!!!!")
+			child.using_phase = 0
 			return
 	hp_manager.take_damage(dmg)
-	
+
+
+func die():
+	hands.manager = null
+	queue_free()

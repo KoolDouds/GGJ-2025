@@ -8,7 +8,7 @@ extends Node3D
 var index := 0
 var loop_size : int
 
-var max_hp := 20
+@export var max_hp := 10
 var hp := max_hp
 
 var dmg := 1
@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func die():
 	print("enmi is kil >:)")
+	battle.die()
 
 func take_damage(dmg):
 	hp -= dmg
