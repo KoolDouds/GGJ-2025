@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://byffi1ie4kv5m"]
 
 [ext_resource type="PackedScene" uid="uid://cyejn4b76oey1" path="res://DungeonCrawling/crawling.tscn" id="1_okwbo"]
-[ext_resource type="Resource" uid="uid://c78hx63utnb45" path="res://key_weapon.tres" id="2_kogsc"]
+[ext_resource type="Resource" path="res://key_weapon.tres" id="2_kogsc"]
 [ext_resource type="Script" path="res://cam_pos.gd" id="2_rmeid"]
 [ext_resource type="Script" path="res://Cam.gd" id="3_5w1yg"]
 [ext_resource type="PackedScene" uid="uid://b5reaju2jnx3o" path="res://blood_altar.tscn" id="3_a3irs"]
@@ -40,14 +40,59 @@ render_target_update_mode = 4
 
 [node name="Crawling" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_okwbo")]
 
+[node name="Room" parent="SubViewportContainer/SubViewport/Crawling/Center" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="Loot" parent="SubViewportContainer/SubViewport/Crawling/Center/Room" index="3"]
 weapon = ExtResource("2_kogsc")
 
+[node name="Room2" parent="SubViewportContainer/SubViewport/Crawling/Center" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 4.37114e-07)
+
+[node name="Room3" parent="SubViewportContainer/SubViewport/Crawling/Center" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 8.74228e-07)
+
+[node name="Loot" parent="SubViewportContainer/SubViewport/Crawling/Center/Room3" index="3"]
+weapon = null
+
+[node name="Room4" parent="SubViewportContainer/SubViewport/Crawling/Center" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 1.31134e-06)
+
 [node name="BloodAltar" parent="SubViewportContainer/SubViewport/Crawling/Center/Room4" index="3" instance=ExtResource("3_a3irs")]
+
+[node name="Room8" parent="SubViewportContainer/SubViewport/Crawling/Center" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -10)
 
 [node name="Ped" parent="SubViewportContainer/SubViewport/Crawling/Center/Room8" index="3" instance=ExtResource("4_x3bkb")]
 
+[node name="Room9" parent="SubViewportContainer/SubViewport/Crawling/Center" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
+
 [node name="BloodAltar" parent="SubViewportContainer/SubViewport/Crawling/Center/Room9" index="3" instance=ExtResource("3_a3irs")]
+
+[node name="Room5" parent="SubViewportContainer/SubViewport/Crawling/Center" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20)
+
+[node name="Loot" parent="SubViewportContainer/SubViewport/Crawling/Center/Room5" index="3"]
+weapon = null
+
+[node name="Room6" parent="SubViewportContainer/SubViewport/Crawling/Center" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 10)
+
+[node name="Room10" parent="SubViewportContainer/SubViewport/Crawling/Center" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20)
+
+[node name="Room7" parent="SubViewportContainer/SubViewport/Crawling/Center" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 20)
+
+[node name="Loot" parent="SubViewportContainer/SubViewport/Crawling/Center/Room7" index="3"]
+weapon = null
+
+[node name="Door" parent="SubViewportContainer/SubViewport/Crawling/Center" index="11"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 0, 0)
+
+[node name="Door2" parent="SubViewportContainer/SubViewport/Crawling/Center" index="12"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35, 0, 0)
 
 [node name="CamField" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
