@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=27 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="Script" path="res://cam_pos.gd" id="2_b2wyd"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cgrxdhjy7cvcl" path="res://Art/Nothing... Yet... (Hors-Combat) (Loop-friendly).mp3" id="13_se6ue"]
 [ext_resource type="Script" path="res://buttons.gd" id="14_udret"]
 [ext_resource type="AudioStream" uid="uid://ck6byi1y83vc1" path="res://Art/Variation pour se faire passer un savon (inventaire).mp3" id="14_vupfn"]
+[ext_resource type="AudioStream" uid="uid://csyb2fowvdkio" path="res://Screech (combat).mp3" id="15_dxc7p"]
 [ext_resource type="Texture2D" uid="uid://ceil25cg57xno" path="res://Art/2.png" id="15_g3d8w"]
 [ext_resource type="Texture2D" uid="uid://b7uwugdu2miqa" path="res://Art/4.png" id="16_p0ca4"]
 [ext_resource type="Texture2D" uid="uid://dv5h4qf1xn5x1" path="res://Art/5.png" id="17_8ljmv"]
@@ -323,7 +324,7 @@ volume_db = 20.0
 autoplay = true
 
 [node name="ThemeDUR" type="AudioStreamPlayer2D" parent="AudioListener2D/MusicMan"]
-stream = ExtResource("14_vupfn")
+stream = ExtResource("15_dxc7p")
 volume_db = 24.0
 autoplay = true
 
