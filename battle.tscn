@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://be1n6ygjp5xre"]
+[gd_scene load_steps=3 format=3 uid="uid://be1n6ygjp5xre"]
 
 [ext_resource type="Script" path="res://Script/combat_controls.gd" id="1_4m6g6"]
+[ext_resource type="AudioStream" uid="uid://neer4akdguc" path="res://Sounds/Sword against sword.wav" id="2_rr5gn"]
 
 [node name="battle" type="Node3D"]
 script = ExtResource("1_4m6g6")
+
+[node name="block" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rr5gn")
+volume_db = 2.0
+
+[node name="block2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rr5gn")
+volume_db = 10.0
+pitch_scale = 2.0

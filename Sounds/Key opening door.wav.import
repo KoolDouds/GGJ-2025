@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwed21k40q51q"
+path="res://.godot/imported/Key opening door.wav-c30045ddb92272dbe648ab23b0c9f512.sample"
+
+[deps]
+
+source_file="res://Sounds/Key opening door.wav"
+dest_files=["res://.godot/imported/Key opening door.wav-c30045ddb92272dbe648ab23b0c9f512.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

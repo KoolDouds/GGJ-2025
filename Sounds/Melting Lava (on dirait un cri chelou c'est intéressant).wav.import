@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://21iu15cbgpt2"
+path="res://.godot/imported/Melting Lava (on dirait un cri chelou c'est intéressant).wav-64e661c78b8901eaf084f96f386979b9.sample"
+
+[deps]
+
+source_file="res://Sounds/Melting Lava (on dirait un cri chelou c'est intéressant).wav"
+dest_files=["res://.godot/imported/Melting Lava (on dirait un cri chelou c'est intéressant).wav-64e661c78b8901eaf084f96f386979b9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

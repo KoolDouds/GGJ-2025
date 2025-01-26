@@ -1,13 +1,25 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://1ngvui8g44me"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=8 format=3 uid="uid://1ngvui8g44me"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/ItemFunction.gd" id="1_advv2"]
 [ext_resource type="PackedScene" uid="uid://bkgmohxcxa0q8" path="res://Art/Dague.fbx" id="2_1f067"]
+[ext_resource type="Script" path="res://put_on_ped.gd" id="2_p23n4"]
 [ext_resource type="Script" path="res://Script/weapon.gd" id="3_8cjpt"]
+[ext_resource type="Script" path="res://give_blood.gd" id="3_rot7x"]
+
+[sub_resource type="Resource" id="Resource_q2612"]
+script = ExtResource("2_p23n4")
+combat = false
+crawl = true
+
+[sub_resource type="Resource" id="Resource_s75w6"]
+script = ExtResource("3_rot7x")
+combat = false
+crawl = true
 
 [resource]
 script = ExtResource("3_8cjpt")
 pre_time = 0.3
 post_time = 0.5
 dmg = 3
-functions = Array[ExtResource("1_advv2")]([])
+functions = Array[ExtResource("1_advv2")]([SubResource("Resource_q2612"), SubResource("Resource_s75w6")])
 gfx = ExtResource("2_1f067")

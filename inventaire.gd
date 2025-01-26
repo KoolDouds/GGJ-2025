@@ -9,6 +9,7 @@ var opened := false
 
 @export var display_parent : Node3D
 @export var diplay_radius := 1.0
+@onready var rien := load("res://Weapons/rien.tres")
 
 func _ready():
 	display_items()
@@ -31,11 +32,13 @@ func switch_with_hands(hand : Hand):
 	add_item_at(item_to_store, selected_idx)
 
 func hurt_acid():
+	$Acid.play()
 	$"../HPManager".take_damage(1)
 
 func open():
 	opened = !opened
 	if (opened):
+		$AcidBruit.volume_db = 5
 		visible = true
 		closed_gfx.visible = opened
 		open_gfx.visible = !opened
@@ -45,6 +48,7 @@ func open():
 		closed_gfx.visible = !opened
 		open_gfx.visible = opened
 	else:
+		$AcidBruit.volume_db = 1
 		await get_tree().create_timer(0.1).timeout
 		visible = false
 
@@ -70,7 +74,7 @@ func add_item(weapon : Weapon):
 	add_item_at(weapon, item_list.size())
 
 func add_item_at(weapon : Weapon, idx: int):
-	if (weapon == null):
+	if (weapon == null or weapon == rien):
 		return
 	item_list.insert(idx,weapon)
 	clamp_selected_idx()
