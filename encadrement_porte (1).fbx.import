@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cr6hi3hei4xqt"
-path="res://.godot/imported/encadrement_porte.fbx-5445e392fe768e303ea183777e7976d8.scn"
+uid="uid://bct65gb8rniao"
+path="res://.godot/imported/encadrement_porte (1).fbx-f7dc862a500982bf931d1dd1718d41d3.scn"
 
 [deps]
 
-source_file="res://encadrement_porte.fbx"
-dest_files=["res://.godot/imported/encadrement_porte.fbx-5445e392fe768e303ea183777e7976d8.scn"]
+source_file="res://encadrement_porte (1).fbx"
+dest_files=["res://.godot/imported/encadrement_porte (1).fbx-f7dc862a500982bf931d1dd1718d41d3.scn"]
 
 [params]
 

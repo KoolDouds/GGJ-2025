@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyejn4b76oey1"]
+[gd_scene load_steps=7 format=3 uid="uid://cyejn4b76oey1"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
 [ext_resource type="PackedScene" uid="uid://q7hux1610c2m" path="res://DungeonCrawling/room.tscn" id="2_buovi"]
@@ -54,3 +54,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 20)
 
 [node name="Loot" parent="Center/Room7" instance=ExtResource("3_xin1e")]
 weapon = ExtResource("4_qh8di")
+
+[node name="Door" parent="Center" instance=ExtResource("6_t62p0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 0, 0)
+open = false
+
+[node name="Door2" parent="Center" instance=ExtResource("6_t62p0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35, 0, 0)
+open = false

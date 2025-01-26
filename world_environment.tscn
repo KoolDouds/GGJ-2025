@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://osqmav515j5i"]
-
-[sub_resource type="Environment" id="Environment_ga3hs"]
-ambient_light_source = 2
-ambient_light_color = Color(0, 0.147156, 0.262078, 1)
-fog_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment"]
-environment = SubResource("Environment_ga3hs")
