@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://cyejn4b76oey1" path="res://DungeonCrawling/crawling.tscn" id="1_1oqic"]
 [ext_resource type="PackedScene" uid="uid://be1n6ygjp5xre" path="res://battle.tscn" id="2_8b5pw"]
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="2_fbwgl"]
-[ext_resource type="PackedScene" uid="uid://bgegxif48dnon" path="res://enemy_proto.tscn" id="3_7wgtt"]
+[ext_resource type="PackedScene" uid="uid://c31dhf6nxl4pr" path="res://eye_monster.tscn" id="3_c32dp"]
 [ext_resource type="Script" path="res://inventaire.gd" id="3_lss2r"]
 [ext_resource type="Script" path="res://Script/weapon.gd" id="4_88q2s"]
 [ext_resource type="Resource" uid="uid://b31hsxg8sincy" path="res://default.tres" id="5_kv8uy"]
 [ext_resource type="Resource" uid="uid://6cav8kmnksk8" path="res://default2.tres" id="6_leouf"]
-[ext_resource type="Resource" path="res://default3.tres" id="7_6a02n"]
+[ext_resource type="Resource" uid="uid://cmrud1nbg70jf" path="res://default3.tres" id="7_6a02n"]
 [ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://heal_potion.tres" id="8_r7mci"]
 [ext_resource type="PackedScene" uid="uid://c0h4e7bs430mx" path="res://HPManger.tscn" id="9_dpjyy"]
 [ext_resource type="PackedScene" uid="uid://wiojt1xlc40j" path="res://HPGUI.tscn" id="10_25roy"]
@@ -29,8 +29,8 @@ render_target_update_mode = 4
 
 [node name="Crawling" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_1oqic")]
 
-[node name="battle" parent="SubViewportContainer/SubViewport/Crawling/Center/Room4" index="3" instance=ExtResource("2_8b5pw")]
-enemy_res = ExtResource("3_7wgtt")
+[node name="battle" parent="SubViewportContainer/SubViewport/Crawling/Center/Room8" index="3" instance=ExtResource("2_8b5pw")]
+enemy_res = ExtResource("3_c32dp")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)

@@ -30,7 +30,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("tete_de_pique:rotation")
+tracks/0/path = NodePath("Flip/tete_de_pique:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,27 +40,12 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_g21cd"]
-resource_name = "attack_left"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("tete_de_pique:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.470262), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_2wcij"]
 resource_name = "attack_right"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("tete_de_pique:rotation")
+tracks/0/path = NodePath("Flip/tete_de_pique:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -70,11 +55,14 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -0.439631), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_j6q25"]
+resource_name = "recover"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4piqb"]
 _data = {
 "RESET": SubResource("Animation_qso0t"),
-"attack_left": SubResource("Animation_g21cd"),
-"attack_right": SubResource("Animation_2wcij")
+"attack": SubResource("Animation_2wcij"),
+"recover": SubResource("Animation_j6q25")
 }
 
 [node name="enemy" type="Node3D"]
@@ -90,4 +78,6 @@ libraries = {
 "": SubResource("AnimationLibrary_4piqb")
 }
 
-[node name="tete_de_pique" parent="." instance=ExtResource("4_e5w3k")]
+[node name="Flip" type="Node3D" parent="."]
+
+[node name="tete_de_pique" parent="Flip" instance=ExtResource("4_e5w3k")]
