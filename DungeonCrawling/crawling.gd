@@ -110,7 +110,7 @@ func _process(delta):
 	
 	
 	rotation.y = lerp(rotation.y, rot_displayed, 0.2)
-	center.position = lerp(center.position, Vector3(player_coord.y,0,player_coord.x)*room_length+offset, 0.4)
+	center.position = lerp(center.position, Vector3(player_coord.y,0,player_coord.x)*room_length+offset, 0.2)
 	
 	# DebugMovesVisual
 	#queue_redraw()
