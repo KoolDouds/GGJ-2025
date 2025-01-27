@@ -16,8 +16,11 @@ func set_hp(new_hp: int):
 	hp = min(max_hp, new_hp)
 	hp_label.update_display(hp)
 
-func take_damage(dmg: int) -> void:
-	set_hp(hp-dmg)
+func take_damage(dmg: int, dont_kill := false) -> void:
+	if (dont_kill):
+		set_hp(max(1,hp-dmg))
+	else:
+		set_hp(hp-dmg)
 	var text = pop_text.instantiate()
 	text.text = str(-dmg)
 	text.color = Color.RED

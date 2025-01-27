@@ -69,7 +69,7 @@ func _ready():
 			vec = rotate_vector_90d(vec)
 
 func is_crawling():
-	return hands.manager == null and !traveling and !looting
+	return hands.manager == null and !traveling and !looting and !inventory.opened
 
 func pos_to_coord(pos:Vector3, half_rounded := false) -> Vector2:
 	if (!half_rounded):
@@ -80,6 +80,9 @@ func pos_to_coord(pos:Vector3, half_rounded := false) -> Vector2:
 
 func coord_to_pos(coord:Vector2) -> Vector3:
 	return -Vector3(coord.y*room_length,0, coord.x*room_length)
+
+func has_loot():
+	return loots.has(player_coord)
 
 func _process(delta):
 	if (Input.is_action_just_pressed("rotate_left")):

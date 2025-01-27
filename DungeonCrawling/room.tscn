@@ -8,8 +8,8 @@ script = ExtResource("1_msas5")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74536, 0)
-light_color = Color(0.974565, 0.76096, 0.522924, 1)
-light_energy = 5.0
+light_color = Color(0.976251, 0.63365, 0.265112, 1)
+light_energy = 12.0
 omni_range = 7.502
 omni_attenuation = 0.795
 
