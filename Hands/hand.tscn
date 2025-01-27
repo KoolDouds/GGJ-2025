@@ -1,0 +1,166 @@
+[gd_scene load_steps=18 format=3 uid="uid://787px8h52pbi"]
+
+[ext_resource type="Script" path="res://Script/hand.gd" id="1_4rtuw"]
+[ext_resource type="Script" path="res://Script/flip_left_right.gd" id="2_qrugp"]
+[ext_resource type="PackedScene" uid="uid://gre8hxj1vc0d" path="res://Hands/main_droite.tscn" id="3_gqn44"]
+[ext_resource type="Script" path="res://Hands/weapon_in_hand_display.gd" id="5_iyn6o"]
+[ext_resource type="Shader" path="res://Hands/Blocking.gdshader" id="5_pln8j"]
+[ext_resource type="Script" path="res://Hands/blockFX.gd" id="6_yyol7"]
+[ext_resource type="PackedScene" uid="uid://cch54vrlpbj8p" path="res://main.fbx" id="7_1sjjv"]
+[ext_resource type="AudioStream" uid="uid://dvdnje3pso00y" path="res://Sounds/Sword swing.wav" id="8_nkka8"]
+[ext_resource type="AudioStream" uid="uid://xqq7hgg3pedf" path="res://Sounds/Sword impact.wav" id="9_g53bl"]
+[ext_resource type="AudioStream" uid="uid://dfobrsbmjdoxk" path="res://Sounds/Classic punch.wav" id="9_hxhkg"]
+[ext_resource type="AudioStream" uid="uid://dsaqwq2vf2574" path="res://Sounds/Retro hit effect.wav" id="10_viqih"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hedw"]
+render_priority = 0
+shader = ExtResource("5_pln8j")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gp8lu"]
+material = SubResource("ShaderMaterial_1hedw")
+
+[sub_resource type="Animation" id="Animation_wki2p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.212916, 0.20403, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_io5l3"]
+resource_name = "attack_end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.241667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.417459, 0.550082, 1.13041), Vector3(-0.241953, 0.105317, -0.731696), Vector3(-0.241953, 0.105317, -0.731696), Vector3(-0.250764, 0.194892, -0.132872), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.241667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 4.75683),
+"update": 0,
+"values": [Vector3(-0.285024, 0.266944, 0.154678), Vector3(1.07681, -0.248281, -0.168206), Vector3(1.07681, -0.248281, -0.168206), Vector3(1.03693, -0.0656926, -0.156235), Vector3(0, 0, 0.155)]
+}
+
+[sub_resource type="Animation" id="Animation_c1j7y"]
+resource_name = "attack_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.417459, 0.550082, 1.13041)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visual:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.285024, 0.266944, 0.154678)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q54hr"]
+_data = {
+"RESET": SubResource("Animation_wki2p"),
+"attack_end": SubResource("Animation_io5l3"),
+"attack_start": SubResource("Animation_c1j7y")
+}
+
+[node name="Hand" type="Node3D" groups=["hand"]]
+script = ExtResource("1_4rtuw")
+
+[node name="Effect" type="Node3D" parent="."]
+transform = Transform3D(1, -3.72529e-09, -2.23517e-08, 2.98023e-08, 1, 0, 7.45058e-09, 2.98023e-08, 1, -0.212916, 0.20403, 0)
+
+[node name="Block" type="MeshInstance3D" parent="Effect"]
+transform = Transform3D(-4.37114e-08, -2.06464e-21, -1, 1.05879e-22, 1, 3.40806e-23, 1, 0, -4.37114e-08, 0.447679, -0.0802669, -0.0275277)
+mesh = SubResource("QuadMesh_gp8lu")
+script = ExtResource("6_yyol7")
+
+[node name="Visual" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.212916, 0.20403, 0)
+
+[node name="FlipLeftRight" type="Node3D" parent="Visual" node_paths=PackedStringArray("hand")]
+script = ExtResource("2_qrugp")
+hand = NodePath("../..")
+
+[node name="main_droite" parent="Visual/FlipLeftRight" instance=ExtResource("3_gqn44")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.0564318, 0)
+visible = false
+
+[node name="main" parent="Visual/FlipLeftRight" instance=ExtResource("7_1sjjv")]
+transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -0.204845, -0.0374693, 0.00456838)
+
+[node name="Node3D" type="Node3D" parent="Visual/FlipLeftRight/main"]
+transform = Transform3D(30.1316, 6.23172, 0, -6.23172, 30.1316, 0, 0, 0, 30.7692, 4.18661, 0.102265, -0.394345)
+
+[node name="Weapon_parent" type="Node3D" parent="Visual/FlipLeftRight/main/Node3D" node_paths=PackedStringArray("hand")]
+script = ExtResource("5_iyn6o")
+hand = NodePath("../../../../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q54hr")
+}
+autoplay = "RESET"
+
+[node name="AtkStrt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nkka8")
+volume_db = 8.0
+
+[node name="AtkLand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_g53bl")
+volume_db = 8.0
+
+[node name="SetWpn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_viqih")
+volume_db = 4.0
+
+[node name="Blok" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nkka8")
+volume_db = 8.0
+
+[node name="Rien" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_hxhkg")
+volume_db = 8.0

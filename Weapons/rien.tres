@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=6 format=3 uid="uid://cfu6j3a77tf6g"]
+
+[ext_resource type="Script" path="res://DungeonCrawling/ItemFunction.gd" id="1_qdkg5"]
+[ext_resource type="Script" path="res://put_on_ped.gd" id="2_p5e27"]
+[ext_resource type="PackedScene" uid="uid://bf8ve67ubg7nn" path="res://rien.tscn" id="2_wo8bf"]
+[ext_resource type="Script" path="res://Script/weapon.gd" id="3_4c8b4"]
+
+[sub_resource type="Resource" id="Resource_sf1n3"]
+script = ExtResource("2_p5e27")
+combat = false
+crawl = true
+
+[resource]
+script = ExtResource("3_4c8b4")
+pre_time = 0.5
+post_time = 0.5
+dmg = 1
+functions = Array[ExtResource("1_qdkg5")]([SubResource("Resource_sf1n3")])
+gfx = ExtResource("2_wo8bf")

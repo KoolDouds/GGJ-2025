@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://3rhn38y4mlin"]
+
+[ext_resource type="Script" path="res://DungeonCrawling/door.gd" id="1_wu3m2"]
+[ext_resource type="PackedScene" uid="uid://d4bjhv4migl7u" path="res://Weapons/cadre porte.fbx" id="3_j0qh2"]
+[ext_resource type="PackedScene" uid="uid://bvvjq87r0hmit" path="res://Weapons/Porte Unwraping.fbx" id="3_ptapv"]
+[ext_resource type="AudioStream" uid="uid://cwlckj83qv6i0" path="res://Sounds/Chest opening.mp3" id="4_77873"]
+
+[node name="Door" type="Node3D" node_paths=PackedStringArray("open_gfx", "closed_gfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+script = ExtResource("1_wu3m2")
+open_gfx = NodePath("Open")
+closed_gfx = NodePath("Closed")
+
+[node name="Closed" parent="." instance=ExtResource("3_ptapv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0267122, 0)
+
+[node name="Open" parent="." instance=ExtResource("3_j0qh2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166002, -0.0267122, 0.0254936)
+
+[node name="OpenDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_77873")
+volume_db = 6.0

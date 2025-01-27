@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://l0ykwue30nmj"]
+
+[ext_resource type="Script" path="res://DungeonCrawling/ItemFunction.gd" id="1_ce2kw"]
+[ext_resource type="Script" path="res://Script/weapon.gd" id="2_83bul"]
+[ext_resource type="PackedScene" uid="uid://dola0yvv4a5kh" path="res://ultimate_sword.tscn" id="2_jyu57"]
+
+[resource]
+script = ExtResource("2_83bul")
+pre_time = 1.0
+post_time = 1.0
+dmg = 100000
+functions = Array[ExtResource("1_ce2kw")]([])
+gfx = ExtResource("2_jyu57")

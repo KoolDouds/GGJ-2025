@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ck6byi1y83vc1"
+path="res://.godot/imported/Variation pour se faire passer un savon (inventaire).mp3-aea03dd0569caa07892f1d51623f2929.mp3str"
+
+[deps]
+
+source_file="res://Art/Variation pour se faire passer un savon (inventaire).mp3"
+dest_files=["res://.godot/imported/Variation pour se faire passer un savon (inventaire).mp3-aea03dd0569caa07892f1d51623f2929.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

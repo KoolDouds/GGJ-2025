@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4wl4khrurlof"]
+
+[ext_resource type="PackedScene" uid="uid://6yn0led5tlj6" path="res://torche.fbx" id="1_r2gc4"]
+[ext_resource type="Script" path="res://alwaysUP.gd" id="2_6uyev"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3lum"]
+blend_mode = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_vr610"]
+material = SubResource("StandardMaterial3D_p3lum")
+
+[sub_resource type="Gradient" id="Gradient_5mjch"]
+offsets = PackedFloat32Array(0, 0.245989, 0.561497, 1)
+colors = PackedColorArray(0.943533, 0, 0.393137, 1, 0.879348, 0.371545, 0, 1, 0.941363, 0.7287, 7.70092e-07, 1, 0, 0, 0, 1)
+
+[node name="torche" type="Node3D"]
+
+[node name="visu" parent="." instance=ExtResource("1_r2gc4")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.712123, 0)
+amount = 2000
+lifetime = 3.0
+mesh = SubResource("BoxMesh_vr610")
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 1, 0)
+spread = 5.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 0.1
+scale_amount_min = 0.01
+scale_amount_max = 0.02
+color_ramp = SubResource("Gradient_5mjch")
+script = ExtResource("2_6uyev")
