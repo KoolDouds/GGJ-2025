@@ -1,7 +1,7 @@
 class_name Crawling extends Node3D
 
 var player_coord : Vector2 = Vector2(0,0)
-var player_ori : Vector2 = Vector2(0,1)
+var player_ori : Vector2 = Vector2(1,0)
 var room_length := 10
 
 @export var center : Node3D
@@ -37,7 +37,7 @@ func _ready():
 		
 	
 	for i in room_list:
-		if (!i is Room):
+		if (!i is Room or !i.in_rooms):
 			continue
 		var coord = pos_to_coord(i.position)
 		rooms[coord] = i
