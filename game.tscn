@@ -55,11 +55,12 @@ size = Vector2i(768, 576)
 render_target_update_mode = 4
 
 [node name="Crawling" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_ch3i2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CamField" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
 [node name="CamPos" type="Node3D" parent="SubViewportContainer/SubViewport/CamField" node_paths=PackedStringArray("pos_crawling", "pos_inventory")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.590804)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 script = ExtResource("2_b2wyd")
 pos_crawling = NodePath("../PosCrawling")
 pos_inventory = NodePath("../PosInventory")
