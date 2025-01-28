@@ -11,7 +11,7 @@
 [sub_resource type="Resource" id="Resource_vrgxd"]
 script = ExtResource("2_62id1")
 prep_time = 0.5
-dmg = 100
+dmg = 2
 cooldown = 1.0
 side = 0
 

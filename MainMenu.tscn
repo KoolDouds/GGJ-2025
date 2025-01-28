@@ -167,6 +167,7 @@ grow_vertical = 2
 script = ExtResource("1_eep37")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
 offset_left = -2.0
 offset_top = -89.0
 offset_right = 1035.0
