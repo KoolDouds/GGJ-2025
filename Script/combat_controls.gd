@@ -37,12 +37,12 @@ func get_hit(dmg: int, side: Hand.SIDE):
 			var text = pop_text.instantiate()
 			text.text = "BLOCKED!"
 			text.color = Color.SKY_BLUE
-			text.lifetime = 2
+			text.lifetime = 1.8
 			get_tree().get_first_node_in_group("crawling").add_child(text)
 			text.global_position = child.position+Vector3.UP*1+Vector3(randf(),randf(),randf())*0.1
 			$block.play()
 			$block2.play()
-			print("BLOCKED!!!!!!!!!!")
+			#print("BLOCKED!!!!!!!!!!")
 			
 			child.block()
 			return

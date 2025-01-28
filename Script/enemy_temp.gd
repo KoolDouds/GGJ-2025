@@ -14,29 +14,31 @@ var hp : int
 @onready var pop_text = load("res://text_pop.tscn")
 var dmg := 1
 var attack_time := 1
+var sparkle :Sprite3D
 
 func _ready() -> void:
 	loop_size = moves.size()
 	hp = max_hp
+	sparkle = find_child("AttackSparkle",true)
 
 func die():
-	print("enmi is kil >:)")
+	#print("enmi is kil >:)")
 	battle.die()
 
 func take_damage(dmg):
 	hp -= dmg
 	var text = pop_text.instantiate()
 	text.text = "-"+str(dmg)
-	text.lifetime = 2
+	text.lifetime = 1.5
 	get_tree().get_first_node_in_group("crawling").add_child(text)
 	text.global_position = global_position+Vector3.UP*1+Vector3(randf(),randf(),randf())
-	print("gave " + str(dmg) + " damage")
+	#print("gave " + str(dmg) + " damage")
 	if hp <= 0: die()
 
 func attack():
 	while true:
 		var move := moves[index]
-		print("awaiting attack...")
+		#print("awaiting attack...")
 		anim.speed_scale = 1/move.prep_time
 		if move.side == Hand.SIDE.LEFT:
 			flip.scale.x = -1
@@ -44,6 +46,10 @@ func attack():
 			flip.scale.x = 1
 		anim.play("attack")
 		await get_tree().create_timer(move.prep_time).timeout
+		sparkle.visible = true
+		await get_tree().create_timer(0.1).timeout
+		sparkle.visible = false
+
 		battle.get_hit(move.dmg, move.side)
 		if move.cooldown <= 1:
 			anim.speed_scale = 1/move.cooldown

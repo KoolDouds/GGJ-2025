@@ -11,14 +11,14 @@ func put_item(new_item: Weapon):
 	#if new_item == null: return
 	if qm.check_ped():
 		new_item = ultimate
-		print("OMGOMGOMGOMGOMGOMOG")
+		##print("OMGOMGOMGOMGOMGOMOG")
 	item = new_item
 	if new_item != null: holder.add_child(item.gfx.instantiate())
 
 func take_item() -> Weapon:
 	for child in holder.get_children():
 		child.queue_free()
-	print(item)
+	##print(item)
 	var ret = item
 	item = null
 	return ret

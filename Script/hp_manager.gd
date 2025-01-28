@@ -24,19 +24,19 @@ func take_damage(dmg: int, dont_kill := false) -> void:
 	var text = pop_text.instantiate()
 	text.text = str(-dmg)
 	text.color = Color.RED
-	text.lifetime = 2
+	text.lifetime = 1
 	var cam : Camera3D = get_tree().get_first_node_in_group("camera")
 	text.global_position = cam.position+Vector3(0,-0.5,-1)+Vector3(randf(),randf(),randf())*0.2
 	
 	cam.add_child(text)
 
-	print("received " + str(dmg) + " damage")
+	##print("received " + str(dmg) + " damage")
 	if hp <= 0: die()
 
 func gain_hp(heal: int):
 	set_hp(hp+heal)
 
 func die():
-	print("ded :(")
-	get_tree().get_root().add_child(gameover.instantiate())
+	##print("ded :(")
+	get_tree().current_scene.add_child(gameover.instantiate())
 	Engine.time_scale = 0

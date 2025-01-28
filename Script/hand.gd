@@ -39,7 +39,7 @@ func use_battle(battle):
 	var current_atk_id = atkID
 	if (weapon == null):
 		weapon = rien
-	print("use "+ name)
+	#print("use "+ name)
 	using_phase = 1
 	anim.speed_scale = 1/weapon.pre_time
 	anim.play("attack_start")
@@ -59,7 +59,7 @@ func use_battle(battle):
 	anim.speed_scale = 1/weapon.post_time
 	anim.play("attack_end")
 	using_phase = 2
-	print("atk "+name)
+	#print("atk "+name)
 	await get_tree().create_timer(weapon.post_time).timeout
 	if (battle == null or atkID != current_atk_id):
 		return
@@ -71,7 +71,7 @@ func reset():
 	using_phase = 0
 	if (weapon == rien):
 		weapon = null
-	print("reset "+name)
+	#print("reset "+name)
 	anim.speed_scale=1
 	anim.play("RESET")
 

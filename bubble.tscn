@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bukph6ylind1i"]
+[gd_scene load_steps=19 format=3 uid="uid://bukph6ylind1i"]
 
 [ext_resource type="Script" path="res://Script/enemy_temp.gd" id="1_ergnl"]
 [ext_resource type="Script" path="res://Script/enemy_move.gd" id="2_82dkk"]
 [ext_resource type="PackedScene" uid="uid://cbuagltov6pm2" path="res://Art/Bulle Fermée.fbx" id="3_wif2e"]
 [ext_resource type="PackedScene" uid="uid://csnlol34trq80" path="res://Art/Bulle Ouverte.fbx" id="4_666fn"]
+[ext_resource type="Texture2D" uid="uid://5nuyhs80dxe5" path="res://Art/sparkle.png" id="5_hu2u7"]
+[ext_resource type="Script" path="res://Spin.gd" id="6_mnbty"]
 
 [sub_resource type="Resource" id="Resource_6d15u"]
 script = ExtResource("2_82dkk")
@@ -179,7 +181,7 @@ max_hp = 1000
 [node name="Flip" type="Node3D" parent="."]
 
 [node name="Visual" type="Node3D" parent="Flip"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 0, 0, 0)
 
 [node name="Bulle Fermée" parent="Flip/Visual" instance=ExtResource("3_wif2e")]
 visible = false
@@ -198,6 +200,15 @@ initial_velocity_max = 1.0
 scale_amount_min = 0.1
 scale_amount_max = 0.1
 color_initial_ramp = SubResource("Gradient_7yfoo")
+
+[node name="AttackSparkle" type="Sprite3D" parent="Flip/Visual"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 149.731, -36.1717, -5.1835)
+visible = false
+texture_filter = 0
+texture = ExtResource("5_hu2u7")
+script = ExtResource("6_mnbty")
+speed = 10.0
+rotation_axis = Vector3(0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

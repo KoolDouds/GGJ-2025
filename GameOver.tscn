@@ -36,4 +36,4 @@ offset_right = 521.0
 offset_bottom = 466.0
 text = "PLAY"
 
-[connection signal="button_down" from="Panel/Button" to="." method="restart"]
+[connection signal="button_down" from="Panel/Button" to="." method="start_game"]

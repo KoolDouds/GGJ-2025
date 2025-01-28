@@ -28,7 +28,7 @@ func _ready():
 		if (i is Door):
 			var coord = pos_to_coord(i.position, true)
 			doors[coord] = i
-			print(coord)
+			#print(coord)
 		elif i is Room:
 			for j in i.get_children():
 				if (j is Loot):
@@ -52,7 +52,7 @@ func _ready():
 					door.rotation = Vector3(0,vec.angle(),0)
 					doors[door_coord] = door
 					$Center.add_child(door)
-					print(door_coord)
+					#print(door_coord)
 			vec = rotate_vector_90d(vec)
 	
 	for i in room_list:
@@ -62,7 +62,7 @@ func _ready():
 		var vec = Vector2.UP
 		for xx in range(4):
 			if (!rooms.has(coord+vec)):
-				print(coord+vec)
+				#print(coord+vec)
 				var door = load("res://bouche_trou.tscn").instantiate()
 				door.rotation = Vector3(0,vec.angle(),0)
 				i.add_child(door)
@@ -108,7 +108,7 @@ func _process(delta):
 	var rot_displayed = rot
 	var offset = Vector3.ZERO
 	#if (inventory.opened):
-		#print("a")
+		##print("a")
 		#rot_displayed += PI
 		#offset = Vector3(player_ori.y,0,player_ori.x)*-5
 	
@@ -132,11 +132,11 @@ func interact():
 
 func forward():
 	if (rooms.has(player_coord+player_ori) and doors[player_coord+player_ori/2].is_open()):
-		print(player_coord+player_ori)
+		#print(player_coord+player_ori)
 		$Step.play(2)
 		pass
 	else :
-		print("bonk")
+		#print("bonk")
 		await get_tree().create_timer(0.2).timeout
 		$bonk.play()
 		return

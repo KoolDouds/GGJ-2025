@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=25 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="Script" path="res://cam_pos.gd" id="2_b2wyd"]
@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://dcngw7ma8scl5" path="res://Art/soundbut.png" id="19_1ni30"]
 [ext_resource type="PackedScene" uid="uid://by4ndimwijofq" path="res://buttons.tscn" id="19_i1onl"]
 [ext_resource type="Script" path="res://ActionButton.gd" id="20_ft3n0"]
-[ext_resource type="Script" path="res://mute.gd" id="23_u3uym"]
 
 [sub_resource type="Environment" id="Environment_r32bw"]
 background_energy_multiplier = 0.0
@@ -93,10 +92,10 @@ item_list = Array[ExtResource("4_grple")]([ExtResource("8_7wdci")])
 open_gfx = NodePath("Bulle/Node3D/Bulle Ouverte")
 closed_gfx = NodePath("Bulle/Node3D/Bulle Fermée")
 display_parent = NodePath("Display")
-diplay_radius = 0.5
+diplay_radius = 0.3
 
 [node name="Display" type="Node3D" parent="SubViewportContainer/SubViewport/Inventaire"]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.00842, 0)
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.5285, -0.381589)
 
 [node name="Bulle" parent="SubViewportContainer/SubViewport/Inventaire" instance=ExtResource("9_hbgfn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -393,8 +392,5 @@ script = null
 
 [node name="QuestMan" type="Node" parent="." groups=["questman"]]
 script = ExtResource("11_2717f")
-
-[node name="MuteManager" type="Node" parent="."]
-script = ExtResource("23_u3uym")
 
 [editable path="SubViewportContainer/SubViewport/Inventaire/Bulle"]

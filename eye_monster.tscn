@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbi03irwtck4d"]
+[gd_scene load_steps=17 format=3 uid="uid://cbi03irwtck4d"]
 
 [ext_resource type="Script" path="res://Script/enemy_temp.gd" id="1_ihhsl"]
 [ext_resource type="Script" path="res://Script/enemy_move.gd" id="2_hrjjg"]
 [ext_resource type="PackedScene" uid="uid://vy7tlh1prxyr" path="res://eye_monster_frame_attack.fbx" id="2_xdajy"]
 [ext_resource type="PackedScene" uid="uid://cfb7o7x8u6muf" path="res://eye_monster_frame_idle.fbx" id="3_empfg"]
 [ext_resource type="PackedScene" uid="uid://eshuxcehthfy" path="res://eye_monster_frame_prepare.fbx" id="4_q4dl8"]
+[ext_resource type="Texture2D" uid="uid://5nuyhs80dxe5" path="res://Art/sparkle.png" id="6_r0u6p"]
+[ext_resource type="Script" path="res://Spin.gd" id="7_bcrt1"]
 
 [sub_resource type="Resource" id="Resource_beq33"]
 script = ExtResource("2_hrjjg")
@@ -274,3 +276,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.3)
 
 [node name="eye_monster_frame_prepare" parent="Flip/AnimOffset/Visual" instance=ExtResource("4_q4dl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.3)
+
+[node name="AttackSparkle" type="Sprite3D" parent="Flip/AnimOffset/Visual"]
+transform = Transform3D(2, 0, -1.42109e-14, 0, 2, 0, 1.42109e-14, 0, 2, 0.616262, 5.40372, -5.89786)
+visible = false
+texture_filter = 0
+texture = ExtResource("6_r0u6p")
+script = ExtResource("7_bcrt1")
+speed = 10.0
+rotation_axis = Vector3(0, 0, 1)

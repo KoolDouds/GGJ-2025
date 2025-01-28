@@ -8,4 +8,4 @@ var filled := false
 func fill_up():
 	filled = true
 	qm.blood()
-	print("BLOOOOOOD")
+	##print("BLOOOOOOD")

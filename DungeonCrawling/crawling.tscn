@@ -237,6 +237,9 @@ transform = Transform3D(0.972096, 0.234582, 0, -0.234582, 0.972096, 0, 0, 0, 1, 
 [node name="Room8" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
 
+[node name="battle" parent="Center/Room8" instance=ExtResource("5_c1b65")]
+enemy_res = ExtResource("6_y35j3")
+
 [node name="Room9" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -10)
 
@@ -251,6 +254,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 10)
 
 [node name="Room10" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 20)
+
+[node name="battle" parent="Center/Room10" instance=ExtResource("5_c1b65")]
+enemy_res = ExtResource("6_y35j3")
 
 [node name="Room7" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 20)

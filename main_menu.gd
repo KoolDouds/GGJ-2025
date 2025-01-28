@@ -1,15 +1,15 @@
 extends Control
 
-@onready var game := preload("res://game.tscn")
+@onready var game := load("res://game.tscn")
 
 func start_game():
+	print("start")
 	Engine.time_scale = 1
-	get_tree().current_scene.queue_free()
-	var inst := game.instantiate()
-	get_tree().get_root().add_child(inst)
-	queue_free()
+	get_tree().change_scene_to_packed(game)
+
 
 func restart():
-	get_tree().reload_current_scene()
+	print("restart")
 	Engine.time_scale = 1
+	get_tree().change_scene_to_packed(game)
 	queue_free()
