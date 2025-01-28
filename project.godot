@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Fullscreen="*res://fullscreen.gd"
 Mute="*res://mute.gd"
+LoadingManager="*res://loading_manager.gd"
 
 [display]
 

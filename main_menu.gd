@@ -5,11 +5,11 @@ extends Control
 func start_game():
 	print("start")
 	Engine.time_scale = 1
-	get_tree().change_scene_to_packed(game)
+	LoadingManager.load_scene(game)
 
 
 func restart():
 	print("restart")
 	Engine.time_scale = 1
-	get_tree().change_scene_to_packed(game)
+	LoadingManager.load_scene(game)
 	queue_free()
