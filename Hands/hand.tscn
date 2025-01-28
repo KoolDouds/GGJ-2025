@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Script/hand.gd" id="1_4rtuw"]
 [ext_resource type="Script" path="res://Script/flip_left_right.gd" id="2_qrugp"]
-[ext_resource type="PackedScene" uid="uid://gre8hxj1vc0d" path="res://Hands/main_droite.tscn" id="3_gqn44"]
 [ext_resource type="Script" path="res://Hands/weapon_in_hand_display.gd" id="5_iyn6o"]
 [ext_resource type="Shader" path="res://Hands/Blocking.gdshader" id="5_pln8j"]
 [ext_resource type="Script" path="res://Hands/blockFX.gd" id="6_yyol7"]
@@ -24,7 +23,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visual:rotation")
+tracks/0/path = NodePath("FlipLeftRight/Visual:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,14 +35,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visual:position")
+tracks/1/path = NodePath("FlipLeftRight/Visual:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.212916, 0.20403, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_io5l3"]
@@ -51,7 +50,7 @@ resource_name = "attack_end"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visual:rotation")
+tracks/0/path = NodePath("FlipLeftRight/Visual:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -63,7 +62,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visual:position")
+tracks/1/path = NodePath("FlipLeftRight/Visual:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -78,7 +77,7 @@ resource_name = "attack_start"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visual:rotation")
+tracks/0/path = NodePath("FlipLeftRight/Visual:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -90,7 +89,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visual:position")
+tracks/1/path = NodePath("FlipLeftRight/Visual:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -100,11 +99,40 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-0.285024, 0.266944, 0.154678)]
 }
 
+[sub_resource type="Animation" id="Animation_toxq2"]
+resource_name = "use"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipLeftRight/Visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.233333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.538132, 0.686497, -0.443218), Vector3(0.538132, 0.686497, -0.443218), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipLeftRight/Visual:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.233333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.2274e-08, 0.350392, 1.14631), Vector3(0, 1.04196, 1.03673), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q54hr"]
 _data = {
 "RESET": SubResource("Animation_wki2p"),
 "attack_end": SubResource("Animation_io5l3"),
-"attack_start": SubResource("Animation_c1j7y")
+"attack_start": SubResource("Animation_c1j7y"),
+"use": SubResource("Animation_toxq2")
 }
 
 [node name="Hand" type="Node3D" groups=["hand"]]
@@ -119,24 +147,19 @@ cast_shadow = 0
 mesh = SubResource("QuadMesh_gp8lu")
 script = ExtResource("6_yyol7")
 
-[node name="Visual" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.212916, 0.20403, 0)
-
-[node name="FlipLeftRight" type="Node3D" parent="Visual" node_paths=PackedStringArray("hand")]
+[node name="FlipLeftRight" type="Node3D" parent="." node_paths=PackedStringArray("hand")]
 script = ExtResource("2_qrugp")
-hand = NodePath("../..")
+hand = NodePath("..")
 
-[node name="main_droite" parent="Visual/FlipLeftRight" instance=ExtResource("3_gqn44")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.0564318, 0)
-visible = false
+[node name="Visual" type="Node3D" parent="FlipLeftRight"]
 
-[node name="main" parent="Visual/FlipLeftRight" instance=ExtResource("7_1sjjv")]
+[node name="main" parent="FlipLeftRight/Visual" instance=ExtResource("7_1sjjv")]
 transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -0.204845, -0.0374693, 0.00456838)
 
-[node name="Node3D" type="Node3D" parent="Visual/FlipLeftRight/main"]
+[node name="Node3D" type="Node3D" parent="FlipLeftRight/Visual/main"]
 transform = Transform3D(30.1316, 6.23172, 0, -6.23172, 30.1316, 0, 0, 0, 30.7692, 4.18661, 0.102265, -0.394345)
 
-[node name="Weapon_parent" type="Node3D" parent="Visual/FlipLeftRight/main/Node3D" node_paths=PackedStringArray("hand")]
+[node name="Weapon_parent" type="Node3D" parent="FlipLeftRight/Visual/main/Node3D" node_paths=PackedStringArray("hand")]
 script = ExtResource("5_iyn6o")
 hand = NodePath("../../../../..")
 

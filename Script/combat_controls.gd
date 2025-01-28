@@ -43,11 +43,14 @@ func get_hit(dmg: int, side: Hand.SIDE):
 			$block.play()
 			$block2.play()
 			print("BLOCKED!!!!!!!!!!")
-			child.using_phase = 0
+			
+			child.block()
 			return
 	hp_manager.take_damage(dmg)
 
 
 func die():
+	for child in get_tree().get_nodes_in_group("hand"):
+		child.reset()
 	hands.manager = null
 	queue_free()

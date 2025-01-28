@@ -1,4 +1,4 @@
-class_name ActionButton extends Node2D
+class_name ActionButton extends Sprite2D
 
 var enabled := true
 @export var input_name := ""
@@ -8,6 +8,7 @@ func _ready():
 
 func _process(delta):
 	modulate = Color.WHITE if enabled else Color.DIM_GRAY
+	frame = 1 if Input.is_action_pressed(input_name) else 0
 
 func click(_vp,_event : InputEvent,_shape):
 	if (!_event.is_action_pressed("left_click",true)): return
