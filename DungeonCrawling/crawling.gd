@@ -9,6 +9,7 @@ var room_length := 10
 var rooms : Dictionary = {}
 var loots : Dictionary = {}
 var doors := {}
+var battles := {}
 
 var inventory : Inventory
 var hands : Hands
@@ -23,6 +24,7 @@ func _ready():
 	var room_list = $Center.get_children()
 	rooms = {}
 	doors = {}
+	var battle_packed = load("res://battle.tscn")#pour la charger qu'une seul fois
 	
 	for i in room_list:
 		if (i is Door):
@@ -30,10 +32,17 @@ func _ready():
 			doors[coord] = i
 			#print(coord)
 		elif i is Room:
+			i.check_random_battle(battle_packed)
 			for j in i.get_children():
 				if (j is Loot):
 					var coord = pos_to_coord(i.position)
 					loots[coord] = j
+				if (j is Door):
+					var coord = pos_to_coord(j.position, true)
+					doors[coord] = j
+				if (j is Battle):
+					var coord = pos_to_coord(i.position)
+					battles[coord] = j
 		
 	
 	for i in room_list:
@@ -136,12 +145,16 @@ func forward():
 		$Step.play(2)
 		pass
 	else :
-		#print("bonk")
-		await get_tree().create_timer(0.2).timeout
 		$bonk.play()
+		%Camera3D.shake(0.4,0.2)
 		return
 	
 	player_coord += player_ori
+	if (check_battle_at_coord(player_coord)):
+		battles[player_coord].start_battle()
+
+func check_battle_at_coord(coord):
+	return battles.has(player_coord) and battles[coord] != null
 
 func rotate_view(clock_wise := true):
 	$Rotate.play()

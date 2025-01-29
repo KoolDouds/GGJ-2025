@@ -17,6 +17,7 @@ func set_hp(new_hp: int):
 	hp_label.update_display(hp)
 
 func take_damage(dmg: int, dont_kill := false) -> void:
+	%Camera3D.shake(1,0.5)
 	if (dont_kill):
 		set_hp(max(1,hp-dmg))
 	else:
@@ -26,7 +27,7 @@ func take_damage(dmg: int, dont_kill := false) -> void:
 	text.color = Color.RED
 	text.lifetime = 1
 	var cam : Camera3D = get_tree().get_first_node_in_group("camera")
-	text.global_position = cam.position+Vector3(0,-0.5,-1)+Vector3(randf(),randf(),randf())*0.2
+	text.global_position = cam.position+Vector3(0,-0.5,-1)+(Vector3(randf(),randf(),randf())-Vector3.ONE*0.5)*2*0.2
 	
 	cam.add_child(text)
 
@@ -35,6 +36,15 @@ func take_damage(dmg: int, dont_kill := false) -> void:
 
 func gain_hp(heal: int):
 	set_hp(hp+heal)
+	var text = pop_text.instantiate()
+	text.text = str(+heal)
+	text.color = Color.GREEN
+	text.lifetime = 1
+	var cam : Camera3D = get_tree().get_first_node_in_group("camera")
+	text.global_position = cam.position+Vector3(0,-0.5,-1)+(Vector3(randf(),randf(),randf())-Vector3.ONE*0.5)*2*0.2
+	
+	cam.add_child(text)
+
 
 func die():
 	##print("ded :(")

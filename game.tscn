@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=27 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="Script" path="res://cam_pos.gd" id="2_b2wyd"]
@@ -16,20 +16,22 @@
 [ext_resource type="Script" path="res://quest_manager.gd" id="11_2717f"]
 [ext_resource type="Texture2D" uid="uid://cc8p251tosn7q" path="res://Art/drop.png" id="12_5e18q"]
 [ext_resource type="Script" path="res://music_man.gd" id="13_0dbfe"]
+[ext_resource type="Texture2D" uid="uid://b610uotdfmyv" path="res://Title.png" id="13_0fy21"]
 [ext_resource type="AudioStream" uid="uid://cgrxdhjy7cvcl" path="res://Art/Nothing... Yet... (Hors-Combat) (Loop-friendly).mp3" id="13_se6ue"]
 [ext_resource type="AudioStream" uid="uid://ck6byi1y83vc1" path="res://Art/Variation pour se faire passer un savon (inventaire).mp3" id="14_vupfn"]
 [ext_resource type="AudioStream" uid="uid://4sjywufyt057" path="res://Screech (Center) (combat).mp3" id="17_4lajf"]
 [ext_resource type="Texture2D" uid="uid://dcngw7ma8scl5" path="res://Art/soundbut.png" id="19_1ni30"]
 [ext_resource type="PackedScene" uid="uid://by4ndimwijofq" path="res://buttons.tscn" id="19_i1onl"]
 [ext_resource type="Script" path="res://ActionButton.gd" id="20_ft3n0"]
+[ext_resource type="Script" path="res://fade.gd" id="24_g38pb"]
 
 [sub_resource type="Environment" id="Environment_r32bw"]
 background_energy_multiplier = 0.0
 ambient_light_color = Color(0.164834, 0.00010969, 0.524867, 1)
-ambient_light_energy = 2.0
 fog_enabled = true
-fog_light_color = Color(0.012327, 0.0560906, 0.116435, 1)
-fog_density = 0.1433
+fog_light_color = Color(0.0482958, 0.0843194, 0.196246, 1)
+fog_light_energy = 0.3
+fog_density = 0.08
 fog_height_density = -0.7111
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otpqg"]
@@ -55,7 +57,6 @@ size = Vector2i(768, 576)
 render_target_update_mode = 4
 
 [node name="Crawling" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_ch3i2")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CamField" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
@@ -66,6 +67,7 @@ pos_crawling = NodePath("../PosCrawling")
 pos_inventory = NodePath("../PosInventory")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamField/CamPos" groups=["camera"]]
+unique_name_in_owner = true
 current = true
 script = ExtResource("3_2nrek")
 
@@ -134,6 +136,18 @@ offset_left = 768.0
 offset_right = 1023.0
 offset_bottom = 576.0
 mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036
+anchor_right = 1.0
+offset_left = -0.18
+offset_bottom = 255.0
+grow_horizontal = 2
+texture = ExtResource("13_0fy21")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Hpgui" type="Control" parent="Panel"]
 layout_mode = 1
@@ -395,5 +409,15 @@ script = null
 
 [node name="QuestMan" type="Node" parent="." groups=["questman"]]
 script = ExtResource("11_2717f")
+
+[node name="Fade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("24_g38pb")
 
 [editable path="SubViewportContainer/SubViewport/Inventaire/Bulle"]

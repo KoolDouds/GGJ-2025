@@ -6,10 +6,12 @@ class_name Hands extends Node3D
 var game
 var manager : Battle
 var inventory : Inventory
+var crawling : Crawling
 
 func _ready():
 	game = get_tree().get_first_node_in_group("game")
 	inventory = get_tree().get_first_node_in_group("inventory")
+	crawling = get_tree().get_first_node_in_group("crawling")
 
 func _process(delta):
 	if manager != null:
@@ -24,7 +26,7 @@ func _process(delta):
 			inventory.switch_with_hands(left_hand)
 		if (Input.is_action_just_pressed("right")):
 			inventory.switch_with_hands(right_hand)
-	else:
+	elif crawling.is_crawling():
 		if (Input.is_action_just_pressed("left")):
 			left_hand.use(game)
 		if (Input.is_action_just_pressed("right")):
