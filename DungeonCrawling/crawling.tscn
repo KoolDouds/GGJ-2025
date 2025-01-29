@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cyejn4b76oey1"]
+[gd_scene load_steps=27 format=3 uid="uid://cyejn4b76oey1"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
 [ext_resource type="PackedScene" uid="uid://q7hux1610c2m" path="res://DungeonCrawling/room.tscn" id="2_buovi"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://3rhn38y4mlin" path="res://DungeonCrawling/door.tscn" id="6_t62p0"]
 [ext_resource type="PackedScene" uid="uid://cbi03irwtck4d" path="res://eye_monster.tscn" id="6_y35j3"]
 [ext_resource type="Resource" uid="uid://b60qtuno62hst" path="res://Weapons/key_weapon.tres" id="7_fr6t6"]
-[ext_resource type="PackedScene" path="res://blood_altar.tscn" id="7_jctl4"]
+[ext_resource type="PackedScene" uid="uid://dw1exqnc5s8ge" path="res://blood_altar.tscn" id="7_jctl4"]
 [ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://Weapons/heal_potion.tres" id="8_lv038"]
 [ext_resource type="PackedScene" uid="uid://qoexmna60qcs" path="res://ped.tscn" id="8_y2q4e"]
 [ext_resource type="Resource" uid="uid://b3avj1me10q33" path="res://Weapons/masse.tres" id="9_j625p"]
@@ -23,6 +23,14 @@
 [ext_resource type="AudioStream" uid="uid://dfobrsbmjdoxk" path="res://Sounds/Classic punch.wav" id="12_wjr2m"]
 [ext_resource type="AudioStream" uid="uid://81fvspe2gwdo" path="res://Sounds/Woosh.wav" id="13_t783w"]
 [ext_resource type="Script" path="res://DungeonCrawling/dark_room.gd" id="15_i71uc"]
+[ext_resource type="Texture2D" uid="uid://culgukhv3f8h4" path="res://Art/Prophecy.png" id="16_5q7lf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36k2k"]
+albedo_texture = ExtResource("16_5q7lf")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_48q5w"]
+material = SubResource("StandardMaterial3D_36k2k")
 
 [node name="Crawling" type="Node3D" node_paths=PackedStringArray("center") groups=["crawling"]]
 script = ExtResource("1_6fc3b")
@@ -295,7 +303,7 @@ spot_angle = 33.1336
 [node name="NormalLight" type="Node3D" parent="Center/Room28/salle_texture_max"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Center/Room28/salle_texture_max/NormalLight"]
-transform = Transform3D(0.381425, -4.04068e-08, 0.9244, -0.9244, -1.66726e-08, 0.381425, 0, -1, -4.37114e-08, 0, 2.69941, 0)
+transform = Transform3D(0.272616, -4.20557e-08, 0.962123, -0.962123, -1.19164e-08, 0.272616, 4.94182e-16, -1, -4.37114e-08, 0, 2.69941, 0)
 light_color = Color(1, 0.424392, 0.457055, 1)
 light_energy = 16.0
 spot_range = 8.261
@@ -305,7 +313,7 @@ spot_angle = 33.1336
 [node name="OmniLight3D" type="OmniLight3D" parent="Center/Room28/salle_texture_max/NormalLight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74536, 0)
 light_color = Color(0.976251, 0.63365, 0.265112, 1)
-light_energy = 3.763
+light_energy = 0.0
 omni_range = 7.318
 omni_attenuation = 1.923
 
@@ -315,6 +323,10 @@ omni_attenuation = 1.923
 script = ExtResource("15_i71uc")
 normal_light = NodePath("../salle_texture_max/NormalLight")
 dark_light = NodePath("../salle_texture_max/DarkLight")
+
+[node name="ProphecyWall" type="MeshInstance3D" parent="Center/Room28"]
+transform = Transform3D(-2.41943e-07, 0, 2.769, 0, 2.769, 0, -5.535, 0, -1.21037e-07, -4.55177, 1.47352, 0)
+mesh = SubResource("QuadMesh_48q5w")
 
 [node name="Room62" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110, 0, -50)

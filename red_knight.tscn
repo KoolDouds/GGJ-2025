@@ -216,7 +216,7 @@ max_hp = 30
 [node name="red_knight_F3" parent="Flip/Visual" instance=ExtResource("3_ewhen")]
 
 [node name="AttackSparkle" type="Sprite3D" parent="Flip/Visual"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.616262, 1.96077, 0.712095)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.616262, 1.51409, 0.712095)
 visible = false
 texture_filter = 0
 texture = ExtResource("6_rwx2k")

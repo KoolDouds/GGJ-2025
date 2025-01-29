@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5reaju2jnx3o"]
+[gd_scene load_steps=3 format=3 uid="uid://dw1exqnc5s8ge"]
 
 [ext_resource type="Script" path="res://blood_altar.gd" id="1_fm420"]
 [ext_resource type="PackedScene" uid="uid://c6bqwb7u1qtnm" path="res://vasque.fbx" id="1_vee35"]

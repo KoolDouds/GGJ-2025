@@ -1,7 +1,7 @@
 extends Node
 
 var input_str := []
-var code := ["forward","back","forward","back","left","right","left","right","rotate_left","rotate_right"]
+var code := ["forward","forward","back","back","left","right","left","right","rotate_left","rotate_right"]
 
 func _process(delta):
 	if (Input.is_anything_pressed()):
