@@ -53,6 +53,7 @@ func open():
 		visible = false
 
 func display_items():
+	print(get_tree().current_scene.name)
 	var children = display_parent.get_children()
 	for i in children:
 		i.queue_free()
@@ -61,12 +62,14 @@ func display_items():
 		var item = item_list[i]
 		var clone = item.gfx.instantiate()
 		var rot = -TAU/item_list.size()*i
+		
 		clone.position = Vector3.RIGHT.rotated(Vector3.UP,rot)*diplay_radius
 		clone.rotation = Vector3.UP* rot
 		display_parent.add_child(clone)
 
 func update_display_pos():
-	var rot :=(TAU/item_list.size()*selected_idx)
+	#print("displai")
+	var rot = 0 if item_list.size()==0 else (TAU/item_list.size()*selected_idx)
 	display_parent.rotation = lerp(display_parent.rotation, Vector3.UP*(rot + PI/2),0.5)
 	
 
@@ -76,6 +79,7 @@ func add_item(weapon : Weapon):
 func add_item_at(weapon : Weapon, idx: int):
 	if (weapon == null or weapon == rien):
 		return
+	
 	item_list.insert(idx,weapon)
 	clamp_selected_idx()
 	display_items()

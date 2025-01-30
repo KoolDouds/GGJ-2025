@@ -7,6 +7,6 @@ func use(hand: Hand):
 		if hand.global_position.distance_to(altar.global_position) > 5 or altar.filled:
 			continue
 		var hpman : HPManager = hand.get_tree().get_first_node_in_group("hpman")
-		hpman.take_damage(5)
+		hpman.take_damage(5, true)
 		altar.fill_up()
 		return

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://DungeonCrawling/ItemFunction.gd" id="1_jd7p1"]
 [ext_resource type="Script" path="res://Script/weapon.gd" id="2_3vv7j"]
 [ext_resource type="Script" path="res://open_door.gd" id="2_8x6mt"]
-[ext_resource type="PackedScene" path="res://clef.tscn" id="3_wo6dy"]
+[ext_resource type="PackedScene" uid="uid://cvpt1u3vfbs0n" path="res://clef.tscn" id="3_wo6dy"]
 
 [sub_resource type="Resource" id="Resource_wq0qg"]
 script = ExtResource("2_8x6mt")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfa3sms7vh2po"]
+
+[ext_resource type="Script" path="res://DungeonCrawling/room.gd" id="1_drypk"]
+[ext_resource type="PackedScene" uid="uid://cb41yjhbmyomh" path="res://DungeonCrawling/salle_texture_max.fbx" id="2_0g2ee"]
+[ext_resource type="PackedScene" uid="uid://qoexmna60qcs" path="res://ped.tscn" id="3_i2ika"]
+[ext_resource type="Resource" uid="uid://1ngvui8g44me" path="res://Weapons/dague.tres" id="4_i5s5e"]
+
+[node name="StartRoom" type="Node3D"]
+script = ExtResource("1_drypk")
+in_rooms = false
+
+[node name="salle_texture_max" parent="." instance=ExtResource("2_0g2ee")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.69941, 0)
+light_color = Color(1, 0.424392, 0.457055, 1)
+light_energy = 16.0
+spot_range = 3.52
+spot_attenuation = -0.16
+spot_angle = 33.1336
+
+[node name="Ped" parent="." instance=ExtResource("3_i2ika")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+item = ExtResource("4_i5s5e")

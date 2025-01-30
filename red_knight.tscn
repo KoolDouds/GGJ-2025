@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpxys3rpur38p"]
+[gd_scene load_steps=17 format=3 uid="uid://bpxys3rpur38p"]
 
 [ext_resource type="Script" path="res://Script/enemy_temp.gd" id="1_4cspw"]
 [ext_resource type="PackedScene" uid="uid://cbtlh1wk27wdg" path="res://red_knight_F1.fbx" id="1_dkofv"]
 [ext_resource type="Script" path="res://Script/enemy_move.gd" id="2_62id1"]
 [ext_resource type="PackedScene" uid="uid://doeajhmo2itku" path="res://red_knight_F2.fbx" id="2_sfg2a"]
 [ext_resource type="PackedScene" uid="uid://6rf6ijgwcepi" path="res://red_knight_F3.fbx" id="3_ewhen"]
+[ext_resource type="Texture2D" uid="uid://5nuyhs80dxe5" path="res://Art/sparkle.png" id="6_rwx2k"]
+[ext_resource type="Script" path="res://Spin.gd" id="6_u7lmv"]
 
 [sub_resource type="Resource" id="Resource_vrgxd"]
 script = ExtResource("2_62id1")
@@ -212,6 +214,15 @@ max_hp = 30
 [node name="red_knight_F2" parent="Flip/Visual" instance=ExtResource("2_sfg2a")]
 
 [node name="red_knight_F3" parent="Flip/Visual" instance=ExtResource("3_ewhen")]
+
+[node name="AttackSparkle" type="Sprite3D" parent="Flip/Visual"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.616262, 1.51409, 0.712095)
+visible = false
+texture_filter = 0
+texture = ExtResource("6_rwx2k")
+script = ExtResource("6_u7lmv")
+speed = 10.0
+rotation_axis = Vector3(0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

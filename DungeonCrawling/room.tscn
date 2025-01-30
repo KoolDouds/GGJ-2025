@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://q7hux1610c2m"]
+[gd_scene load_steps=5 format=3 uid="uid://q7hux1610c2m"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/room.gd" id="1_msas5"]
+[ext_resource type="PackedScene" uid="uid://cbi03irwtck4d" path="res://eye_monster.tscn" id="2_lavha"]
+[ext_resource type="PackedScene" uid="uid://bpxys3rpur38p" path="res://red_knight.tscn" id="3_84dbm"]
 [ext_resource type="PackedScene" uid="uid://cb41yjhbmyomh" path="res://DungeonCrawling/salle_texture_max.fbx" id="3_l24j2"]
 
 [node name="Room" type="Node3D"]
 script = ExtResource("1_msas5")
+battle_pool = Array[PackedScene]([ExtResource("2_lavha"), ExtResource("2_lavha"), ExtResource("3_84dbm")])
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74536, 0)
-light_color = Color(0.974565, 0.76096, 0.522924, 1)
-light_energy = 5.0
+light_color = Color(0.976251, 0.63365, 0.265112, 1)
+light_energy = 12.0
 omni_range = 7.502
 omni_attenuation = 0.795
 

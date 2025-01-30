@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://by4ndimwijofq"]
+
+[ext_resource type="Script" path="res://buttons.gd" id="1_re8gq"]
+[ext_resource type="Texture2D" uid="uid://ceil25cg57xno" path="res://Art/2.png" id="2_6od0a"]
+[ext_resource type="Script" path="res://ButtonBubble.gd" id="3_7reiq"]
+[ext_resource type="Texture2D" uid="uid://b7uwugdu2miqa" path="res://Art/4.png" id="4_5loe7"]
+[ext_resource type="Script" path="res://ButtonHand.gd" id="5_g7xrv"]
+[ext_resource type="Texture2D" uid="uid://dv5h4qf1xn5x1" path="res://Art/5.png" id="5_tdugv"]
+[ext_resource type="Texture2D" uid="uid://c84menkwoamal" path="res://Art/6.png" id="6_bulmk"]
+[ext_resource type="Texture2D" uid="uid://b5i01ccx2qrsv" path="res://Art/7.png" id="7_ijfbl"]
+[ext_resource type="Script" path="res://ButtonCenter.gd" id="7_ulfu2"]
+[ext_resource type="Texture2D" uid="uid://cukxom86absnn" path="res://Art/8.png" id="8_sdefi"]
+[ext_resource type="Texture2D" uid="uid://cjqvwbkms1p05" path="res://Art/9.png" id="9_i7j1a"]
+[ext_resource type="Script" path="res://ButtonRotate.gd" id="10_q0h0n"]
+[ext_resource type="Script" path="res://ButtonForward.gd" id="12_q3nn4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b53lh"]
+size = Vector2(25.5274, 25.5274)
+
+[node name="Buttons" type="Node2D"]
+script = ExtResource("1_re8gq")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(900.5, 469.5)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("2_6od0a")
+hframes = 2
+script = ExtResource("3_7reiq")
+input_name = "back"
+
+[node name="Area2D" type="Area2D" parent="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2/Area2D"]
+position = Vector2(-0.236328, -0.236359)
+shape = SubResource("RectangleShape2D_b53lh")
+
+[node name="4" type="Sprite2D" parent="."]
+position = Vector2(843, 412)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("4_5loe7")
+hframes = 2
+script = ExtResource("5_g7xrv")
+input_name = "left"
+
+[node name="Area2D" type="Area2D" parent="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="4/Area2D"]
+position = Vector2(-0.236328, -0.236359)
+shape = SubResource("RectangleShape2D_b53lh")
+
+[node name="5" type="Sprite2D" parent="."]
+position = Vector2(900.5, 411.5)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("5_tdugv")
+hframes = 2
+script = ExtResource("7_ulfu2")
+input_name = "center"
+
+[node name="Area2D" type="Area2D" parent="5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="5/Area2D"]
+position = Vector2(-0.236328, -0.236359)
+shape = SubResource("RectangleShape2D_b53lh")
+
+[node name="6" type="Sprite2D" parent="."]
+position = Vector2(958, 412)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("6_bulmk")
+hframes = 2
+script = ExtResource("5_g7xrv")
+input_name = "right"
+
+[node name="Area2D" type="Area2D" parent="6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="6/Area2D"]
+position = Vector2(-0.236328, -0.236359)
+shape = SubResource("RectangleShape2D_b53lh")
+
+[node name="7" type="Sprite2D" parent="."]
+position = Vector2(842, 354)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("7_ijfbl")
+hframes = 2
+script = ExtResource("10_q0h0n")
+input_name = "rotate_left"
+
+[node name="Area2D" type="Area2D" parent="7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="7/Area2D"]
+position = Vector2(-0.236328, -0.236359)
+shape = SubResource("RectangleShape2D_b53lh")
+
+[node name="8" type="Sprite2D" parent="."]
+position = Vector2(901, 355)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("8_sdefi")
+hframes = 2
+script = ExtResource("12_q3nn4")
+input_name = "forward"
+
+[node name="Area2D" type="Area2D" parent="8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="8/Area2D"]
+position = Vector2(-0.236328, -0.236359)
+shape = SubResource("RectangleShape2D_b53lh")
+
+[node name="9" type="Sprite2D" parent="."]
+position = Vector2(958, 355)
+scale = Vector2(2.11538, 2.11538)
+texture = ExtResource("9_i7j1a")
+hframes = 2
+script = ExtResource("10_q0h0n")
+input_name = "rotate_right"
+
+[node name="Area2D" type="Area2D" parent="9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="9/Area2D"]
+position = Vector2(-0.236328, -0.236359)
+shape = SubResource("RectangleShape2D_b53lh")

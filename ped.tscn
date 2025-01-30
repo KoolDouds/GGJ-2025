@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dil1233dcttvc"]
+[gd_scene load_steps=4 format=3 uid="uid://qoexmna60qcs"]
 
 [ext_resource type="Script" path="res://ped.gd" id="1_a5qvh"]
 [ext_resource type="PackedScene" uid="uid://d1hxbmyxxjxf1" path="res://pied_estalle.fbx" id="1_ryk70"]
+[ext_resource type="Script" path="res://spin.gd" id="3_lj4yf"]
 
 [node name="Ped" type="Node3D" groups=["ped"]]
 script = ExtResource("1_a5qvh")
 
-[node name="pied_estalle" parent="." instance=ExtResource("1_ryk70")]
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="pied_estalle" parent="Node3D" instance=ExtResource("1_ryk70")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
-[node name="item_holder" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.826159, 0)
+[node name="item_holder" type="Node3D" parent="Node3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.07258, 0)
+script = ExtResource("3_lj4yf")

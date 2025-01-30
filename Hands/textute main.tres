@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b4lu42egl4lgv"]
+
+[ext_resource type="Texture2D" uid="uid://cuo8cqv604gsa" path="res://Hands/texture_main.png" id="1_tsa5f"]
+
+[resource]
+resource_name = "textute main"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_tsa5f")
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0

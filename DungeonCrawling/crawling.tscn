@@ -1,23 +1,36 @@
-[gd_scene load_steps=19 format=3 uid="uid://cyejn4b76oey1"]
+[gd_scene load_steps=27 format=3 uid="uid://cyejn4b76oey1"]
 
 [ext_resource type="Script" path="res://DungeonCrawling/crawling.gd" id="1_6fc3b"]
 [ext_resource type="PackedScene" uid="uid://q7hux1610c2m" path="res://DungeonCrawling/room.tscn" id="2_buovi"]
+[ext_resource type="Script" path="res://DungeonCrawling/room.gd" id="2_ix23l"]
 [ext_resource type="PackedScene" uid="uid://eshuj7vsra4m" path="res://loot.tscn" id="3_xin1e"]
+[ext_resource type="PackedScene" uid="uid://cb41yjhbmyomh" path="res://DungeonCrawling/salle_texture_max.fbx" id="3_y0frx"]
 [ext_resource type="Resource" uid="uid://jif1437aa5el" path="res://Weapons/shield.tres" id="4_1vltk"]
 [ext_resource type="PackedScene" uid="uid://be1n6ygjp5xre" path="res://battle.tscn" id="5_c1b65"]
+[ext_resource type="Resource" uid="uid://1ngvui8g44me" path="res://Weapons/dague.tres" id="5_lki47"]
 [ext_resource type="PackedScene" uid="uid://bpxys3rpur38p" path="res://red_knight.tscn" id="6_3cslc"]
+[ext_resource type="Script" path="res://DungeonCrawling/cheat_code.gd" id="6_75k1n"]
 [ext_resource type="PackedScene" uid="uid://3rhn38y4mlin" path="res://DungeonCrawling/door.tscn" id="6_t62p0"]
 [ext_resource type="PackedScene" uid="uid://cbi03irwtck4d" path="res://eye_monster.tscn" id="6_y35j3"]
 [ext_resource type="Resource" uid="uid://b60qtuno62hst" path="res://Weapons/key_weapon.tres" id="7_fr6t6"]
-[ext_resource type="PackedScene" uid="uid://b5reaju2jnx3o" path="res://blood_altar.tscn" id="7_jctl4"]
+[ext_resource type="PackedScene" uid="uid://dw1exqnc5s8ge" path="res://blood_altar.tscn" id="7_jctl4"]
 [ext_resource type="Resource" uid="uid://degkwim0ejhb5" path="res://Weapons/heal_potion.tres" id="8_lv038"]
-[ext_resource type="PackedScene" uid="uid://dil1233dcttvc" path="res://ped.tscn" id="8_y2q4e"]
+[ext_resource type="PackedScene" uid="uid://qoexmna60qcs" path="res://ped.tscn" id="8_y2q4e"]
 [ext_resource type="Resource" uid="uid://b3avj1me10q33" path="res://Weapons/masse.tres" id="9_j625p"]
 [ext_resource type="PackedScene" uid="uid://b4wl4khrurlof" path="res://torche.tscn" id="9_tny8e"]
 [ext_resource type="PackedScene" uid="uid://bukph6ylind1i" path="res://bubble.tscn" id="9_wvl6p"]
 [ext_resource type="AudioStream" uid="uid://c35mqysfakcj1" path="res://Sounds/Footsteps Rapides.wav" id="11_pahf3"]
 [ext_resource type="AudioStream" uid="uid://dfobrsbmjdoxk" path="res://Sounds/Classic punch.wav" id="12_wjr2m"]
 [ext_resource type="AudioStream" uid="uid://81fvspe2gwdo" path="res://Sounds/Woosh.wav" id="13_t783w"]
+[ext_resource type="Script" path="res://DungeonCrawling/dark_room.gd" id="15_i71uc"]
+[ext_resource type="Texture2D" uid="uid://culgukhv3f8h4" path="res://Art/Prophecy.png" id="16_5q7lf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_36k2k"]
+albedo_texture = ExtResource("16_5q7lf")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_48q5w"]
+material = SubResource("StandardMaterial3D_36k2k")
 
 [node name="Crawling" type="Node3D" node_paths=PackedStringArray("center") groups=["crawling"]]
 script = ExtResource("1_6fc3b")
@@ -25,196 +38,313 @@ center = NodePath("Center")
 
 [node name="Center" type="Node3D" parent="."]
 
+[node name="StartRoom" type="Node3D" parent="Center"]
+script = ExtResource("2_ix23l")
+in_rooms = false
+
+[node name="salle_texture_max" parent="Center/StartRoom" instance=ExtResource("3_y0frx")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Center/StartRoom"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.69941, 0)
+light_color = Color(1, 0.424392, 0.457055, 1)
+light_energy = 16.0
+spot_range = 3.52
+spot_attenuation = -0.16
+spot_angle = 33.1336
+
+[node name="Ped" parent="Center/StartRoom" instance=ExtResource("8_y2q4e")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+item = ExtResource("5_lki47")
+
+[node name="CheatCode" type="Node" parent="Center/StartRoom/Ped"]
+script = ExtResource("6_75k1n")
+
 [node name="Room" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
 
 [node name="Loot" parent="Center/Room" instance=ExtResource("3_xin1e")]
 weapon = ExtResource("4_1vltk")
 
 [node name="Room11" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="torche" parent="Center/Room11" instance=ExtResource("9_tny8e")]
+transform = Transform3D(1, 0, 0, 0, 0.986182, -0.165667, 0, 0.165667, 0.986182, 0, 1.25379, -4.80426)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Center/Room11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.832797, 3.53416)
+visible = false
+light_color = Color(0.976251, 0.63365, 0.265112, 1)
+light_energy = 12.0
+omni_range = 7.502
+omni_attenuation = 0.795
 
 [node name="Room2" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -10)
 
 [node name="battle" parent="Center/Room2" instance=ExtResource("5_c1b65")]
 enemy_res = ExtResource("6_3cslc")
 
 [node name="Room12" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -10)
 
 [node name="battle" parent="Center/Room12" instance=ExtResource("5_c1b65")]
 enemy_res = ExtResource("6_3cslc")
 
 [node name="Room13" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 4.37114e-07)
-
-[node name="Room16" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -10)
 
-[node name="Room29" parent="Center" instance=ExtResource("2_buovi")]
+[node name="Room16" parent="Center" instance=ExtResource("2_buovi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -20)
+randomized_battle = true
+
+[node name="Room29" parent="Center" instance=ExtResource("2_buovi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -30)
+randomized_battle = true
 
 [node name="Room37" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 20)
+randomized_battle = true
 
 [node name="Room38" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 10)
+randomized_battle = true
 
 [node name="Room40" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 10)
+randomized_battle = true
 
 [node name="Room41" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 10)
+randomized_battle = true
 
 [node name="Room42" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, 10)
+randomized_battle = true
 
 [node name="Room46" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, 20)
+randomized_battle = true
 
 [node name="Room47" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 20)
+randomized_battle = true
 
 [node name="Room48" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 30)
+randomized_battle = true
 
 [node name="Room51" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110, 0, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110, 0, 30)
+randomized_battle = true
 
 [node name="Room52" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 30)
+randomized_battle = true
 
 [node name="Room53" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, 20)
+randomized_battle = true
 
 [node name="Room54" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, 10)
+randomized_battle = true
 
 [node name="Room55" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, 0)
+randomized_battle = true
 
 [node name="Room43" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, 0)
+randomized_battle = true
 
 [node name="Room44" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 0)
+randomized_battle = true
 
 [node name="Room49" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 20)
+randomized_battle = true
 
 [node name="Room50" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 0)
+randomized_battle = true
 
 [node name="Room39" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 0)
+randomized_battle = true
 
 [node name="Room34" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, -30)
+randomized_battle = true
 
 [node name="Room33" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -30)
+randomized_battle = true
 
 [node name="Room35" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, -50)
+randomized_battle = true
 
 [node name="Room36" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -50)
+randomized_battle = true
 
 [node name="Room30" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -40)
+randomized_battle = true
 
 [node name="Room31" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -50)
+randomized_battle = true
 
 [node name="Room32" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -50)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -60)
 
 [node name="BloodAltar" parent="Center/Room32" instance=ExtResource("7_jctl4")]
 
 [node name="Room14" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, -10)
+randomized_battle = true
 
 [node name="Room15" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -10)
+randomized_battle = true
 
 [node name="Room17" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -10)
+randomized_battle = true
 
 [node name="Room45" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -20)
+randomized_battle = true
 
 [node name="BloodAltar" parent="Center/Room45" instance=ExtResource("7_jctl4")]
 
 [node name="Room18" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110, 0, -10)
+randomized_battle = true
 
 [node name="Room19" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, -10)
+randomized_battle = true
 
 [node name="Room20" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, -10)
+randomized_battle = true
 
 [node name="Room21" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, -10)
+randomized_battle = true
 
 [node name="Room22" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, -10)
+randomized_battle = true
 
 [node name="Room56" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, -20)
+randomized_battle = true
 
 [node name="Room57" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, -30)
+randomized_battle = true
 
 [node name="Room58" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, -30)
+randomized_battle = true
 
 [node name="Room61" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, -30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, -40)
+randomized_battle = true
 
 [node name="Room59" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170, 0, -30)
+randomized_battle = true
 
 [node name="Room60" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170, 0, -20)
+randomized_battle = true
 
 [node name="Room23" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, -10)
+randomized_battle = true
 
 [node name="Room24" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170, 0, 4.37114e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170, 0, -10)
+randomized_battle = true
 
 [node name="Room25" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 0, -50)
+randomized_battle = true
 
 [node name="Room26" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, -50)
+randomized_battle = true
 
 [node name="Room27" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170, 0, -50)
+randomized_battle = true
 
-[node name="Room28" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, -40)
+[node name="Room28" type="Node3D" parent="Center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, -50)
+script = ExtResource("2_ix23l")
+battle_pool = Array[PackedScene]([ExtResource("6_y35j3"), ExtResource("6_y35j3"), ExtResource("6_3cslc")])
+
+[node name="salle_texture_max" parent="Center/Room28" instance=ExtResource("3_y0frx")]
+
+[node name="DarkLight" type="SpotLight3D" parent="Center/Room28/salle_texture_max"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.69941, 0)
+light_color = Color(1, 0.424392, 0.457055, 1)
+light_energy = 16.0
+spot_range = 3.52
+spot_attenuation = -0.16
+spot_angle = 33.1336
+
+[node name="NormalLight" type="Node3D" parent="Center/Room28/salle_texture_max"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Center/Room28/salle_texture_max/NormalLight"]
+transform = Transform3D(0.272616, -4.20557e-08, 0.962123, -0.962123, -1.19164e-08, 0.272616, 4.94182e-16, -1, -4.37114e-08, 0, 2.69941, 0)
+light_color = Color(1, 0.424392, 0.457055, 1)
+light_energy = 16.0
+spot_range = 8.261
+spot_attenuation = 0.61
+spot_angle = 33.1336
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Center/Room28/salle_texture_max/NormalLight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74536, 0)
+light_color = Color(0.976251, 0.63365, 0.265112, 1)
+light_energy = 0.0
+omni_range = 7.318
+omni_attenuation = 1.923
 
 [node name="Ped" parent="Center/Room28" instance=ExtResource("8_y2q4e")]
 
+[node name="DarkRoom" type="Node" parent="Center/Room28" node_paths=PackedStringArray("normal_light", "dark_light")]
+script = ExtResource("15_i71uc")
+normal_light = NodePath("../salle_texture_max/NormalLight")
+dark_light = NodePath("../salle_texture_max/DarkLight")
+
+[node name="ProphecyWall" type="MeshInstance3D" parent="Center/Room28"]
+transform = Transform3D(-2.41943e-07, 0, 2.769, 0, 2.769, 0, -5.535, 0, -1.21037e-07, -4.55177, 1.47352, 0)
+mesh = SubResource("QuadMesh_48q5w")
+
 [node name="Room62" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110, 0, -50)
 
 [node name="battle" parent="Center/Room62" instance=ExtResource("5_c1b65")]
 enemy_res = ExtResource("9_wvl6p")
 
 [node name="Room63" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, -50)
 
 [node name="Room64" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, -50)
 
 [node name="Room65" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, -40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, -50)
 
 [node name="Room3" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 8.74228e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
 
 [node name="Loot" parent="Center/Room3" instance=ExtResource("3_xin1e")]
 weapon = ExtResource("7_fr6t6")
@@ -223,7 +353,7 @@ weapon = ExtResource("7_fr6t6")
 enemy_res = ExtResource("6_y35j3")
 
 [node name="Room4" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 1.31134e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -10)
 
 [node name="battle" parent="Center/Room4" instance=ExtResource("5_c1b65")]
 enemy_res = ExtResource("6_3cslc")
@@ -235,35 +365,44 @@ transform = Transform3D(0.972096, 0.234582, 0, -0.234582, 0.972096, 0, 0, 0, 1, 
 transform = Transform3D(0.972096, 0.234582, 0, -0.234582, 0.972096, 0, 0, 0, 1, -5.11144, 1.65585, -1.91918)
 
 [node name="Room8" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -20)
+
+[node name="battle" parent="Center/Room8" instance=ExtResource("5_c1b65")]
+enemy_res = ExtResource("6_y35j3")
 
 [node name="Room9" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -20)
 
 [node name="Room5" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 10)
 
 [node name="Loot" parent="Center/Room5" instance=ExtResource("3_xin1e")]
 weapon = ExtResource("8_lv038")
 
 [node name="Room6" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 0)
 
 [node name="Room10" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 10)
+
+[node name="battle" parent="Center/Room10" instance=ExtResource("5_c1b65")]
+enemy_res = ExtResource("6_y35j3")
 
 [node name="Room7" parent="Center" instance=ExtResource("2_buovi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 10)
 
 [node name="Loot" parent="Center/Room7" instance=ExtResource("3_xin1e")]
 weapon = ExtResource("9_j625p")
 
 [node name="Door" parent="Center" instance=ExtResource("6_t62p0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35, 0, -10)
 open = false
 
 [node name="Door2" parent="Center" instance=ExtResource("6_t62p0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45, 0, -10)
+open = false
+
+[node name="DoorStart" parent="Center" instance=ExtResource("6_t62p0")]
 open = false
 
 [node name="Step" type="AudioStreamPlayer" parent="."]
@@ -278,3 +417,6 @@ volume_db = 15.0
 stream = ExtResource("13_t783w")
 volume_db = 5.0
 pitch_scale = 4.0
+
+[connection signal="on_emptied" from="Center/StartRoom/Ped" to="Center/DoorStart" method="open_door"]
+[connection signal="ultimate_created" from="Center/Room28/Ped" to="Center/Room28/DarkRoom" method="switch_lights"]

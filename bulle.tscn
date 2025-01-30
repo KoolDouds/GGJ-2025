@@ -9,6 +9,6 @@
 transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -0.167666, 0, 0)
 
 [node name="Bulle Fermée" parent="Node3D" instance=ExtResource("1_hoeg7")]
-visible = false
 
 [node name="Bulle Ouverte" parent="Node3D" instance=ExtResource("2_4omcg")]
+visible = false

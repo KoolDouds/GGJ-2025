@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://eu1sqj6bo68j"]
+[gd_scene load_steps=27 format=3 uid="uid://eu1sqj6bo68j"]
 
 [ext_resource type="PackedScene" uid="uid://dyv3pmrin5nij" path="res://Hands/hands.tscn" id="1_dp6cy"]
 [ext_resource type="Script" path="res://cam_pos.gd" id="2_b2wyd"]
@@ -16,25 +16,26 @@
 [ext_resource type="Script" path="res://quest_manager.gd" id="11_2717f"]
 [ext_resource type="Texture2D" uid="uid://cc8p251tosn7q" path="res://Art/drop.png" id="12_5e18q"]
 [ext_resource type="Script" path="res://music_man.gd" id="13_0dbfe"]
+[ext_resource type="Texture2D" uid="uid://b610uotdfmyv" path="res://Title.png" id="13_0fy21"]
 [ext_resource type="AudioStream" uid="uid://cgrxdhjy7cvcl" path="res://Art/Nothing... Yet... (Hors-Combat) (Loop-friendly).mp3" id="13_se6ue"]
-[ext_resource type="Script" path="res://buttons.gd" id="14_udret"]
 [ext_resource type="AudioStream" uid="uid://ck6byi1y83vc1" path="res://Art/Variation pour se faire passer un savon (inventaire).mp3" id="14_vupfn"]
-[ext_resource type="Texture2D" uid="uid://ceil25cg57xno" path="res://Art/2.png" id="15_g3d8w"]
-[ext_resource type="Texture2D" uid="uid://b7uwugdu2miqa" path="res://Art/4.png" id="16_p0ca4"]
 [ext_resource type="AudioStream" uid="uid://4sjywufyt057" path="res://Screech (Center) (combat).mp3" id="17_4lajf"]
-[ext_resource type="Texture2D" uid="uid://dv5h4qf1xn5x1" path="res://Art/5.png" id="17_8ljmv"]
-[ext_resource type="Texture2D" uid="uid://c84menkwoamal" path="res://Art/6.png" id="18_r8w3p"]
-[ext_resource type="Texture2D" uid="uid://b5i01ccx2qrsv" path="res://Art/7.png" id="19_kihsq"]
-[ext_resource type="Texture2D" uid="uid://cukxom86absnn" path="res://Art/8.png" id="20_st8yo"]
-[ext_resource type="Texture2D" uid="uid://cjqvwbkms1p05" path="res://Art/9.png" id="21_usdhk"]
+[ext_resource type="Texture2D" uid="uid://dcngw7ma8scl5" path="res://Art/soundbut.png" id="19_1ni30"]
+[ext_resource type="PackedScene" uid="uid://by4ndimwijofq" path="res://buttons.tscn" id="19_i1onl"]
+[ext_resource type="Script" path="res://ActionButton.gd" id="20_ft3n0"]
+[ext_resource type="Script" path="res://fade.gd" id="24_g38pb"]
 
 [sub_resource type="Environment" id="Environment_r32bw"]
 background_energy_multiplier = 0.0
 ambient_light_color = Color(0.164834, 0.00010969, 0.524867, 1)
 fog_enabled = true
-fog_light_color = Color(0.012327, 0.0560906, 0.116435, 1)
-fog_density = 0.1433
+fog_light_color = Color(0.0482958, 0.0843194, 0.196246, 1)
+fog_light_energy = 0.3
+fog_density = 0.08
 fog_height_density = -0.7111
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otpqg"]
+size = Vector2(25.5274, 25.5274)
 
 [node name="Game" type="Control" groups=["game"]]
 layout_mode = 3
@@ -43,6 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 0
@@ -59,12 +61,13 @@ render_target_update_mode = 4
 [node name="CamField" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
 [node name="CamPos" type="Node3D" parent="SubViewportContainer/SubViewport/CamField" node_paths=PackedStringArray("pos_crawling", "pos_inventory")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.6, 0.590804)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
 script = ExtResource("2_b2wyd")
 pos_crawling = NodePath("../PosCrawling")
 pos_inventory = NodePath("../PosInventory")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CamField/CamPos" groups=["camera"]]
+unique_name_in_owner = true
 current = true
 script = ExtResource("3_2nrek")
 
@@ -73,9 +76,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47, 0.05)
 
 [node name="Hands" parent="SubViewportContainer/SubViewport/CamField/CamPos/Camera3D/Node3D" instance=ExtResource("1_dp6cy")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/CamField/CamPos/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.584008)
-light_energy = 0.5
+[node name="OmniLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/CamField/CamPos/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49604e-08, 0, 0.502212)
+light_color = Color(1, 0.844, 0.61, 1)
+light_energy = 8.0
+spot_range = 5.08
+spot_attenuation = 0.2
 
 [node name="PosCrawling" type="Node3D" parent="SubViewportContainer/SubViewport/CamField"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 3.8)
@@ -91,10 +97,10 @@ item_list = Array[ExtResource("4_grple")]([ExtResource("8_7wdci")])
 open_gfx = NodePath("Bulle/Node3D/Bulle Ouverte")
 closed_gfx = NodePath("Bulle/Node3D/Bulle Fermée")
 display_parent = NodePath("Display")
-diplay_radius = 0.5
+diplay_radius = 0.3
 
 [node name="Display" type="Node3D" parent="SubViewportContainer/SubViewport/Inventaire"]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.00842, 0)
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 1.5285, -0.381589)
 
 [node name="Bulle" parent="SubViewportContainer/SubViewport/Inventaire" instance=ExtResource("9_hbgfn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -120,6 +126,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("10_y06qd")
 
 [node name="Panel" type="Panel" parent="."]
@@ -128,6 +135,19 @@ layout_mode = 2
 offset_left = 768.0
 offset_right = 1023.0
 offset_bottom = 576.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036
+anchor_right = 1.0
+offset_left = -0.18
+offset_bottom = 255.0
+grow_horizontal = 2
+texture = ExtResource("13_0fy21")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Hpgui" type="Control" parent="Panel"]
 layout_mode = 1
@@ -140,6 +160,7 @@ offset_right = 10.0
 offset_bottom = -235.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("11_4e7dx")
 
 [node name="HFlowContainer2" type="HFlowContainer" parent="Panel/Hpgui"]
@@ -151,11 +172,13 @@ offset_left = 22.0
 offset_top = 10.0
 offset_right = -20.0
 offset_bottom = -44.416
+mouse_filter = 2
 
 [node name="Heart" type="TextureRect" parent="Panel/Hpgui/HFlowContainer2"]
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -163,6 +186,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -170,6 +194,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -177,6 +202,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -184,6 +210,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -191,6 +218,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -198,6 +226,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -205,6 +234,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -212,6 +242,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -219,6 +250,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -226,6 +258,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -233,6 +266,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -240,6 +274,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -247,6 +282,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -254,6 +290,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -261,6 +298,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -268,6 +306,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -275,6 +314,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -282,6 +322,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -289,6 +330,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -296,6 +338,7 @@ expand_mode = 5
 modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -308,10 +351,12 @@ offset_left = 20.0
 offset_top = 8.0
 offset_right = -16.0
 offset_bottom = -43.416
+mouse_filter = 2
 
 [node name="Heart" type="TextureRect" parent="Panel/Hpgui/HFlowContainer"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("12_5e18q")
 expand_mode = 5
 
@@ -319,6 +364,7 @@ expand_mode = 5
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
@@ -344,52 +390,35 @@ stream = ExtResource("14_vupfn")
 volume_db = 5.0
 autoplay = true
 
-[node name="Buttons" type="Node2D" parent="."]
-script = ExtResource("14_udret")
-
-[node name="2" type="Sprite2D" parent="Buttons"]
-position = Vector2(900.5, 469.5)
+[node name="MuteButton" type="Sprite2D" parent="."]
+position = Vector2(988.5, 541.5)
 scale = Vector2(2.11538, 2.11538)
-texture = ExtResource("15_g3d8w")
+texture = ExtResource("19_1ni30")
 hframes = 2
+script = ExtResource("20_ft3n0")
+input_name = "mute"
 
-[node name="4" type="Sprite2D" parent="Buttons"]
-position = Vector2(843, 412)
-scale = Vector2(2.11538, 2.11538)
-texture = ExtResource("16_p0ca4")
-hframes = 2
+[node name="Area2D" type="Area2D" parent="MuteButton"]
 
-[node name="5" type="Sprite2D" parent="Buttons"]
-position = Vector2(900.5, 411.5)
-scale = Vector2(2.11538, 2.11538)
-texture = ExtResource("17_8ljmv")
-hframes = 2
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MuteButton/Area2D"]
+position = Vector2(-0.236328, -0.236359)
+shape = SubResource("RectangleShape2D_otpqg")
 
-[node name="6" type="Sprite2D" parent="Buttons"]
-position = Vector2(958, 412)
-scale = Vector2(2.11538, 2.11538)
-texture = ExtResource("18_r8w3p")
-hframes = 2
-
-[node name="7" type="Sprite2D" parent="Buttons"]
-position = Vector2(842, 354)
-scale = Vector2(2.11538, 2.11538)
-texture = ExtResource("19_kihsq")
-hframes = 2
-
-[node name="8" type="Sprite2D" parent="Buttons"]
-position = Vector2(901, 355)
-scale = Vector2(2.11538, 2.11538)
-texture = ExtResource("20_st8yo")
-hframes = 2
-
-[node name="9" type="Sprite2D" parent="Buttons"]
-position = Vector2(958, 355)
-scale = Vector2(2.11538, 2.11538)
-texture = ExtResource("21_usdhk")
-hframes = 2
+[node name="Buttons" parent="." instance=ExtResource("19_i1onl")]
+script = null
 
 [node name="QuestMan" type="Node" parent="." groups=["questman"]]
 script = ExtResource("11_2717f")
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("24_g38pb")
 
 [editable path="SubViewportContainer/SubViewport/Inventaire/Bulle"]

@@ -1,7 +1,7 @@
 class_name Crawling extends Node3D
 
 var player_coord : Vector2 = Vector2(0,0)
-var player_ori : Vector2 = Vector2(0,1)
+var player_ori : Vector2 = Vector2(1,0)
 var room_length := 10
 
 @export var center : Node3D
@@ -9,6 +9,7 @@ var room_length := 10
 var rooms : Dictionary = {}
 var loots : Dictionary = {}
 var doors := {}
+var battles := {}
 
 var inventory : Inventory
 var hands : Hands
@@ -23,21 +24,29 @@ func _ready():
 	var room_list = $Center.get_children()
 	rooms = {}
 	doors = {}
+	var battle_packed = load("res://battle.tscn")#pour la charger qu'une seul fois
 	
 	for i in room_list:
 		if (i is Door):
 			var coord = pos_to_coord(i.position, true)
 			doors[coord] = i
-			print(coord)
+			#print(coord)
 		elif i is Room:
+			i.check_random_battle(battle_packed)
 			for j in i.get_children():
 				if (j is Loot):
 					var coord = pos_to_coord(i.position)
 					loots[coord] = j
+				if (j is Door):
+					var coord = pos_to_coord(j.position, true)
+					doors[coord] = j
+				if (j is Battle):
+					var coord = pos_to_coord(i.position)
+					battles[coord] = j
 		
 	
 	for i in room_list:
-		if (!i is Room):
+		if (!i is Room or !i.in_rooms):
 			continue
 		var coord = pos_to_coord(i.position)
 		rooms[coord] = i
@@ -52,7 +61,7 @@ func _ready():
 					door.rotation = Vector3(0,vec.angle(),0)
 					doors[door_coord] = door
 					$Center.add_child(door)
-					print(door_coord)
+					#print(door_coord)
 			vec = rotate_vector_90d(vec)
 	
 	for i in room_list:
@@ -62,14 +71,14 @@ func _ready():
 		var vec = Vector2.UP
 		for xx in range(4):
 			if (!rooms.has(coord+vec)):
-				print(coord+vec)
+				#print(coord+vec)
 				var door = load("res://bouche_trou.tscn").instantiate()
 				door.rotation = Vector3(0,vec.angle(),0)
 				i.add_child(door)
 			vec = rotate_vector_90d(vec)
 
 func is_crawling():
-	return hands.manager == null and !traveling and !looting
+	return hands.manager == null and !traveling and !looting and !inventory.opened
 
 func pos_to_coord(pos:Vector3, half_rounded := false) -> Vector2:
 	if (!half_rounded):
@@ -80,6 +89,9 @@ func pos_to_coord(pos:Vector3, half_rounded := false) -> Vector2:
 
 func coord_to_pos(coord:Vector2) -> Vector3:
 	return -Vector3(coord.y*room_length,0, coord.x*room_length)
+
+func has_loot():
+	return loots.has(player_coord)
 
 func _process(delta):
 	if (Input.is_action_just_pressed("rotate_left")):
@@ -105,7 +117,7 @@ func _process(delta):
 	var rot_displayed = rot
 	var offset = Vector3.ZERO
 	#if (inventory.opened):
-		#print("a")
+		##print("a")
 		#rot_displayed += PI
 		#offset = Vector3(player_ori.y,0,player_ori.x)*-5
 	
@@ -129,16 +141,20 @@ func interact():
 
 func forward():
 	if (rooms.has(player_coord+player_ori) and doors[player_coord+player_ori/2].is_open()):
-		print(player_coord+player_ori)
+		#print(player_coord+player_ori)
 		$Step.play(2)
 		pass
 	else :
-		print("bonk")
-		await get_tree().create_timer(0.2).timeout
 		$bonk.play()
+		%Camera3D.shake(0.4,0.2)
 		return
 	
 	player_coord += player_ori
+	if (check_battle_at_coord(player_coord)):
+		battles[player_coord].start_battle()
+
+func check_battle_at_coord(coord):
+	return battles.has(player_coord) and battles[coord] != null
 
 func rotate_view(clock_wise := true):
 	$Rotate.play()
