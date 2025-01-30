@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Script/hand.gd" id="1_4rtuw"]
 [ext_resource type="Script" path="res://Script/flip_left_right.gd" id="2_qrugp"]
+[ext_resource type="PackedScene" uid="uid://benelce14bsfg" path="res://main_v_2.tscn" id="5_f25jl"]
 [ext_resource type="Script" path="res://Hands/weapon_in_hand_display.gd" id="5_iyn6o"]
 [ext_resource type="Shader" path="res://Hands/Blocking.gdshader" id="5_pln8j"]
 [ext_resource type="Script" path="res://Hands/blockFX.gd" id="6_yyol7"]
-[ext_resource type="PackedScene" uid="uid://cch54vrlpbj8p" path="res://main.fbx" id="7_1sjjv"]
 [ext_resource type="AudioStream" uid="uid://dvdnje3pso00y" path="res://Sounds/Sword swing.wav" id="8_nkka8"]
 [ext_resource type="AudioStream" uid="uid://xqq7hgg3pedf" path="res://Sounds/Sword impact.wav" id="9_g53bl"]
 [ext_resource type="AudioStream" uid="uid://dfobrsbmjdoxk" path="res://Sounds/Classic punch.wav" id="9_hxhkg"]
@@ -153,11 +153,11 @@ hand = NodePath("..")
 
 [node name="Visual" type="Node3D" parent="FlipLeftRight"]
 
-[node name="main" parent="FlipLeftRight/Visual" instance=ExtResource("7_1sjjv")]
-transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -0.204845, -0.0374693, 0.00456838)
+[node name="main" parent="FlipLeftRight/Visual" instance=ExtResource("5_f25jl")]
+transform = Transform3D(0.069, 0, 0, 0, 0.069, 0, 0, 0, 0.069, -0.227586, -0.0503599, 0.0131603)
 
 [node name="Node3D" type="Node3D" parent="FlipLeftRight/Visual/main"]
-transform = Transform3D(30.1316, 6.23172, 0, -6.23172, 30.1316, 0, 0, 0, 30.7692, 4.18661, 0.102265, -0.394345)
+transform = Transform3D(28.3848, 5.87046, 0, -5.87046, 28.3848, 0, 0, 0, 28.9855, 4.27349, 0.283156, -0.496006)
 
 [node name="Weapon_parent" type="Node3D" parent="FlipLeftRight/Visual/main/Node3D" node_paths=PackedStringArray("hand")]
 script = ExtResource("5_iyn6o")

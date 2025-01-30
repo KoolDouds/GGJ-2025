@@ -1,6 +1,6 @@
 extends Node
 
-var muted := true
+var muted := false
 var hard_muted := false
 
 func _ready():

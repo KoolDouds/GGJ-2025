@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://pjbrjqp3r40w"]
+
+[ext_resource type="PackedScene" uid="uid://d1k8no7uq33my" path="res://Art/prisonierfbx.fbx" id="1_kk8rm"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="prisonierfbx" parent="." instance=ExtResource("1_kk8rm")]
